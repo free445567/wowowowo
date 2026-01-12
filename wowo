@@ -2,9 +2,6 @@
 
 local v1 = game.Players.LocalPlayer
 
-if v1.Name ~= 'Starfish2119alt2' then
-    v1:Kick()
-else
     local v2 = Instance.new('ScreenGui')
     local vu3 = Instance.new('Frame')
     local v4 = Instance.new('UICorner')
@@ -3087,4 +3084,3 @@ else
     end
 
     coroutine.wrap(v558)()
-end
