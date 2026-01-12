@@ -1245,101 +1245,65 @@ local LocalPlayer = game.Players.LocalPlayer
     text.TextStrokeTransparency = 0
     text.TextWrapped = true
 
-    local function showMainFrame()
-        local scriptMain1 = Instance.new('LocalScript', Main1)
-
-        scriptMain1.Parent.MouseButton1Click:Connect(function()
-            scriptMain1.Parent.Parent.Parent.MainFrame.Visible = true
-            scriptMain1.Parent.Parent.Parent.Main2Frame.Visible = false
-            scriptMain1.Parent.Parent.Parent.DupeFrame.Visible = false
-            scriptMain1.Parent.Parent.Parent.MiscFrame.Visible = false
-            scriptMain1.Parent.Parent.Parent.InfoFrame.Visible = false
-            scriptMain1.Parent.Parent.Parent.PlayerFrame.Visible = false
-            scriptMain1.Parent.Parent.Parent.CredFrame.Visible = false
+    Main1.MouseButton1Click:Connect(function()
+            Main1.Parent.Parent.MainFrame.Visible = true
+            Main1.Parent.Parent.Main2Frame.Visible = false
+            Main1.Parent.Parent.DupeFrame.Visible = false
+            Main1.Parent.Parent.MiscFrame.Visible = false
+            Main1.Parent.Parent.InfoFrame.Visible = false
+            Main1.Parent.Parent.PlayerFrame.Visible = false
+            Main1.Parent.Parent.CredFrame.Visible = false
         end)
-    end
 
-    coroutine.wrap(showMainFrame)()
-
-    local function showMain2Frame()
-        local scriptMain2 = Instance.new('LocalScript', Main2)
-
-        scriptMain2.Parent.MouseButton1Click:Connect(function()
-            scriptMain2.Parent.Parent.Parent.MainFrame.Visible = false
-            scriptMain2.Parent.Parent.Parent.Main2Frame.Visible = true
-            scriptMain2.Parent.Parent.Parent.DupeFrame.Visible = false
-            scriptMain2.Parent.Parent.Parent.MiscFrame.Visible = false
-            scriptMain2.Parent.Parent.Parent.InfoFrame.Visible = false
-            scriptMain2.Parent.Parent.Parent.PlayerFrame.Visible = false
-            scriptMain2.Parent.Parent.Parent.CredFrame.Visible = false
+    Main2.MouseButton1Click:Connect(function()
+            Main2.Parent.Parent.MainFrame.Visible = false
+            Main2.Parent.Parent.Main2Frame.Visible = true
+            Main2.Parent.Parent.DupeFrame.Visible = false
+            Main2.Parent.Parent.MiscFrame.Visible = false
+            Main2.Parent.Parent.InfoFrame.Visible = false
+            Main2.Parent.Parent.PlayerFrame.Visible = false
+            Main2.Parent.Parent.CredFrame.Visible = false
         end)
-    end
 
-    coroutine.wrap(showMain2Frame)()
-
-    local function showDupeFrame()
-        local scriptDupe = Instance.new('LocalScript', Dupe)
-
-        scriptDupe.Parent.MouseButton1Click:Connect(function()
-            scriptDupe.Parent.Parent.Parent.MainFrame.Visible = false
-            scriptDupe.Parent.Parent.Parent.Main2Frame.Visible = false
-            scriptDupe.Parent.Parent.Parent.DupeFrame.Visible = true
-            scriptDupe.Parent.Parent.Parent.MiscFrame.Visible = false
-            scriptDupe.Parent.Parent.Parent.InfoFrame.Visible = false
-            scriptDupe.Parent.Parent.Parent.PlayerFrame.Visible = false
-            scriptDupe.Parent.Parent.Parent.CredFrame.Visible = false
+    Dupe.MouseButton1Click:Connect(function()
+            Dupe.Parent.Parent.MainFrame.Visible = false
+            Dupe.Parent.Parent.Main2Frame.Visible = false
+            Dupe.Parent.Parent.DupeFrame.Visible = true
+            Dupe.Parent.Parent.MiscFrame.Visible = false
+            Dupe.Parent.Parent.InfoFrame.Visible = false
+            Dupe.Parent.Parent.PlayerFrame.Visible = false
+            Dupe.Parent.Parent.CredFrame.Visible = false
         end)
-    end
 
-    coroutine.wrap(showDupeFrame)()
-
-    local function showMiscFrame()
-        local scriptMisc = Instance.new('LocalScript', Misc)
-
-        scriptMisc.Parent.MouseButton1Click:Connect(function()
-            scriptMisc.Parent.Parent.Parent.MainFrame.Visible = false
-            scriptMisc.Parent.Parent.Parent.Main2Frame.Visible = false
-            scriptMisc.Parent.Parent.Parent.DupeFrame.Visible = false
-            scriptMisc.Parent.Parent.Parent.MiscFrame.Visible = true
-            scriptMisc.Parent.Parent.Parent.InfoFrame.Visible = false
-            scriptMisc.Parent.Parent.Parent.PlayerFrame.Visible = false
-            scriptMisc.Parent.Parent.Parent.CredFrame.Visible = false
+    Misc.MouseButton1Click:Connect(function()
+            Misc.Parent.Parent.MainFrame.Visible = false
+            Misc.Parent.Parent.Main2Frame.Visible = false
+            Misc.Parent.Parent.DupeFrame.Visible = false
+            Misc.Parent.Parent.MiscFrame.Visible = true
+            Misc.Parent.Parent.InfoFrame.Visible = false
+            Misc.Parent.Parent.PlayerFrame.Visible = false
+            Misc.Parent.Parent.CredFrame.Visible = false
         end)
-    end
 
-    coroutine.wrap(showMiscFrame)()
-
-    local function showInfoFrame()
-        local scriptInfo = Instance.new('LocalScript', Info)
-
-        scriptInfo.Parent.MouseButton1Click:Connect(function()
-            scriptInfo.Parent.Parent.Parent.MainFrame.Visible = false
-            scriptInfo.Parent.Parent.Parent.Main2Frame.Visible = false
-            scriptInfo.Parent.Parent.Parent.DupeFrame.Visible = false
-            scriptInfo.Parent.Parent.Parent.MiscFrame.Visible = false
-            scriptInfo.Parent.Parent.Parent.InfoFrame.Visible = true
-            scriptInfo.Parent.Parent.Parent.PlayerFrame.Visible = false
-            scriptInfo.Parent.Parent.Parent.CredFrame.Visible = false
+    Info.MouseButton1Click:Connect(function()
+            Info.Parent.Parent.MainFrame.Visible = false
+            Info.Parent.Parent.Main2Frame.Visible = false
+            Info.Parent.Parent.DupeFrame.Visible = false
+            Info.Parent.Parent.MiscFrame.Visible = false
+            Info.Parent.Parent.InfoFrame.Visible = true
+            Info.Parent.Parent.PlayerFrame.Visible = false
+            Info.Parent.Parent.CredFrame.Visible = false
         end)
-    end
 
-    coroutine.wrap(showInfoFrame)()
-
-    local function showPlayerFrame()
-        local scriptPlayer = Instance.new('LocalScript', Player)
-
-        scriptPlayer.Parent.MouseButton1Click:Connect(function()
-            scriptPlayer.Parent.Parent.Parent.MainFrame.Visible = false
-            scriptPlayer.Parent.Parent.Parent.Main2Frame.Visible = false
-            scriptPlayer.Parent.Parent.Parent.DupeFrame.Visible = false
-            scriptPlayer.Parent.Parent.Parent.MiscFrame.Visible = false
-            scriptPlayer.Parent.Parent.Parent.InfoFrame.Visible = false
-            scriptPlayer.Parent.Parent.Parent.PlayerFrame.Visible = true
-            scriptPlayer.Parent.Parent.Parent.CredFrame.Visible = false
+    Player.MouseButton1Click:Connect(function()
+            Player.Parent.Parent.MainFrame.Visible = false
+            Player.Parent.Parent.Main2Frame.Visible = false
+            Player.Parent.Parent.DupeFrame.Visible = false
+            Player.Parent.Parent.MiscFrame.Visible = false
+            Player.Parent.Parent.InfoFrame.Visible = false
+            Player.Parent.Parent.PlayerFrame.Visible = true
+            Player.Parent.Parent.CredFrame.Visible = false
         end)
-    end
-
-    coroutine.wrap(showPlayerFrame)()
 
     local function formatNumber()
         local value140 = Instance.new('LocalScript', Ping)
@@ -1370,21 +1334,12 @@ local LocalPlayer = game.Players.LocalPlayer
 
     coroutine.wrap(formatNumber)()
 
-    local function helperFunction2()
-        local scriptMain = Instance.new('LocalScript', Main)
-
-        scriptMain.Parent.MouseButton1Click:Connect(function()
-            scriptMain.Parent.Parent.Parent:Destroy()
+    Main.MouseButton1Click:Connect(function()
+            Main.Parent.Parent:Destroy()
         end)
-    end
 
-    coroutine.wrap(helperFunction2)()
-
-    local function helperFunction3()
-        local scriptfarm = Instance.new('LocalScript', farm)
-
-        scriptfarm.Parent.MouseButton1Click:Connect(function()
-            tonumber(scriptfarm.Parent.Parent.Wait.Text)
+    farm.MouseButton1Click:Connect(function()
+            tonumber(farm.Parent.Wait.Text)
 
             local flag153 = 0.0008 * 830
 
@@ -1413,9 +1368,6 @@ local LocalPlayer = game.Players.LocalPlayer
                 end)
             end)()
         end)
-    end
-
-    coroutine.wrap(helperFunction3)()
 
     local function helperFunction4()
         Instance.new('LocalScript', unfarm).Parent.MouseButton1Click:Connect(function()
@@ -1840,10 +1792,7 @@ local LocalPlayer = game.Players.LocalPlayer
 
     coroutine.wrap(helperFunction14)()
 
-    local function helperFunction15()
-        local scripthid = Instance.new('LocalScript', hid)
-
-        scripthid.Parent.MouseButton1Click:Connect(function()
+    hid.MouseButton1Click:Connect(function()
             local value237 = game:GetService('StarterGui')
 
             value237:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
@@ -1852,17 +1801,11 @@ local LocalPlayer = game.Players.LocalPlayer
 
             value237:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
 
-            scripthid.Parent.Visible = false
-            scripthid.Parent.Parent.hid2.Visible = true
+            hid.Visible = false
+            hid.Parent.hid2.Visible = true
         end)
-    end
 
-    coroutine.wrap(helperFunction15)()
-
-    local function helperFunction16()
-        local scripthid2 = Instance.new('LocalScript', hid2)
-
-        scripthid2.Parent.MouseButton1Click:Connect(function()
+    hid2.MouseButton1Click:Connect(function()
             local value240 = game:GetService('StarterGui')
 
             value240:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
@@ -1871,12 +1814,9 @@ local LocalPlayer = game.Players.LocalPlayer
 
             value240:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, true)
 
-            scripthid2.Parent.Visible = false
-            scripthid2.Parent.Parent.hid.Visible = true
+            hid2.Visible = false
+            hid2.Parent.hid.Visible = true
         end)
-    end
-
-    coroutine.wrap(helperFunction16)()
 
     local function helperFunction17()
         local value242 = Instance.new('LocalScript', Time)
@@ -2663,13 +2603,10 @@ local LocalPlayer = game.Players.LocalPlayer
 
     coroutine.wrap(helperFunction33)()
 
-    local function helperFunction34()
-        local scriptfarm = Instance.new('LocalScript', farm)
-
-        scriptfarm.Parent.MouseButton1Click:Connect(function()
-            local temp470 = tonumber(scriptfarm.Parent.Parent.Wait.Text) or 1
+    farm.MouseButton1Click:Connect(function()
+            local temp470 = tonumber(farm.Parent.Wait.Text) or 1
             local value471 = game:GetService('Stats')
-            local value472 = tonumber(scriptfarm.Parent.Parent.Parent.Main2Frame.Pinger.Text)
+            local value472 = tonumber(farm.Parent.Parent.Main2Frame.Pinger.Text)
             local count473 = false
             local flag474 = false
 
@@ -2740,9 +2677,6 @@ local LocalPlayer = game.Players.LocalPlayer
                 task.wait(value481)
             end
         end)
-    end
-
-    coroutine.wrap(helperFunction34)()
 
     local function helperFunction37()
         Instance.new('LocalScript', unfarm).Parent.MouseButton1Click:Connect(function()
