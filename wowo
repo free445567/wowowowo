@@ -1,1352 +1,1352 @@
 -- ts file was generated at discord.gg/25ms
 
-local LocalPlayer = game.Players.LocalPlayer
+local v1 = game.Players.LocalPlayer
 
-if LocalPlayer.Name ~= '26y_PE' then
-    LocalPlayer:Kick()
+if v1.Name ~= '26y_PE' then
+    v1:Kick()
 else
-    local ScreenGui = Instance.new('ScreenGui')
-    local MainFrame = Instance.new('Frame')
-    local MainCorner = Instance.new('UICorner')
-    local ButtonsFrame = Instance.new('Frame')
-    local ButtonsCorner = Instance.new('UICorner')
-    local ButtonsLayout = Instance.new('UIListLayout')
-    local Main1Button = Instance.new('TextButton')
-    local Main1Corner = Instance.new('UICorner')
-    local Main2Button = Instance.new('TextButton')
-    local Main2Corner = Instance.new('UICorner')
-    local DupeButton = Instance.new('TextButton')
-    local DupeCorner = Instance.new('UICorner')
-    local MiscButton = Instance.new('TextButton')
-    local MiscCorner = Instance.new('UICorner')
-    local InfoButton = Instance.new('TextButton')
-    local InfoCorner = Instance.new('UICorner')
-    local CreditsButton = Instance.new('TextButton')
-    local CreditsCorner = Instance.new('UICorner')
-    local ToggleButton = Instance.new('TextButton')
-    local var21 = Instance.new('UICorner')
-    local var22 = Instance.new('Frame')
-    local var23 = Instance.new('Frame')
-    local var24 = Instance.new('Frame')
-    local var25 = Instance.new('UICorner')
-    local var26 = Instance.new('TextLabel')
-    local var27 = Instance.new('TextLabel')
-    local var28 = Instance.new('TextButton')
-    local var29 = Instance.new('UICorner')
-    local var30 = Instance.new('TextLabel')
-    local var31 = Instance.new('Frame')
-    local var32 = Instance.new('UICorner')
-    local var33 = Instance.new('TextButton')
-    local var34 = Instance.new('UICorner')
-    local var35 = Instance.new('TextButton')
-    local var36 = Instance.new('UICorner')
-    local var37 = Instance.new('TextButton')
-    local var38 = Instance.new('UICorner')
-    local var39 = Instance.new('TextButton')
-    local var40 = Instance.new('UICorner')
-    local var41 = Instance.new('TextLabel')
-    local var42 = Instance.new('TextButton')
-    local var43 = Instance.new('UICorner')
-    local var44 = Instance.new('TextLabel')
-    local var45 = Instance.new('TextLabel')
-    local var46 = Instance.new('Frame')
-    local var47 = Instance.new('UICorner')
-    local var48 = Instance.new('TextButton')
-    local var49 = Instance.new('UICorner')
-    local var50 = Instance.new('TextLabel')
-    local var51 = Instance.new('TextButton')
-    local var52 = Instance.new('UICorner')
-    local var53 = Instance.new('TextButton')
-    local var54 = Instance.new('UICorner')
-    local var55 = Instance.new('TextButton')
-    local var56 = Instance.new('UICorner')
-    local var57 = Instance.new('TextButton')
-    local var58 = Instance.new('UICorner')
-    local var59 = Instance.new('TextButton')
-    local var60 = Instance.new('UICorner')
-    local var61 = Instance.new('TextButton')
-    local var62 = Instance.new('UICorner')
-    local var63 = Instance.new('TextButton')
-    local var64 = Instance.new('UICorner')
-    local var65 = Instance.new('TextButton')
-    local var66 = Instance.new('UICorner')
-    local var67 = Instance.new('TextButton')
-    local var68 = Instance.new('UICorner')
-    local var69 = Instance.new('TextButton')
-    local var70 = Instance.new('UICorner')
-    local var71 = Instance.new('Frame')
-    local var72 = Instance.new('UICorner')
-    local var73 = Instance.new('TextLabel')
-    local var74 = Instance.new('TextLabel')
-    local var75 = Instance.new('TextLabel')
-    local var76 = Instance.new('TextLabel')
-    local var77 = Instance.new('TextLabel')
-    local var78 = Instance.new('TextLabel')
-    local var79 = Instance.new('TextLabel')
-    local var80 = Instance.new('TextLabel')
-    local var81 = Instance.new('TextLabel')
-    local var82 = Instance.new('TextLabel')
-    local var83 = Instance.new('Frame')
-    local var84 = Instance.new('UICorner')
-    local var85 = Instance.new('ScrollingFrame')
-    local var86 = Instance.new('UIListLayout')
-    local var87 = Instance.new('ScrollingFrame')
-    local var88 = Instance.new('UIListLayout')
-    local var89 = Instance.new('ScrollingFrame')
-    local var90 = Instance.new('UIListLayout')
-    local var91 = Instance.new('ScrollingFrame')
-    local var92 = Instance.new('UIListLayout')
-    local var93 = Instance.new('TextLabel')
-    local var94 = Instance.new('TextLabel')
-    local var95 = Instance.new('TextLabel')
-    local var96 = Instance.new('TextLabel')
-    local var97 = Instance.new('Frame')
-    local var98 = Instance.new('UICorner')
-    local var99 = Instance.new('TextLabel')
-    local var100 = Instance.new('TextLabel')
-    local var101 = Instance.new('TextLabel')
-    local var102 = Instance.new('Frame')
-    local var103 = Instance.new('UICorner')
-    local var104 = Instance.new('TextButton')
-    local var105 = Instance.new('UICorner')
-    local var106 = Instance.new('TextLabel')
-    local var107 = Instance.new('TextBox')
-    local var108 = Instance.new('UICorner')
-    local var109 = Instance.new('TextLabel')
-    local var110 = Instance.new('Frame')
-    local var111 = Instance.new('UICorner')
-    local var112 = Instance.new('TextButton')
-    local var113 = Instance.new('UICorner')
-    local var114 = Instance.new('TextButton')
-    local var115 = Instance.new('UICorner')
-    local var116 = Instance.new('TextButton')
-    local var117 = Instance.new('UICorner')
-    local var118 = Instance.new('TextButton')
-    local var119 = Instance.new('UICorner')
-    local var120 = Instance.new('TextLabel')
-    local var121 = Instance.new('TextLabel')
-    local var122 = Instance.new('TextButton')
-    local var123 = Instance.new('UICorner')
-    local var124 = Instance.new('TextBox')
-    local var125 = Instance.new('UICorner')
-    local var126 = Instance.new('TextLabel')
-    local var127 = Instance.new('TextLabel')
+    local v2 = Instance.new('ScreenGui')
+    local vu3 = Instance.new('Frame')
+    local v4 = Instance.new('UICorner')
+    local v5 = Instance.new('Frame')
+    local v6 = Instance.new('UICorner')
+    local v7 = Instance.new('UIListLayout')
+    local vu8 = Instance.new('TextButton')
+    local v9 = Instance.new('UICorner')
+    local vu10 = Instance.new('TextButton')
+    local v11 = Instance.new('UICorner')
+    local vu12 = Instance.new('TextButton')
+    local v13 = Instance.new('UICorner')
+    local vu14 = Instance.new('TextButton')
+    local v15 = Instance.new('UICorner')
+    local vu16 = Instance.new('TextButton')
+    local v17 = Instance.new('UICorner')
+    local v18 = Instance.new('TextButton')
+    local v19 = Instance.new('UICorner')
+    local vu20 = Instance.new('TextButton')
+    local v21 = Instance.new('UICorner')
+    local v22 = Instance.new('Frame')
+    local v23 = Instance.new('Frame')
+    local v24 = Instance.new('Frame')
+    local v25 = Instance.new('UICorner')
+    local v26 = Instance.new('TextLabel')
+    local vu27 = Instance.new('TextLabel')
+    local vu28 = Instance.new('TextButton')
+    local v29 = Instance.new('UICorner')
+    local v30 = Instance.new('TextLabel')
+    local v31 = Instance.new('Frame')
+    local v32 = Instance.new('UICorner')
+    local vu33 = Instance.new('TextButton')
+    local v34 = Instance.new('UICorner')
+    local vu35 = Instance.new('TextButton')
+    local v36 = Instance.new('UICorner')
+    local vu37 = Instance.new('TextButton')
+    local v38 = Instance.new('UICorner')
+    local vu39 = Instance.new('TextButton')
+    local v40 = Instance.new('UICorner')
+    local v41 = Instance.new('TextLabel')
+    local vu42 = Instance.new('TextButton')
+    local v43 = Instance.new('UICorner')
+    local vu44 = Instance.new('TextLabel')
+    local v45 = Instance.new('TextLabel')
+    local v46 = Instance.new('Frame')
+    local v47 = Instance.new('UICorner')
+    local vu48 = Instance.new('TextButton')
+    local v49 = Instance.new('UICorner')
+    local v50 = Instance.new('TextLabel')
+    local vu51 = Instance.new('TextButton')
+    local v52 = Instance.new('UICorner')
+    local vu53 = Instance.new('TextButton')
+    local v54 = Instance.new('UICorner')
+    local vu55 = Instance.new('TextButton')
+    local v56 = Instance.new('UICorner')
+    local vu57 = Instance.new('TextButton')
+    local v58 = Instance.new('UICorner')
+    local vu59 = Instance.new('TextButton')
+    local v60 = Instance.new('UICorner')
+    local vu61 = Instance.new('TextButton')
+    local v62 = Instance.new('UICorner')
+    local vu63 = Instance.new('TextButton')
+    local v64 = Instance.new('UICorner')
+    local vu65 = Instance.new('TextButton')
+    local v66 = Instance.new('UICorner')
+    local vu67 = Instance.new('TextButton')
+    local v68 = Instance.new('UICorner')
+    local vu69 = Instance.new('TextButton')
+    local v70 = Instance.new('UICorner')
+    local v71 = Instance.new('Frame')
+    local v72 = Instance.new('UICorner')
+    local vu73 = Instance.new('TextLabel')
+    local v74 = Instance.new('TextLabel')
+    local v75 = Instance.new('TextLabel')
+    local v76 = Instance.new('TextLabel')
+    local v77 = Instance.new('TextLabel')
+    local v78 = Instance.new('TextLabel')
+    local vu79 = Instance.new('TextLabel')
+    local vu80 = Instance.new('TextLabel')
+    local vu81 = Instance.new('TextLabel')
+    local vu82 = Instance.new('TextLabel')
+    local v83 = Instance.new('Frame')
+    local v84 = Instance.new('UICorner')
+    local vu85 = Instance.new('ScrollingFrame')
+    local v86 = Instance.new('UIListLayout')
+    local vu87 = Instance.new('ScrollingFrame')
+    local v88 = Instance.new('UIListLayout')
+    local vu89 = Instance.new('ScrollingFrame')
+    local v90 = Instance.new('UIListLayout')
+    local vu91 = Instance.new('ScrollingFrame')
+    local v92 = Instance.new('UIListLayout')
+    local v93 = Instance.new('TextLabel')
+    local v94 = Instance.new('TextLabel')
+    local v95 = Instance.new('TextLabel')
+    local v96 = Instance.new('TextLabel')
+    local v97 = Instance.new('Frame')
+    local v98 = Instance.new('UICorner')
+    local v99 = Instance.new('TextLabel')
+    local v100 = Instance.new('TextLabel')
+    local v101 = Instance.new('TextLabel')
+    local v102 = Instance.new('Frame')
+    local v103 = Instance.new('UICorner')
+    local vu104 = Instance.new('TextButton')
+    local v105 = Instance.new('UICorner')
+    local vu106 = Instance.new('TextLabel')
+    local v107 = Instance.new('TextBox')
+    local v108 = Instance.new('UICorner')
+    local v109 = Instance.new('TextLabel')
+    local v110 = Instance.new('Frame')
+    local v111 = Instance.new('UICorner')
+    local vu112 = Instance.new('TextButton')
+    local v113 = Instance.new('UICorner')
+    local vu114 = Instance.new('TextButton')
+    local v115 = Instance.new('UICorner')
+    local vu116 = Instance.new('TextButton')
+    local v117 = Instance.new('UICorner')
+    local vu118 = Instance.new('TextButton')
+    local v119 = Instance.new('UICorner')
+    local vu120 = Instance.new('TextLabel')
+    local v121 = Instance.new('TextLabel')
+    local vu122 = Instance.new('TextButton')
+    local v123 = Instance.new('UICorner')
+    local v124 = Instance.new('TextBox')
+    local v125 = Instance.new('UICorner')
+    local vu126 = Instance.new('TextLabel')
+    local v127 = Instance.new('TextLabel')
 
-    ScreenGui.Name = 'ZazaHubPaid'
-    ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild('PlayerGui')
-    ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    MainFrame.Name = 'Main'
-    MainFrame.Parent = ScreenGui
-    MainFrame.Active = true
-    MainFrame.BackgroundColor3 = Color3.fromRGB(0, 85, 0)
-    MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    MainFrame.BorderSizePixel = 0
-    MainFrame.Position = UDim2.new(0.28227061, 0, 0.403963417, 0)
-    MainFrame.Size = UDim2.new(0, 465, 0, 280)
-    MainCorner.Parent = MainFrame
-    ButtonsFrame.Name = 'Buttons'
-    ButtonsFrame.Parent = MainFrame
-    ButtonsFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    ButtonsFrame.BackgroundTransparency = 0.8
-    ButtonsFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    ButtonsFrame.BorderSizePixel = 0
-    ButtonsFrame.Position = UDim2.new(0, 0, 0.14642857, 0)
-    ButtonsFrame.Size = UDim2.new(0, 126, 0, 239)
-    ButtonsCorner.Parent = ButtonsFrame
-    ButtonsLayout.Parent = ButtonsFrame
-    ButtonsLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    ButtonsLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    ButtonsLayout.Padding = UDim.new(0, 8)
-    Main1Button.Name = 'Main1'
-    Main1Button.Parent = ButtonsFrame
-    Main1Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    Main1Button.BackgroundTransparency = 0.5
-    Main1Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Main1Button.BorderSizePixel = 0
-    Main1Button.Position = UDim2.new(0.039682541, 0, 0, 0)
-    Main1Button.Size = UDim2.new(0, 116, 0, 26)
-    Main1Button.Font = Enum.Font.FredokaOne
-    Main1Button.Text = 'Normal Farm'
-    Main1Button.TextColor3 = Color3.fromRGB(85, 255, 0)
-    Main1Button.TextScaled = true
-    Main1Button.TextSize = 14
-    Main1Button.TextStrokeTransparency = 0
-    Main1Button.TextWrapped = true
-    Main1Corner.Parent = Main1Button
-    Main2Button.Name = 'Main2'
-    Main2Button.Parent = ButtonsFrame
-    Main2Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    Main2Button.BackgroundTransparency = 0.5
-    Main2Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Main2Button.BorderSizePixel = 0
-    Main2Button.Position = UDim2.new(0.039682541, 0, 0, 0)
-    Main2Button.Size = UDim2.new(0, 116, 0, 26)
-    Main2Button.Font = Enum.Font.FredokaOne
-    Main2Button.Text = 'Ping Farm'
-    Main2Button.TextColor3 = Color3.fromRGB(85, 255, 0)
-    Main2Button.TextScaled = true
-    Main2Button.TextSize = 14
-    Main2Button.TextStrokeTransparency = 0
-    Main2Button.TextWrapped = true
-    Main2Corner.Parent = Main2Button
-    DupeButton.Name = 'Dupe'
-    DupeButton.Parent = ButtonsFrame
-    DupeButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    DupeButton.BackgroundTransparency = 0.5
-    DupeButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    DupeButton.BorderSizePixel = 0
-    DupeButton.Position = UDim2.new(0.039682541, 0, 0, 0)
-    DupeButton.Size = UDim2.new(0, 116, 0, 26)
-    DupeButton.Font = Enum.Font.FredokaOne
-    DupeButton.Text = 'Dupe'
-    DupeButton.TextColor3 = Color3.fromRGB(85, 255, 0)
-    DupeButton.TextScaled = true
-    DupeButton.TextSize = 14
-    DupeButton.TextStrokeTransparency = 0
-    DupeButton.TextWrapped = true
-    DupeCorner.Parent = DupeButton
-    MiscButton.Name = 'Misc'
-    MiscButton.Parent = ButtonsFrame
-    MiscButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    MiscButton.BackgroundTransparency = 0.5
-    MiscButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    MiscButton.BorderSizePixel = 0
-    MiscButton.Position = UDim2.new(0.039682541, 0, 0, 0)
-    MiscButton.Size = UDim2.new(0, 116, 0, 26)
-    MiscButton.Font = Enum.Font.FredokaOne
-    MiscButton.Text = 'Misc'
-    MiscButton.TextColor3 = Color3.fromRGB(85, 255, 0)
-    MiscButton.TextScaled = true
-    MiscButton.TextSize = 14
-    MiscButton.TextStrokeTransparency = 0
-    MiscButton.TextWrapped = true
-    MiscCorner.Parent = MiscButton
-    InfoButton.Name = 'Info'
-    InfoButton.Parent = ButtonsFrame
-    InfoButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    InfoButton.BackgroundTransparency = 0.5
-    InfoButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    InfoButton.BorderSizePixel = 0
-    InfoButton.Position = UDim2.new(0.039682541, 0, 0, 0)
-    InfoButton.Size = UDim2.new(0, 116, 0, 26)
-    InfoButton.Font = Enum.Font.FredokaOne
-    InfoButton.Text = 'Info'
-    InfoButton.TextColor3 = Color3.fromRGB(85, 255, 0)
-    InfoButton.TextScaled = true
-    InfoButton.TextSize = 14
-    InfoButton.TextStrokeTransparency = 0
-    InfoButton.TextWrapped = true
-    InfoCorner.Parent = InfoButton
-    CreditsButton.Name = 'Quest'
-    CreditsButton.Parent = ButtonsFrame
-    CreditsButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    CreditsButton.BackgroundTransparency = 0.5
-    CreditsButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    CreditsButton.BorderSizePixel = 0
-    CreditsButton.Position = UDim2.new(0.039682541, 0, 0, 0)
-    CreditsButton.Size = UDim2.new(0, 116, 0, 26)
-    CreditsButton.Font = Enum.Font.FredokaOne
-    CreditsButton.Text = 'Quest (Coming Soon)'
-    CreditsButton.TextColor3 = Color3.fromRGB(85, 255, 0)
-    CreditsButton.TextScaled = true
-    CreditsButton.TextSize = 14
-    CreditsButton.TextStrokeTransparency = 0
-    CreditsButton.TextWrapped = true
-    CreditsCorner.Parent = CreditsButton
-    ToggleButton.Name = 'Player'
-    ToggleButton.Parent = ButtonsFrame
-    ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    ToggleButton.BackgroundTransparency = 0.5
-    ToggleButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    ToggleButton.BorderSizePixel = 0
-    ToggleButton.Position = UDim2.new(0.039682541, 0, 0, 0)
-    ToggleButton.Size = UDim2.new(0, 116, 0, 26)
-    ToggleButton.Font = Enum.Font.FredokaOne
-    ToggleButton.Text = 'Player'
-    ToggleButton.TextColor3 = Color3.fromRGB(85, 255, 0)
-    ToggleButton.TextScaled = true
-    ToggleButton.TextSize = 14
-    ToggleButton.TextStrokeTransparency = 0
-    ToggleButton.TextWrapped = true
-    var21.Parent = ToggleButton
-    var22.Name = 'Black'
-    var22.Parent = MainFrame
-    var22.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var22.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var22.BorderSizePixel = 0
-    var22.Position = UDim2.new(0.270967752, 0, 0.14642857, 0)
-    var22.Size = UDim2.new(0, 12, 0, 239)
-    var23.Name = 'Black'
-    var23.Parent = MainFrame
-    var23.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var23.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var23.BorderSizePixel = 0
-    var23.Position = UDim2.new(0.270967752, 0, 0.14642857, 0)
-    var23.Size = UDim2.new(0, 339, 0, 17)
-    var24.Name = 'Top'
-    var24.Parent = MainFrame
-    var24.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var24.BackgroundTransparency = 0.8
-    var24.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var24.BorderSizePixel = 0
-    var24.Position = UDim2.new(-0.00160030241, 0, -0.00317949569, 0)
-    var24.Size = UDim2.new(0, 465, 0, 26)
-    var25.Parent = var24
-    var26.Name = 'Title'
-    var26.Parent = var24
-    var26.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var26.BackgroundTransparency = 8
-    var26.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var26.BorderSizePixel = 0
-    var26.Size = UDim2.new(0, 223, 0, 26)
-    var26.Font = Enum.Font.FredokaOne
-    var26.Text = 'Zaza Hub | Paid Version!'
-    var26.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var26.TextScaled = true
-    var26.TextSize = 14
-    var26.TextStrokeTransparency = 0
-    var26.TextWrapped = true
-    var27.Name = 'Ping'
-    var27.Parent = var24
-    var27.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var27.BackgroundTransparency = 8
-    var27.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var27.BorderSizePixel = 0
-    var27.Position = UDim2.new(0.498687953, 0, -0.0304917563, 0)
-    var27.Size = UDim2.new(0, 134, 0, 26)
-    var27.Font = Enum.Font.FredokaOne
-    var27.Text = 'Your Ping...'
-    var27.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var27.TextScaled = true
-    var27.TextSize = 14
-    var27.TextStrokeTransparency = 0
-    var27.TextWrapped = true
-    var28.Name = 'Main'
-    var28.Parent = var24
-    var28.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var28.BackgroundTransparency = 0.5
-    var28.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var28.BorderSizePixel = 0
-    var28.Position = UDim2.new(0.820327699, 0, 0.188091576, 0)
-    var28.Size = UDim2.new(0, 84, 0, 15)
-    var28.Font = Enum.Font.FredokaOne
-    var28.Text = 'Destroy'
-    var28.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var28.TextScaled = true
-    var28.TextSize = 14
-    var28.TextStrokeTransparency = 0
-    var28.TextWrapped = true
-    var29.Parent = var28
-    var30.Name = 'version'
-    var30.Parent = var24
-    var30.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var30.BackgroundTransparency = 8
-    var30.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var30.BorderSizePixel = 0
-    var30.Position = UDim2.new(0.786859989, 0, 1.00796974, 0)
-    var30.Size = UDim2.new(0, 98, 0, 15)
-    var30.Font = Enum.Font.FredokaOne
-    var30.Text = 'Version 1.3'
-    var30.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var30.TextScaled = true
-    var30.TextSize = 14
-    var30.TextStrokeTransparency = 0
-    var30.TextWrapped = true
-    var31.Name = 'MainFrame'
-    var31.Parent = MainFrame
-    var31.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var31.BackgroundTransparency = 0.8
-    var31.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var31.BorderSizePixel = 0
-    var31.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
-    var31.Size = UDim2.new(0, 327, 0, 222)
-    var31.Visible = false
-    var32.Parent = var31
-    var33.Name = 'farm'
-    var33.Parent = var31
-    var33.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var33.BackgroundTransparency = 0.5
-    var33.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var33.BorderSizePixel = 0
-    var33.Position = UDim2.new(0.0335663483, 0, 0.0405405387, 0)
-    var33.Size = UDim2.new(0, 148, 0, 27)
-    var33.Font = Enum.Font.FredokaOne
-    var33.Text = 'Farm'
-    var33.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var33.TextScaled = true
-    var33.TextSize = 14
-    var33.TextStrokeTransparency = 0
-    var33.TextWrapped = true
-    var34.Parent = var33
-    var35.Name = 'unfarm'
-    var35.Parent = var31
-    var35.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var35.BackgroundTransparency = 0.5
-    var35.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var35.BorderSizePixel = 0
-    var35.Position = UDim2.new(0.0335663483, 0, 0.346846849, 0)
-    var35.Size = UDim2.new(0, 148, 0, 27)
-    var35.Font = Enum.Font.FredokaOne
-    var35.Text = 'Stop Farm'
-    var35.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var35.TextScaled = true
-    var35.TextSize = 14
-    var35.TextStrokeTransparency = 0
-    var35.TextWrapped = true
-    var36.Parent = var35
-    var37.Name = 'equip'
-    var37.Parent = var31
-    var37.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var37.BackgroundTransparency = 0.5
-    var37.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var37.BorderSizePixel = 0
-    var37.Position = UDim2.new(0.516746759, 0, 0.0405405387, 0)
-    var37.Size = UDim2.new(0, 148, 0, 27)
-    var37.Font = Enum.Font.FredokaOne
-    var37.Text = 'Equip'
-    var37.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var37.TextScaled = true
-    var37.TextSize = 14
-    var37.TextStrokeTransparency = 0
-    var37.TextWrapped = true
-    var38.Parent = var37
-    var39.Name = 'unequip'
-    var39.Parent = var31
-    var39.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var39.BackgroundTransparency = 0.5
-    var39.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var39.BorderSizePixel = 0
-    var39.Position = UDim2.new(0.516746759, 0, 0.346846849, 0)
-    var39.Size = UDim2.new(0, 148, 0, 27)
-    var39.Font = Enum.Font.FredokaOne
-    var39.Text = 'Stop Equip'
-    var39.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var39.TextScaled = true
-    var39.TextSize = 14
-    var39.TextStrokeTransparency = 0
-    var39.TextWrapped = true
-    var40.Parent = var39
-    var41.Name = 'text'
-    var41.Parent = var31
-    var41.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var41.BackgroundTransparency = 8
-    var41.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var41.BorderSizePixel = 0
-    var41.Position = UDim2.new(0.516746759, 0, 0.162162155, 0)
-    var41.Size = UDim2.new(0, 147, 0, 41)
-    var41.Font = Enum.Font.FredokaOne
-    var41.Text = [[Wait Until You Get A Equip Notification After You Click This Button!]]
-    var41.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var41.TextScaled = true
-    var41.TextSize = 14
-    var41.TextStrokeTransparency = 0
-    var41.TextWrapped = true
-    var42.Name = 'reduce'
-    var42.Parent = var31
-    var42.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var42.BackgroundTransparency = 0.5
-    var42.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var42.BorderSizePixel = 0
-    var42.Position = UDim2.new(0.272098452, 0, 0.653153181, 0)
-    var42.Size = UDim2.new(0, 148, 0, 27)
-    var42.Font = Enum.Font.FredokaOne
-    var42.Text = 'Reduce Lag/Anti Afk'
-    var42.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var42.TextScaled = true
-    var42.TextSize = 14
-    var42.TextStrokeTransparency = 0
-    var42.TextWrapped = true
-    var43.Parent = var42
-    var44.Name = 'Wait'
-    var44.Parent = var31
-    var44.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var44.BackgroundTransparency = 1
-    var44.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var44.BorderSizePixel = 0
-    var44.Position = UDim2.new(0.036624454, 0, 0.162162155, 0)
-    var44.Size = UDim2.new(0, 147, 0, 30)
-    var44.Font = Enum.Font.FredokaOne
-    var44.Text = '0'
-    var44.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var44.TextScaled = true
-    var44.TextSize = 14
-    var44.TextStrokeTransparency = 0
-    var44.TextTransparency = 1
-    var44.TextWrapped = true
-    var45.Name = 'text'
-    var45.Parent = var31
-    var45.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var45.BackgroundTransparency = 8
-    var45.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var45.BorderSizePixel = 0
-    var45.Position = UDim2.new(-0.0341126807, 0, -0.0720720738, 0)
-    var45.Size = UDim2.new(0, 339, 0, 15)
-    var45.Font = Enum.Font.FredokaOne
-    var45.Text = [[Normal Farm Makes You Last A little less But Gains More Strength]]
-    var45.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var45.TextScaled = true
-    var45.TextSize = 14
-    var45.TextStrokeTransparency = 0
-    var45.TextWrapped = true
-    var46.Name = 'MiscFrame'
-    var46.Parent = MainFrame
-    var46.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var46.BackgroundTransparency = 0.8
-    var46.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var46.BorderSizePixel = 0
-    var46.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
-    var46.Size = UDim2.new(0, 327, 0, 222)
-    var46.Visible = false
-    var47.Parent = var46
-    var48.Name = 'daynight'
-    var48.Parent = var46
-    var48.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var48.BackgroundTransparency = 0.5
-    var48.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var48.BorderSizePixel = 0
-    var48.Position = UDim2.new(0.0243920367, 0, 0.0405405387, 0)
-    var48.Size = UDim2.new(0, 148, 0, 27)
-    var48.Font = Enum.Font.FredokaOne
-    var48.Text = 'Day/Night'
-    var48.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var48.TextScaled = true
-    var48.TextSize = 14
-    var48.TextStrokeTransparency = 0
-    var48.TextWrapped = true
-    var49.Parent = var48
-    var50.Name = 'Text'
-    var50.Parent = var46
-    var50.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var50.BackgroundTransparency = 8
-    var50.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var50.BorderSizePixel = 0
-    var50.Position = UDim2.new(0.140672788, 0, 0.882882893, 0)
-    var50.Size = UDim2.new(0, 223, 0, 26)
-    var50.Font = Enum.Font.FredokaOne
-    var50.Text = 'Other Useful Scripts..'
-    var50.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var50.TextScaled = true
-    var50.TextSize = 14
-    var50.TextStrokeTransparency = 0
-    var50.TextWrapped = true
-    var51.Name = 'clicktp'
-    var51.Parent = var46
-    var51.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var51.BackgroundTransparency = 0.5
-    var51.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var51.BorderSizePixel = 0
-    var51.Position = UDim2.new(0.0243920367, 0, 0.193693697, 0)
-    var51.Size = UDim2.new(0, 148, 0, 27)
-    var51.Font = Enum.Font.FredokaOne
-    var51.Text = 'Click Teleport'
-    var51.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var51.TextScaled = true
-    var51.TextSize = 14
-    var51.TextStrokeTransparency = 0
-    var51.TextWrapped = true
-    var52.Parent = var51
-    var53.Name = 'fling'
-    var53.Parent = var46
-    var53.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var53.BackgroundTransparency = 0.5
-    var53.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var53.BorderSizePixel = 0
-    var53.Position = UDim2.new(0.0243920367, 0, 0.346846849, 0)
-    var53.Size = UDim2.new(0, 148, 0, 27)
-    var53.Font = Enum.Font.FredokaOne
-    var53.Text = 'Fling'
-    var53.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var53.TextScaled = true
-    var53.TextSize = 14
-    var53.TextStrokeTransparency = 0
-    var53.TextWrapped = true
-    var54.Parent = var53
-    var55.Name = 'spec'
-    var55.Parent = var46
-    var55.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var55.BackgroundTransparency = 0.5
-    var55.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var55.BorderSizePixel = 0
-    var55.Position = UDim2.new(0.0243920367, 0, 0.5, 0)
-    var55.Size = UDim2.new(0, 148, 0, 27)
-    var55.Font = Enum.Font.FredokaOne
-    var55.Text = 'Spectate Players'
-    var55.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var55.TextScaled = true
-    var55.TextSize = 14
-    var55.TextStrokeTransparency = 0
-    var55.TextWrapped = true
-    var56.Parent = var55
-    var57.Name = 'hit'
-    var57.Parent = var46
-    var57.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var57.BackgroundTransparency = 0.5
-    var57.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var57.BorderSizePixel = 0
-    var57.Position = UDim2.new(0.0243920367, 0, 0.653153181, 0)
-    var57.Size = UDim2.new(0, 148, 0, 27)
-    var57.Font = Enum.Font.FredokaOne
-    var57.Text = 'Anti Hit'
-    var57.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var57.TextScaled = true
-    var57.TextSize = 14
-    var57.TextStrokeTransparency = 0
-    var57.TextWrapped = true
-    var58.Parent = var57
-    var59.Name = 'rumble'
-    var59.Parent = var46
-    var59.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var59.BackgroundTransparency = 0.5
-    var59.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var59.BorderSizePixel = 0
-    var59.Position = UDim2.new(0.516746759, 0, 0.0405405387, 0)
-    var59.Size = UDim2.new(0, 148, 0, 27)
-    var59.Font = Enum.Font.FredokaOne
-    var59.Text = 'Tp To Rumble'
-    var59.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var59.TextScaled = true
-    var59.TextSize = 14
-    var59.TextStrokeTransparency = 0
-    var59.TextWrapped = true
-    var60.Parent = var59
-    var61.Name = 'pool'
-    var61.Parent = var46
-    var61.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var61.BackgroundTransparency = 0.5
-    var61.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var61.BorderSizePixel = 0
-    var61.Position = UDim2.new(0.516746759, 0, 0.193693697, 0)
-    var61.Size = UDim2.new(0, 148, 0, 27)
-    var61.Font = Enum.Font.FredokaOne
-    var61.Text = 'Tp To Pool'
-    var61.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var61.TextScaled = true
-    var61.TextSize = 14
-    var61.TextStrokeTransparency = 0
-    var61.TextWrapped = true
-    var62.Parent = var61
-    var63.Name = 'sky'
-    var63.Parent = var46
-    var63.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var63.BackgroundTransparency = 0.5
-    var63.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var63.BorderSizePixel = 0
-    var63.Position = UDim2.new(0.516746759, 0, 0.346846849, 0)
-    var63.Size = UDim2.new(0, 148, 0, 27)
-    var63.Font = Enum.Font.FredokaOne
-    var63.Text = 'Tp To Sky'
-    var63.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var63.TextScaled = true
-    var63.TextSize = 14
-    var63.TextStrokeTransparency = 0
-    var63.TextWrapped = true
-    var64.Parent = var63
-    var65.Name = 'globe'
-    var65.Parent = var46
-    var65.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var65.BackgroundTransparency = 0.5
-    var65.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var65.BorderSizePixel = 0
-    var65.Position = UDim2.new(0.516746759, 0, 0.5, 0)
-    var65.Size = UDim2.new(0, 148, 0, 27)
-    var65.Font = Enum.Font.FredokaOne
-    var65.Text = 'Tp To Globe'
-    var65.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var65.TextScaled = true
-    var65.TextSize = 14
-    var65.TextStrokeTransparency = 0
-    var65.TextWrapped = true
-    var66.Parent = var65
-    var67.Name = 'hid'
-    var67.Parent = var46
-    var67.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var67.BackgroundTransparency = 0.5
-    var67.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var67.BorderSizePixel = 0
-    var67.Position = UDim2.new(0.516746759, 0, 0.653153181, 0)
-    var67.Size = UDim2.new(0, 148, 0, 27)
-    var67.Font = Enum.Font.FredokaOne
-    var67.Text = 'Hide Chat and More'
-    var67.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var67.TextScaled = true
-    var67.TextSize = 14
-    var67.TextStrokeTransparency = 0
-    var67.TextWrapped = true
-    var68.Parent = var67
-    var69.Name = 'hid2'
-    var69.Parent = var46
-    var69.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var69.BackgroundTransparency = 0.5
-    var69.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var69.BorderSizePixel = 0
-    var69.Position = UDim2.new(0.516746759, 0, 0.653153181, 0)
-    var69.Size = UDim2.new(0, 148, 0, 27)
-    var69.Visible = false
-    var69.Font = Enum.Font.FredokaOne
-    var69.Text = 'UnHide Chat and More'
-    var69.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var69.TextScaled = true
-    var69.TextSize = 14
-    var69.TextStrokeTransparency = 0
-    var69.TextWrapped = true
-    var70.Parent = var69
-    var71.Name = 'InfoFrame'
-    var71.Parent = MainFrame
-    var71.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var71.BackgroundTransparency = 0.8
-    var71.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var71.BorderSizePixel = 0
-    var71.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
-    var71.Size = UDim2.new(0, 327, 0, 222)
-    var71.Visible = false
-    var72.Parent = var71
-    var73.Name = 'Time'
-    var73.Parent = var71
-    var73.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var73.BackgroundTransparency = 8
-    var73.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var73.BorderSizePixel = 0
-    var73.Position = UDim2.new(0.507645249, 0, 0.346846849, 0)
-    var73.Size = UDim2.new(0, 160, 0, 26)
-    var73.Font = Enum.Font.FredokaOne
-    var73.Text = 'Time Farming: 0d 0h 0m 0'
-    var73.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var73.TextScaled = true
-    var73.TextSize = 14
-    var73.TextStrokeTransparency = 0
-    var73.TextWrapped = true
-    var74.Name = 'SPS'
-    var74.Parent = var71
-    var74.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var74.BackgroundTransparency = 8
-    var74.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var74.BorderSizePixel = 0
-    var74.Position = UDim2.new(0.0214067269, 0, 0.0405405387, 0)
-    var74.Size = UDim2.new(0, 160, 0, 26)
-    var74.Font = Enum.Font.FredokaOne
-    var74.Text = 'SPS: 0.0'
-    var74.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var74.TextScaled = true
-    var74.TextSize = 14
-    var74.TextStrokeTransparency = 0
-    var74.TextWrapped = true
-    var75.Name = 'SPM'
-    var75.Parent = var71
-    var75.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var75.BackgroundTransparency = 8
-    var75.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var75.BorderSizePixel = 0
-    var75.Position = UDim2.new(0.0214067269, 0, 0.193693697, 0)
-    var75.Size = UDim2.new(0, 160, 0, 26)
-    var75.Font = Enum.Font.FredokaOne
-    var75.Text = 'SPM: 0.0'
-    var75.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var75.TextScaled = true
-    var75.TextSize = 14
-    var75.TextStrokeTransparency = 0
-    var75.TextWrapped = true
-    var76.Name = 'SPTM'
-    var76.Parent = var71
-    var76.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var76.BackgroundTransparency = 8
-    var76.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var76.BorderSizePixel = 0
-    var76.Position = UDim2.new(0.0214067269, 0, 0.346846849, 0)
-    var76.Size = UDim2.new(0, 160, 0, 26)
-    var76.Font = Enum.Font.FredokaOne
-    var76.Text = 'SPTM: 0.0'
-    var76.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var76.TextScaled = true
-    var76.TextSize = 14
-    var76.TextStrokeTransparency = 0
-    var76.TextWrapped = true
-    var77.Name = 'SPH'
-    var77.Parent = var71
-    var77.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var77.BackgroundTransparency = 8
-    var77.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var77.BorderSizePixel = 0
-    var77.Position = UDim2.new(0.0214067269, 0, 0.5, 0)
-    var77.Size = UDim2.new(0, 160, 0, 26)
-    var77.Font = Enum.Font.FredokaOne
-    var77.Text = 'SPH: 0.0'
-    var77.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var77.TextScaled = true
-    var77.TextSize = 14
-    var77.TextStrokeTransparency = 0
-    var77.TextWrapped = true
-    var78.Name = 'SPD'
-    var78.Parent = var71
-    var78.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var78.BackgroundTransparency = 8
-    var78.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var78.BorderSizePixel = 0
-    var78.Position = UDim2.new(0.52905196, 0, 0.5, 0)
-    var78.Size = UDim2.new(0, 147, 0, 26)
-    var78.Font = Enum.Font.FredokaOne
-    var78.Text = 'SPD: 0.0'
-    var78.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var78.TextScaled = true
-    var78.TextSize = 14
-    var78.TextStrokeTransparency = 0
-    var78.TextWrapped = true
-    var79.Name = 'Size'
-    var79.Parent = var71
-    var79.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var79.BackgroundTransparency = 8
-    var79.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var79.BorderSizePixel = 0
-    var79.Position = UDim2.new(0.52905196, 0, 0.0405405387, 0)
-    var79.Size = UDim2.new(0, 147, 0, 26)
-    var79.Font = Enum.Font.FredokaOne
-    var79.Text = 'Your Size: 0.00'
-    var79.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var79.TextScaled = true
-    var79.TextSize = 14
-    var79.TextStrokeTransparency = 0
-    var79.TextWrapped = true
-    var80.Name = 'Earn'
-    var80.Parent = var71
-    var80.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var80.BackgroundTransparency = 8
-    var80.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var80.BorderSizePixel = 0
-    var80.Position = UDim2.new(0.52905196, 0, 0.193693697, 0)
-    var80.Size = UDim2.new(0, 147, 0, 26)
-    var80.Font = Enum.Font.FredokaOne
-    var80.Text = 'You Earned: 0.00'
-    var80.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var80.TextScaled = true
-    var80.TextSize = 14
-    var80.TextStrokeTransparency = 0
-    var80.TextWrapped = true
-    var81.Name = 'Strength'
-    var81.Parent = var71
-    var81.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var81.BackgroundTransparency = 8
-    var81.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var81.BorderSizePixel = 0
-    var81.Position = UDim2.new(0.0305810403, 0, 0.806306303, 0)
-    var81.Size = UDim2.new(0, 307, 0, 43)
-    var81.Font = Enum.Font.FredokaOne
-    var81.Text = 'Your Strength: 0.00'
-    var81.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var81.TextScaled = true
-    var81.TextSize = 14
-    var81.TextStrokeTransparency = 0
-    var81.TextWrapped = true
-    var82.Name = 'SPW'
-    var82.Parent = var71
-    var82.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var82.BackgroundTransparency = 8
-    var82.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var82.BorderSizePixel = 0
-    var82.Position = UDim2.new(0.25688073, 0, 0.653153181, 0)
-    var82.Size = UDim2.new(0, 147, 0, 26)
-    var82.Font = Enum.Font.FredokaOne
-    var82.Text = 'SPW: 0.0'
-    var82.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var82.TextScaled = true
-    var82.TextSize = 14
-    var82.TextStrokeTransparency = 0
-    var82.TextWrapped = true
-    var83.Name = 'PlayerFrame'
-    var83.Parent = MainFrame
-    var83.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var83.BackgroundTransparency = 0.8
-    var83.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var83.BorderSizePixel = 0
-    var83.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
-    var83.Size = UDim2.new(0, 327, 0, 222)
-    var83.Visible = false
-    var84.Parent = var83
-    var85.Name = 'Farming'
-    var85.Parent = var83
-    var85.Active = true
-    var85.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-    var85.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var85.BorderSizePixel = 0
-    var85.Position = UDim2.new(0.511357963, 0, 0.593615532, 0)
-    var85.Size = UDim2.new(0, 147, 0, 81)
-    var86.Parent = var85
-    var86.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    var86.SortOrder = Enum.SortOrder.LayoutOrder
-    var86.Padding = UDim.new(0, 2)
-    var87.Name = 'Size'
-    var87.Parent = var83
-    var87.Active = true
-    var87.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-    var87.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var87.BorderSizePixel = 0
-    var87.Position = UDim2.new(0.0352680534, 0, 0.115146533, 0)
-    var87.Size = UDim2.new(0, 147, 0, 81)
-    var88.Parent = var87
-    var88.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    var88.SortOrder = Enum.SortOrder.LayoutOrder
-    var88.Padding = UDim.new(0, 2)
-    var89.Name = 'Strength'
-    var89.Parent = var83
-    var89.Active = true
-    var89.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-    var89.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var89.BorderSizePixel = 0
-    var89.Position = UDim2.new(0.511357963, 0, 0.115146533, 0)
-    var89.Size = UDim2.new(0, 147, 0, 81)
-    var89.CanvasSize = UDim2.new(0, 0, 3, 0)
-    var90.Parent = var89
-    var90.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    var90.SortOrder = Enum.SortOrder.LayoutOrder
-    var90.Padding = UDim.new(0, 2)
-    var91.Name = 'Weights'
-    var91.Parent = var83
-    var91.Active = true
-    var91.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
-    var91.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var91.BorderSizePixel = 0
-    var91.Position = UDim2.new(0.0352680534, 0, 0.593615532, 0)
-    var91.Size = UDim2.new(0, 147, 0, 81)
-    var92.Parent = var91
-    var92.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    var92.SortOrder = Enum.SortOrder.LayoutOrder
-    var92.Padding = UDim.new(0, 2)
-    var93.Parent = var83
-    var93.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var93.BackgroundTransparency = 1
-    var93.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var93.BorderSizePixel = 0
-    var93.Position = UDim2.new(0.0108032227, 0, 0.501271546, 0)
-    var93.Size = UDim2.new(0, 164, 0, 19)
-    var93.Font = Enum.Font.FredokaOne
-    var93.Text = 'Players Weights'
-    var93.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var93.TextSize = 14
-    var93.TextStrokeTransparency = 0
-    var94.Parent = var83
-    var94.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var94.BackgroundTransparency = 1
-    var94.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var94.BorderSizePixel = 0
-    var94.Position = UDim2.new(0.486893117, 0, 0.0228026789, 0)
-    var94.Size = UDim2.new(0, 164, 0, 19)
-    var94.Font = Enum.Font.FredokaOne
-    var94.Text = 'Players Strength'
-    var94.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var94.TextSize = 14
-    var94.TextStrokeTransparency = 0
-    var94.TextWrapped = true
-    var95.Parent = var83
-    var95.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var95.BackgroundTransparency = 1
-    var95.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var95.BorderSizePixel = 0
-    var95.Position = UDim2.new(0.486893117, 0, 0.501271546, 0)
-    var95.Size = UDim2.new(0, 164, 0, 19)
-    var95.Font = Enum.Font.FredokaOne
-    var95.Text = 'Players Farming'
-    var95.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var95.TextSize = 14
-    var95.TextStrokeTransparency = 0
-    var96.Parent = var83
-    var96.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var96.BackgroundTransparency = 1
-    var96.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var96.BorderSizePixel = 0
-    var96.Position = UDim2.new(0.0108032227, 0, 0.0228026789, 0)
-    var96.Size = UDim2.new(0, 164, 0, 19)
-    var96.Font = Enum.Font.FredokaOne
-    var96.Text = 'Players Size'
-    var96.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var96.TextSize = 14
-    var96.TextStrokeTransparency = 0
-    var97.Name = 'CredFrame'
-    var97.Parent = MainFrame
-    var97.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var97.BackgroundTransparency = 0.8
-    var97.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var97.BorderSizePixel = 0
-    var97.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
-    var97.Size = UDim2.new(0, 327, 0, 222)
-    var97.Visible = false
-    var98.Parent = var97
-    var99.Parent = var97
-    var99.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var99.BackgroundTransparency = 1
-    var99.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var99.BorderSizePixel = 0
-    var99.Position = UDim2.new(0.0526423566, 0, 0.717487752, 0)
-    var99.Size = UDim2.new(0, 292, 0, 62)
-    var99.Font = Enum.Font.FredokaOne
-    var99.Text = 'This Gui Was Made By: Abercke04'
-    var99.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var99.TextSize = 14
-    var99.TextStrokeTransparency = 0
-    var100.Parent = var97
-    var100.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var100.BackgroundTransparency = 1
-    var100.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var100.BorderSizePixel = 0
-    var100.Position = UDim2.new(0.0526423566, 0, -0.0032329387, 0)
-    var100.Size = UDim2.new(0, 292, 0, 62)
-    var100.Font = Enum.Font.FredokaOne
-    var100.Text = 'Thank You For Using Zaza Hub!!'
-    var100.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var100.TextSize = 14
-    var100.TextStrokeTransparency = 0
-    var101.Parent = var97
-    var101.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var101.BackgroundTransparency = 1
-    var101.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var101.BorderSizePixel = 0
-    var101.Position = UDim2.new(0.0526423566, 0, 0.343613923, 0)
-    var101.Size = UDim2.new(0, 292, 0, 62)
-    var101.Font = Enum.Font.FredokaOne
-    var101.Text = 'Zaza Hub Is 1 year and 6 months Old!!'
-    var101.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var101.TextSize = 14
-    var101.TextStrokeTransparency = 0
-    var102.Name = 'DupeFrame'
-    var102.Parent = MainFrame
-    var102.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var102.BackgroundTransparency = 0.8
-    var102.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var102.BorderSizePixel = 0
-    var102.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
-    var102.Size = UDim2.new(0, 327, 0, 222)
-    var102.Visible = false
-    var103.Parent = var102
-    var104.Name = 'Dupe'
-    var104.Parent = var102
-    var104.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var104.BackgroundTransparency = 0.5
-    var104.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var104.BorderSizePixel = 0
-    var104.Position = UDim2.new(0.272098452, 0, 0.567567587, 0)
-    var104.Size = UDim2.new(0, 148, 0, 27)
-    var104.Font = Enum.Font.FredokaOne
-    var104.Text = 'Dupe Weights'
-    var104.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var104.TextScaled = true
-    var104.TextSize = 14
-    var104.TextStrokeTransparency = 0
-    var104.TextWrapped = true
-    var105.Parent = var104
-    var106.Name = 'Weights'
-    var106.Parent = var102
-    var106.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var106.BackgroundTransparency = 8
-    var106.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var106.BorderSizePixel = 0
-    var106.Position = UDim2.new(0.159021407, 0, 0.382882893, 0)
-    var106.Size = UDim2.new(0, 223, 0, 26)
-    var106.Font = Enum.Font.FredokaOne
-    var106.Text = 'Weight Amount: 0'
-    var106.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var106.TextScaled = true
-    var106.TextSize = 14
-    var106.TextStrokeTransparency = 0
-    var106.TextWrapped = true
-    var107.Name = 'Duper'
-    var107.Parent = var102
-    var107.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var107.BackgroundTransparency = 0.6
-    var107.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var107.BorderSizePixel = 0
-    var107.Position = UDim2.new(0.192660555, 0, 0.162162155, 0)
-    var107.Size = UDim2.new(0, 200, 0, 30)
-    var107.Font = Enum.Font.FredokaOne
-    var107.PlaceholderColor3 = Color3.fromRGB(85, 255, 0)
-    var107.PlaceholderText = 'Enter Any Number..'
-    var107.Text = ''
-    var107.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var107.TextScaled = true
-    var107.TextSize = 14
-    var107.TextStrokeTransparency = 0
-    var107.TextWrapped = true
-    var108.Parent = var107
-    var109.Name = 'Remain'
-    var109.Parent = var102
-    var109.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var109.BackgroundTransparency = 8
-    var109.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var109.BorderSizePixel = 0
-    var109.Position = UDim2.new(0.14984709, 0, 0.761261284, 0)
-    var109.Size = UDim2.new(0, 223, 0, 26)
-    var109.Font = Enum.Font.FredokaOne
-    var109.Text = 'Time Elapsed: 0s'
-    var109.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var109.TextScaled = true
-    var109.TextSize = 14
-    var109.TextStrokeTransparency = 0
-    var109.TextWrapped = true
-    var110.Name = 'Main2Frame'
-    var110.Parent = MainFrame
-    var110.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var110.BackgroundTransparency = 0.8
-    var110.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var110.BorderSizePixel = 0
-    var110.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
-    var110.Size = UDim2.new(0, 327, 0, 222)
-    var110.Visible = false
-    var111.Parent = var110
-    var112.Name = 'farm'
-    var112.Parent = var110
-    var112.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var112.BackgroundTransparency = 0.5
-    var112.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var112.BorderSizePixel = 0
-    var112.Position = UDim2.new(0.0335663483, 0, 0.0405405387, 0)
-    var112.Size = UDim2.new(0, 148, 0, 27)
-    var112.Font = Enum.Font.FredokaOne
-    var112.Text = 'Farm'
-    var112.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var112.TextScaled = true
-    var112.TextSize = 14
-    var112.TextStrokeTransparency = 0
-    var112.TextWrapped = true
-    var113.Parent = var112
-    var114.Name = 'unfarm'
-    var114.Parent = var110
-    var114.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var114.BackgroundTransparency = 0.5
-    var114.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var114.BorderSizePixel = 0
-    var114.Position = UDim2.new(0.0335663483, 0, 0.346846849, 0)
-    var114.Size = UDim2.new(0, 148, 0, 27)
-    var114.Font = Enum.Font.FredokaOne
-    var114.Text = 'Stop Farm'
-    var114.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var114.TextScaled = true
-    var114.TextSize = 14
-    var114.TextStrokeTransparency = 0
-    var114.TextWrapped = true
-    var115.Parent = var114
-    var116.Name = 'equip'
-    var116.Parent = var110
-    var116.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var116.BackgroundTransparency = 0.5
-    var116.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var116.BorderSizePixel = 0
-    var116.Position = UDim2.new(0.516746759, 0, 0.0405405387, 0)
-    var116.Size = UDim2.new(0, 148, 0, 27)
-    var116.Font = Enum.Font.FredokaOne
-    var116.Text = 'Equip'
-    var116.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var116.TextScaled = true
-    var116.TextSize = 14
-    var116.TextStrokeTransparency = 0
-    var116.TextWrapped = true
-    var117.Parent = var116
-    var118.Name = 'unequip'
-    var118.Parent = var110
-    var118.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var118.BackgroundTransparency = 0.5
-    var118.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var118.BorderSizePixel = 0
-    var118.Position = UDim2.new(0.516746759, 0, 0.346846849, 0)
-    var118.Size = UDim2.new(0, 148, 0, 27)
-    var118.Font = Enum.Font.FredokaOne
-    var118.Text = 'Stop Equip'
-    var118.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var118.TextScaled = true
-    var118.TextSize = 14
-    var118.TextStrokeTransparency = 0
-    var118.TextWrapped = true
-    var119.Parent = var118
-    var120.Name = 'limiter'
-    var120.Parent = var110
-    var120.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var120.BackgroundTransparency = 8
-    var120.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var120.BorderSizePixel = 0
-    var120.Position = UDim2.new(0.140672788, 0, 0.842342317, 0)
-    var120.Size = UDim2.new(0, 223, 0, 26)
-    var120.Font = Enum.Font.FredokaOne
-    var120.Text = 'Ping Limit Set To: ...'
-    var120.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var120.TextScaled = true
-    var120.TextSize = 14
-    var120.TextStrokeTransparency = 0
-    var120.TextWrapped = true
-    var121.Name = 'text'
-    var121.Parent = var110
-    var121.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var121.BackgroundTransparency = 8
-    var121.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var121.BorderSizePixel = 0
-    var121.Position = UDim2.new(0.516746759, 0, 0.162162155, 0)
-    var121.Size = UDim2.new(0, 147, 0, 41)
-    var121.Font = Enum.Font.FredokaOne
-    var121.Text = [[Wait Until You Get A Equip Notification After You Click This Button!]]
-    var121.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var121.TextScaled = true
-    var121.TextSize = 14
-    var121.TextStrokeTransparency = 0
-    var121.TextWrapped = true
-    var122.Name = 'reduce'
-    var122.Parent = var110
-    var122.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var122.BackgroundTransparency = 0.5
-    var122.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var122.BorderSizePixel = 0
-    var122.Position = UDim2.new(0.272098452, 0, 0.5, 0)
-    var122.Size = UDim2.new(0, 148, 0, 27)
-    var122.Font = Enum.Font.FredokaOne
-    var122.Text = 'Reduce Lag/Anti Afk'
-    var122.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var122.TextScaled = true
-    var122.TextSize = 14
-    var122.TextStrokeTransparency = 0
-    var122.TextWrapped = true
-    var123.Parent = var122
-    var124.Name = 'Pinger'
-    var124.Parent = var110
-    var124.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    var124.BackgroundTransparency = 0.6
-    var124.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var124.BorderSizePixel = 0
-    var124.Position = UDim2.new(0.18960245, 0, 0.671171188, 0)
-    var124.Size = UDim2.new(0, 200, 0, 30)
-    var124.Font = Enum.Font.FredokaOne
-    var124.PlaceholderColor3 = Color3.fromRGB(85, 255, 0)
-    var124.PlaceholderText = 'Enter Any Number Between 17k-25k'
-    var124.Text = ''
-    var124.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var124.TextScaled = true
-    var124.TextSize = 14
-    var124.TextStrokeTransparency = 0
-    var124.TextWrapped = true
-    var125.Parent = var124
-    var126.Name = 'Wait'
-    var126.Parent = var110
-    var126.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var126.BackgroundTransparency = 8
-    var126.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var126.BorderSizePixel = 0
-    var126.Position = UDim2.new(0.036624454, 0, 0.162162155, 0)
-    var126.Size = UDim2.new(0, 147, 0, 30)
-    var126.Font = Enum.Font.FredokaOne
-    var126.Text = '0'
-    var126.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var126.TextScaled = true
-    var126.TextSize = 14
-    var126.TextStrokeTransparency = 0
-    var126.TextTransparency = 1
-    var126.TextWrapped = true
-    var127.Name = 'text'
-    var127.Parent = var110
-    var127.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    var127.BackgroundTransparency = 8
-    var127.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    var127.BorderSizePixel = 0
-    var127.Position = UDim2.new(-0.0341126807, 0, -0.0720720738, 0)
-    var127.Size = UDim2.new(0, 339, 0, 15)
-    var127.Font = Enum.Font.FredokaOne
-    var127.Text = [[Ping Farm Makes You Last A lot Longer But Gains less Strength]]
-    var127.TextColor3 = Color3.fromRGB(85, 255, 0)
-    var127.TextScaled = true
-    var127.TextSize = 14
-    var127.TextStrokeTransparency = 0
-    var127.TextWrapped = true
+    v2.Name = 'ZazaHubPaid'
+    v2.Parent = game.Players.LocalPlayer:WaitForChild('PlayerGui')
+    v2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    vu3.Name = 'Main'
+    vu3.Parent = v2
+    vu3.Active = true
+    vu3.BackgroundColor3 = Color3.fromRGB(0, 85, 0)
+    vu3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu3.BorderSizePixel = 0
+    vu3.Position = UDim2.new(0.28227061, 0, 0.403963417, 0)
+    vu3.Size = UDim2.new(0, 465, 0, 280)
+    v4.Parent = vu3
+    v5.Name = 'Buttons'
+    v5.Parent = vu3
+    v5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v5.BackgroundTransparency = 0.8
+    v5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v5.BorderSizePixel = 0
+    v5.Position = UDim2.new(0, 0, 0.14642857, 0)
+    v5.Size = UDim2.new(0, 126, 0, 239)
+    v6.Parent = v5
+    v7.Parent = v5
+    v7.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    v7.SortOrder = Enum.SortOrder.LayoutOrder
+    v7.Padding = UDim.new(0, 8)
+    vu8.Name = 'Main1'
+    vu8.Parent = v5
+    vu8.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu8.BackgroundTransparency = 0.5
+    vu8.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu8.BorderSizePixel = 0
+    vu8.Position = UDim2.new(0.039682541, 0, 0, 0)
+    vu8.Size = UDim2.new(0, 116, 0, 26)
+    vu8.Font = Enum.Font.FredokaOne
+    vu8.Text = 'Normal Farm'
+    vu8.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu8.TextScaled = true
+    vu8.TextSize = 14
+    vu8.TextStrokeTransparency = 0
+    vu8.TextWrapped = true
+    v9.Parent = vu8
+    vu10.Name = 'Main2'
+    vu10.Parent = v5
+    vu10.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu10.BackgroundTransparency = 0.5
+    vu10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu10.BorderSizePixel = 0
+    vu10.Position = UDim2.new(0.039682541, 0, 0, 0)
+    vu10.Size = UDim2.new(0, 116, 0, 26)
+    vu10.Font = Enum.Font.FredokaOne
+    vu10.Text = 'Ping Farm'
+    vu10.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu10.TextScaled = true
+    vu10.TextSize = 14
+    vu10.TextStrokeTransparency = 0
+    vu10.TextWrapped = true
+    v11.Parent = vu10
+    vu12.Name = 'Dupe'
+    vu12.Parent = v5
+    vu12.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu12.BackgroundTransparency = 0.5
+    vu12.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu12.BorderSizePixel = 0
+    vu12.Position = UDim2.new(0.039682541, 0, 0, 0)
+    vu12.Size = UDim2.new(0, 116, 0, 26)
+    vu12.Font = Enum.Font.FredokaOne
+    vu12.Text = 'Dupe'
+    vu12.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu12.TextScaled = true
+    vu12.TextSize = 14
+    vu12.TextStrokeTransparency = 0
+    vu12.TextWrapped = true
+    v13.Parent = vu12
+    vu14.Name = 'Misc'
+    vu14.Parent = v5
+    vu14.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu14.BackgroundTransparency = 0.5
+    vu14.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu14.BorderSizePixel = 0
+    vu14.Position = UDim2.new(0.039682541, 0, 0, 0)
+    vu14.Size = UDim2.new(0, 116, 0, 26)
+    vu14.Font = Enum.Font.FredokaOne
+    vu14.Text = 'Misc'
+    vu14.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu14.TextScaled = true
+    vu14.TextSize = 14
+    vu14.TextStrokeTransparency = 0
+    vu14.TextWrapped = true
+    v15.Parent = vu14
+    vu16.Name = 'Info'
+    vu16.Parent = v5
+    vu16.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu16.BackgroundTransparency = 0.5
+    vu16.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu16.BorderSizePixel = 0
+    vu16.Position = UDim2.new(0.039682541, 0, 0, 0)
+    vu16.Size = UDim2.new(0, 116, 0, 26)
+    vu16.Font = Enum.Font.FredokaOne
+    vu16.Text = 'Info'
+    vu16.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu16.TextScaled = true
+    vu16.TextSize = 14
+    vu16.TextStrokeTransparency = 0
+    vu16.TextWrapped = true
+    v17.Parent = vu16
+    v18.Name = 'Quest'
+    v18.Parent = v5
+    v18.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v18.BackgroundTransparency = 0.5
+    v18.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v18.BorderSizePixel = 0
+    v18.Position = UDim2.new(0.039682541, 0, 0, 0)
+    v18.Size = UDim2.new(0, 116, 0, 26)
+    v18.Font = Enum.Font.FredokaOne
+    v18.Text = 'Quest (Coming Soon)'
+    v18.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v18.TextScaled = true
+    v18.TextSize = 14
+    v18.TextStrokeTransparency = 0
+    v18.TextWrapped = true
+    v19.Parent = v18
+    vu20.Name = 'Player'
+    vu20.Parent = v5
+    vu20.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu20.BackgroundTransparency = 0.5
+    vu20.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu20.BorderSizePixel = 0
+    vu20.Position = UDim2.new(0.039682541, 0, 0, 0)
+    vu20.Size = UDim2.new(0, 116, 0, 26)
+    vu20.Font = Enum.Font.FredokaOne
+    vu20.Text = 'Player'
+    vu20.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu20.TextScaled = true
+    vu20.TextSize = 14
+    vu20.TextStrokeTransparency = 0
+    vu20.TextWrapped = true
+    v21.Parent = vu20
+    v22.Name = 'Black'
+    v22.Parent = vu3
+    v22.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v22.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v22.BorderSizePixel = 0
+    v22.Position = UDim2.new(0.270967752, 0, 0.14642857, 0)
+    v22.Size = UDim2.new(0, 12, 0, 239)
+    v23.Name = 'Black'
+    v23.Parent = vu3
+    v23.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v23.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v23.BorderSizePixel = 0
+    v23.Position = UDim2.new(0.270967752, 0, 0.14642857, 0)
+    v23.Size = UDim2.new(0, 339, 0, 17)
+    v24.Name = 'Top'
+    v24.Parent = vu3
+    v24.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v24.BackgroundTransparency = 0.8
+    v24.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v24.BorderSizePixel = 0
+    v24.Position = UDim2.new(-0.00160030241, 0, -0.00317949569, 0)
+    v24.Size = UDim2.new(0, 465, 0, 26)
+    v25.Parent = v24
+    v26.Name = 'Title'
+    v26.Parent = v24
+    v26.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v26.BackgroundTransparency = 8
+    v26.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v26.BorderSizePixel = 0
+    v26.Size = UDim2.new(0, 223, 0, 26)
+    v26.Font = Enum.Font.FredokaOne
+    v26.Text = 'Zaza Hub | Paid Version!'
+    v26.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v26.TextScaled = true
+    v26.TextSize = 14
+    v26.TextStrokeTransparency = 0
+    v26.TextWrapped = true
+    vu27.Name = 'Ping'
+    vu27.Parent = v24
+    vu27.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu27.BackgroundTransparency = 8
+    vu27.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu27.BorderSizePixel = 0
+    vu27.Position = UDim2.new(0.498687953, 0, -0.0304917563, 0)
+    vu27.Size = UDim2.new(0, 134, 0, 26)
+    vu27.Font = Enum.Font.FredokaOne
+    vu27.Text = 'Your Ping...'
+    vu27.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu27.TextScaled = true
+    vu27.TextSize = 14
+    vu27.TextStrokeTransparency = 0
+    vu27.TextWrapped = true
+    vu28.Name = 'Main'
+    vu28.Parent = v24
+    vu28.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu28.BackgroundTransparency = 0.5
+    vu28.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu28.BorderSizePixel = 0
+    vu28.Position = UDim2.new(0.820327699, 0, 0.188091576, 0)
+    vu28.Size = UDim2.new(0, 84, 0, 15)
+    vu28.Font = Enum.Font.FredokaOne
+    vu28.Text = 'Destroy'
+    vu28.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu28.TextScaled = true
+    vu28.TextSize = 14
+    vu28.TextStrokeTransparency = 0
+    vu28.TextWrapped = true
+    v29.Parent = vu28
+    v30.Name = 'version'
+    v30.Parent = v24
+    v30.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v30.BackgroundTransparency = 8
+    v30.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v30.BorderSizePixel = 0
+    v30.Position = UDim2.new(0.786859989, 0, 1.00796974, 0)
+    v30.Size = UDim2.new(0, 98, 0, 15)
+    v30.Font = Enum.Font.FredokaOne
+    v30.Text = 'Version 1.3'
+    v30.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v30.TextScaled = true
+    v30.TextSize = 14
+    v30.TextStrokeTransparency = 0
+    v30.TextWrapped = true
+    v31.Name = 'MainFrame'
+    v31.Parent = vu3
+    v31.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v31.BackgroundTransparency = 0.8
+    v31.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v31.BorderSizePixel = 0
+    v31.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
+    v31.Size = UDim2.new(0, 327, 0, 222)
+    v31.Visible = false
+    v32.Parent = v31
+    vu33.Name = 'farm'
+    vu33.Parent = v31
+    vu33.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu33.BackgroundTransparency = 0.5
+    vu33.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu33.BorderSizePixel = 0
+    vu33.Position = UDim2.new(0.0335663483, 0, 0.0405405387, 0)
+    vu33.Size = UDim2.new(0, 148, 0, 27)
+    vu33.Font = Enum.Font.FredokaOne
+    vu33.Text = 'Farm'
+    vu33.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu33.TextScaled = true
+    vu33.TextSize = 14
+    vu33.TextStrokeTransparency = 0
+    vu33.TextWrapped = true
+    v34.Parent = vu33
+    vu35.Name = 'unfarm'
+    vu35.Parent = v31
+    vu35.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu35.BackgroundTransparency = 0.5
+    vu35.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu35.BorderSizePixel = 0
+    vu35.Position = UDim2.new(0.0335663483, 0, 0.346846849, 0)
+    vu35.Size = UDim2.new(0, 148, 0, 27)
+    vu35.Font = Enum.Font.FredokaOne
+    vu35.Text = 'Stop Farm'
+    vu35.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu35.TextScaled = true
+    vu35.TextSize = 14
+    vu35.TextStrokeTransparency = 0
+    vu35.TextWrapped = true
+    v36.Parent = vu35
+    vu37.Name = 'equip'
+    vu37.Parent = v31
+    vu37.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu37.BackgroundTransparency = 0.5
+    vu37.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu37.BorderSizePixel = 0
+    vu37.Position = UDim2.new(0.516746759, 0, 0.0405405387, 0)
+    vu37.Size = UDim2.new(0, 148, 0, 27)
+    vu37.Font = Enum.Font.FredokaOne
+    vu37.Text = 'Equip'
+    vu37.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu37.TextScaled = true
+    vu37.TextSize = 14
+    vu37.TextStrokeTransparency = 0
+    vu37.TextWrapped = true
+    v38.Parent = vu37
+    vu39.Name = 'unequip'
+    vu39.Parent = v31
+    vu39.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu39.BackgroundTransparency = 0.5
+    vu39.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu39.BorderSizePixel = 0
+    vu39.Position = UDim2.new(0.516746759, 0, 0.346846849, 0)
+    vu39.Size = UDim2.new(0, 148, 0, 27)
+    vu39.Font = Enum.Font.FredokaOne
+    vu39.Text = 'Stop Equip'
+    vu39.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu39.TextScaled = true
+    vu39.TextSize = 14
+    vu39.TextStrokeTransparency = 0
+    vu39.TextWrapped = true
+    v40.Parent = vu39
+    v41.Name = 'text'
+    v41.Parent = v31
+    v41.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v41.BackgroundTransparency = 8
+    v41.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v41.BorderSizePixel = 0
+    v41.Position = UDim2.new(0.516746759, 0, 0.162162155, 0)
+    v41.Size = UDim2.new(0, 147, 0, 41)
+    v41.Font = Enum.Font.FredokaOne
+    v41.Text = [[Wait Until You Get A Equip Notification After You Click This Button!]]
+    v41.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v41.TextScaled = true
+    v41.TextSize = 14
+    v41.TextStrokeTransparency = 0
+    v41.TextWrapped = true
+    vu42.Name = 'reduce'
+    vu42.Parent = v31
+    vu42.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu42.BackgroundTransparency = 0.5
+    vu42.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu42.BorderSizePixel = 0
+    vu42.Position = UDim2.new(0.272098452, 0, 0.653153181, 0)
+    vu42.Size = UDim2.new(0, 148, 0, 27)
+    vu42.Font = Enum.Font.FredokaOne
+    vu42.Text = 'Reduce Lag/Anti Afk'
+    vu42.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu42.TextScaled = true
+    vu42.TextSize = 14
+    vu42.TextStrokeTransparency = 0
+    vu42.TextWrapped = true
+    v43.Parent = vu42
+    vu44.Name = 'Wait'
+    vu44.Parent = v31
+    vu44.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu44.BackgroundTransparency = 1
+    vu44.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu44.BorderSizePixel = 0
+    vu44.Position = UDim2.new(0.036624454, 0, 0.162162155, 0)
+    vu44.Size = UDim2.new(0, 147, 0, 30)
+    vu44.Font = Enum.Font.FredokaOne
+    vu44.Text = '0'
+    vu44.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu44.TextScaled = true
+    vu44.TextSize = 14
+    vu44.TextStrokeTransparency = 0
+    vu44.TextTransparency = 1
+    vu44.TextWrapped = true
+    v45.Name = 'text'
+    v45.Parent = v31
+    v45.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v45.BackgroundTransparency = 8
+    v45.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v45.BorderSizePixel = 0
+    v45.Position = UDim2.new(-0.0341126807, 0, -0.0720720738, 0)
+    v45.Size = UDim2.new(0, 339, 0, 15)
+    v45.Font = Enum.Font.FredokaOne
+    v45.Text = [[Normal Farm Makes You Last A little less But Gains More Strength]]
+    v45.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v45.TextScaled = true
+    v45.TextSize = 14
+    v45.TextStrokeTransparency = 0
+    v45.TextWrapped = true
+    v46.Name = 'MiscFrame'
+    v46.Parent = vu3
+    v46.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v46.BackgroundTransparency = 0.8
+    v46.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v46.BorderSizePixel = 0
+    v46.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
+    v46.Size = UDim2.new(0, 327, 0, 222)
+    v46.Visible = false
+    v47.Parent = v46
+    vu48.Name = 'daynight'
+    vu48.Parent = v46
+    vu48.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu48.BackgroundTransparency = 0.5
+    vu48.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu48.BorderSizePixel = 0
+    vu48.Position = UDim2.new(0.0243920367, 0, 0.0405405387, 0)
+    vu48.Size = UDim2.new(0, 148, 0, 27)
+    vu48.Font = Enum.Font.FredokaOne
+    vu48.Text = 'Day/Night'
+    vu48.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu48.TextScaled = true
+    vu48.TextSize = 14
+    vu48.TextStrokeTransparency = 0
+    vu48.TextWrapped = true
+    v49.Parent = vu48
+    v50.Name = 'Text'
+    v50.Parent = v46
+    v50.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v50.BackgroundTransparency = 8
+    v50.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v50.BorderSizePixel = 0
+    v50.Position = UDim2.new(0.140672788, 0, 0.882882893, 0)
+    v50.Size = UDim2.new(0, 223, 0, 26)
+    v50.Font = Enum.Font.FredokaOne
+    v50.Text = 'Other Useful Scripts..'
+    v50.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v50.TextScaled = true
+    v50.TextSize = 14
+    v50.TextStrokeTransparency = 0
+    v50.TextWrapped = true
+    vu51.Name = 'clicktp'
+    vu51.Parent = v46
+    vu51.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu51.BackgroundTransparency = 0.5
+    vu51.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu51.BorderSizePixel = 0
+    vu51.Position = UDim2.new(0.0243920367, 0, 0.193693697, 0)
+    vu51.Size = UDim2.new(0, 148, 0, 27)
+    vu51.Font = Enum.Font.FredokaOne
+    vu51.Text = 'Click Teleport'
+    vu51.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu51.TextScaled = true
+    vu51.TextSize = 14
+    vu51.TextStrokeTransparency = 0
+    vu51.TextWrapped = true
+    v52.Parent = vu51
+    vu53.Name = 'fling'
+    vu53.Parent = v46
+    vu53.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu53.BackgroundTransparency = 0.5
+    vu53.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu53.BorderSizePixel = 0
+    vu53.Position = UDim2.new(0.0243920367, 0, 0.346846849, 0)
+    vu53.Size = UDim2.new(0, 148, 0, 27)
+    vu53.Font = Enum.Font.FredokaOne
+    vu53.Text = 'Fling'
+    vu53.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu53.TextScaled = true
+    vu53.TextSize = 14
+    vu53.TextStrokeTransparency = 0
+    vu53.TextWrapped = true
+    v54.Parent = vu53
+    vu55.Name = 'spec'
+    vu55.Parent = v46
+    vu55.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu55.BackgroundTransparency = 0.5
+    vu55.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu55.BorderSizePixel = 0
+    vu55.Position = UDim2.new(0.0243920367, 0, 0.5, 0)
+    vu55.Size = UDim2.new(0, 148, 0, 27)
+    vu55.Font = Enum.Font.FredokaOne
+    vu55.Text = 'Spectate Players'
+    vu55.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu55.TextScaled = true
+    vu55.TextSize = 14
+    vu55.TextStrokeTransparency = 0
+    vu55.TextWrapped = true
+    v56.Parent = vu55
+    vu57.Name = 'hit'
+    vu57.Parent = v46
+    vu57.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu57.BackgroundTransparency = 0.5
+    vu57.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu57.BorderSizePixel = 0
+    vu57.Position = UDim2.new(0.0243920367, 0, 0.653153181, 0)
+    vu57.Size = UDim2.new(0, 148, 0, 27)
+    vu57.Font = Enum.Font.FredokaOne
+    vu57.Text = 'Anti Hit'
+    vu57.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu57.TextScaled = true
+    vu57.TextSize = 14
+    vu57.TextStrokeTransparency = 0
+    vu57.TextWrapped = true
+    v58.Parent = vu57
+    vu59.Name = 'rumble'
+    vu59.Parent = v46
+    vu59.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu59.BackgroundTransparency = 0.5
+    vu59.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu59.BorderSizePixel = 0
+    vu59.Position = UDim2.new(0.516746759, 0, 0.0405405387, 0)
+    vu59.Size = UDim2.new(0, 148, 0, 27)
+    vu59.Font = Enum.Font.FredokaOne
+    vu59.Text = 'Tp To Rumble'
+    vu59.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu59.TextScaled = true
+    vu59.TextSize = 14
+    vu59.TextStrokeTransparency = 0
+    vu59.TextWrapped = true
+    v60.Parent = vu59
+    vu61.Name = 'pool'
+    vu61.Parent = v46
+    vu61.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu61.BackgroundTransparency = 0.5
+    vu61.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu61.BorderSizePixel = 0
+    vu61.Position = UDim2.new(0.516746759, 0, 0.193693697, 0)
+    vu61.Size = UDim2.new(0, 148, 0, 27)
+    vu61.Font = Enum.Font.FredokaOne
+    vu61.Text = 'Tp To Pool'
+    vu61.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu61.TextScaled = true
+    vu61.TextSize = 14
+    vu61.TextStrokeTransparency = 0
+    vu61.TextWrapped = true
+    v62.Parent = vu61
+    vu63.Name = 'sky'
+    vu63.Parent = v46
+    vu63.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu63.BackgroundTransparency = 0.5
+    vu63.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu63.BorderSizePixel = 0
+    vu63.Position = UDim2.new(0.516746759, 0, 0.346846849, 0)
+    vu63.Size = UDim2.new(0, 148, 0, 27)
+    vu63.Font = Enum.Font.FredokaOne
+    vu63.Text = 'Tp To Sky'
+    vu63.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu63.TextScaled = true
+    vu63.TextSize = 14
+    vu63.TextStrokeTransparency = 0
+    vu63.TextWrapped = true
+    v64.Parent = vu63
+    vu65.Name = 'globe'
+    vu65.Parent = v46
+    vu65.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu65.BackgroundTransparency = 0.5
+    vu65.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu65.BorderSizePixel = 0
+    vu65.Position = UDim2.new(0.516746759, 0, 0.5, 0)
+    vu65.Size = UDim2.new(0, 148, 0, 27)
+    vu65.Font = Enum.Font.FredokaOne
+    vu65.Text = 'Tp To Globe'
+    vu65.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu65.TextScaled = true
+    vu65.TextSize = 14
+    vu65.TextStrokeTransparency = 0
+    vu65.TextWrapped = true
+    v66.Parent = vu65
+    vu67.Name = 'hid'
+    vu67.Parent = v46
+    vu67.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu67.BackgroundTransparency = 0.5
+    vu67.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu67.BorderSizePixel = 0
+    vu67.Position = UDim2.new(0.516746759, 0, 0.653153181, 0)
+    vu67.Size = UDim2.new(0, 148, 0, 27)
+    vu67.Font = Enum.Font.FredokaOne
+    vu67.Text = 'Hide Chat and More'
+    vu67.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu67.TextScaled = true
+    vu67.TextSize = 14
+    vu67.TextStrokeTransparency = 0
+    vu67.TextWrapped = true
+    v68.Parent = vu67
+    vu69.Name = 'hid2'
+    vu69.Parent = v46
+    vu69.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu69.BackgroundTransparency = 0.5
+    vu69.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu69.BorderSizePixel = 0
+    vu69.Position = UDim2.new(0.516746759, 0, 0.653153181, 0)
+    vu69.Size = UDim2.new(0, 148, 0, 27)
+    vu69.Visible = false
+    vu69.Font = Enum.Font.FredokaOne
+    vu69.Text = 'UnHide Chat and More'
+    vu69.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu69.TextScaled = true
+    vu69.TextSize = 14
+    vu69.TextStrokeTransparency = 0
+    vu69.TextWrapped = true
+    v70.Parent = vu69
+    v71.Name = 'InfoFrame'
+    v71.Parent = vu3
+    v71.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v71.BackgroundTransparency = 0.8
+    v71.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v71.BorderSizePixel = 0
+    v71.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
+    v71.Size = UDim2.new(0, 327, 0, 222)
+    v71.Visible = false
+    v72.Parent = v71
+    vu73.Name = 'Time'
+    vu73.Parent = v71
+    vu73.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu73.BackgroundTransparency = 8
+    vu73.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu73.BorderSizePixel = 0
+    vu73.Position = UDim2.new(0.507645249, 0, 0.346846849, 0)
+    vu73.Size = UDim2.new(0, 160, 0, 26)
+    vu73.Font = Enum.Font.FredokaOne
+    vu73.Text = 'Time Farming: 0d 0h 0m 0'
+    vu73.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu73.TextScaled = true
+    vu73.TextSize = 14
+    vu73.TextStrokeTransparency = 0
+    vu73.TextWrapped = true
+    v74.Name = 'SPS'
+    v74.Parent = v71
+    v74.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v74.BackgroundTransparency = 8
+    v74.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v74.BorderSizePixel = 0
+    v74.Position = UDim2.new(0.0214067269, 0, 0.0405405387, 0)
+    v74.Size = UDim2.new(0, 160, 0, 26)
+    v74.Font = Enum.Font.FredokaOne
+    v74.Text = 'SPS: 0.0'
+    v74.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v74.TextScaled = true
+    v74.TextSize = 14
+    v74.TextStrokeTransparency = 0
+    v74.TextWrapped = true
+    v75.Name = 'SPM'
+    v75.Parent = v71
+    v75.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v75.BackgroundTransparency = 8
+    v75.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v75.BorderSizePixel = 0
+    v75.Position = UDim2.new(0.0214067269, 0, 0.193693697, 0)
+    v75.Size = UDim2.new(0, 160, 0, 26)
+    v75.Font = Enum.Font.FredokaOne
+    v75.Text = 'SPM: 0.0'
+    v75.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v75.TextScaled = true
+    v75.TextSize = 14
+    v75.TextStrokeTransparency = 0
+    v75.TextWrapped = true
+    v76.Name = 'SPTM'
+    v76.Parent = v71
+    v76.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v76.BackgroundTransparency = 8
+    v76.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v76.BorderSizePixel = 0
+    v76.Position = UDim2.new(0.0214067269, 0, 0.346846849, 0)
+    v76.Size = UDim2.new(0, 160, 0, 26)
+    v76.Font = Enum.Font.FredokaOne
+    v76.Text = 'SPTM: 0.0'
+    v76.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v76.TextScaled = true
+    v76.TextSize = 14
+    v76.TextStrokeTransparency = 0
+    v76.TextWrapped = true
+    v77.Name = 'SPH'
+    v77.Parent = v71
+    v77.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v77.BackgroundTransparency = 8
+    v77.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v77.BorderSizePixel = 0
+    v77.Position = UDim2.new(0.0214067269, 0, 0.5, 0)
+    v77.Size = UDim2.new(0, 160, 0, 26)
+    v77.Font = Enum.Font.FredokaOne
+    v77.Text = 'SPH: 0.0'
+    v77.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v77.TextScaled = true
+    v77.TextSize = 14
+    v77.TextStrokeTransparency = 0
+    v77.TextWrapped = true
+    v78.Name = 'SPD'
+    v78.Parent = v71
+    v78.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v78.BackgroundTransparency = 8
+    v78.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v78.BorderSizePixel = 0
+    v78.Position = UDim2.new(0.52905196, 0, 0.5, 0)
+    v78.Size = UDim2.new(0, 147, 0, 26)
+    v78.Font = Enum.Font.FredokaOne
+    v78.Text = 'SPD: 0.0'
+    v78.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v78.TextScaled = true
+    v78.TextSize = 14
+    v78.TextStrokeTransparency = 0
+    v78.TextWrapped = true
+    vu79.Name = 'Size'
+    vu79.Parent = v71
+    vu79.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu79.BackgroundTransparency = 8
+    vu79.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu79.BorderSizePixel = 0
+    vu79.Position = UDim2.new(0.52905196, 0, 0.0405405387, 0)
+    vu79.Size = UDim2.new(0, 147, 0, 26)
+    vu79.Font = Enum.Font.FredokaOne
+    vu79.Text = 'Your Size: 0.00'
+    vu79.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu79.TextScaled = true
+    vu79.TextSize = 14
+    vu79.TextStrokeTransparency = 0
+    vu79.TextWrapped = true
+    vu80.Name = 'Earn'
+    vu80.Parent = v71
+    vu80.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu80.BackgroundTransparency = 8
+    vu80.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu80.BorderSizePixel = 0
+    vu80.Position = UDim2.new(0.52905196, 0, 0.193693697, 0)
+    vu80.Size = UDim2.new(0, 147, 0, 26)
+    vu80.Font = Enum.Font.FredokaOne
+    vu80.Text = 'You Earned: 0.00'
+    vu80.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu80.TextScaled = true
+    vu80.TextSize = 14
+    vu80.TextStrokeTransparency = 0
+    vu80.TextWrapped = true
+    vu81.Name = 'Strength'
+    vu81.Parent = v71
+    vu81.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu81.BackgroundTransparency = 8
+    vu81.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu81.BorderSizePixel = 0
+    vu81.Position = UDim2.new(0.0305810403, 0, 0.806306303, 0)
+    vu81.Size = UDim2.new(0, 307, 0, 43)
+    vu81.Font = Enum.Font.FredokaOne
+    vu81.Text = 'Your Strength: 0.00'
+    vu81.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu81.TextScaled = true
+    vu81.TextSize = 14
+    vu81.TextStrokeTransparency = 0
+    vu81.TextWrapped = true
+    vu82.Name = 'SPW'
+    vu82.Parent = v71
+    vu82.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu82.BackgroundTransparency = 8
+    vu82.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu82.BorderSizePixel = 0
+    vu82.Position = UDim2.new(0.25688073, 0, 0.653153181, 0)
+    vu82.Size = UDim2.new(0, 147, 0, 26)
+    vu82.Font = Enum.Font.FredokaOne
+    vu82.Text = 'SPW: 0.0'
+    vu82.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu82.TextScaled = true
+    vu82.TextSize = 14
+    vu82.TextStrokeTransparency = 0
+    vu82.TextWrapped = true
+    v83.Name = 'PlayerFrame'
+    v83.Parent = vu3
+    v83.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v83.BackgroundTransparency = 0.8
+    v83.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v83.BorderSizePixel = 0
+    v83.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
+    v83.Size = UDim2.new(0, 327, 0, 222)
+    v83.Visible = false
+    v84.Parent = v83
+    vu85.Name = 'Farming'
+    vu85.Parent = v83
+    vu85.Active = true
+    vu85.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+    vu85.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu85.BorderSizePixel = 0
+    vu85.Position = UDim2.new(0.511357963, 0, 0.593615532, 0)
+    vu85.Size = UDim2.new(0, 147, 0, 81)
+    v86.Parent = vu85
+    v86.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    v86.SortOrder = Enum.SortOrder.LayoutOrder
+    v86.Padding = UDim.new(0, 2)
+    vu87.Name = 'Size'
+    vu87.Parent = v83
+    vu87.Active = true
+    vu87.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+    vu87.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu87.BorderSizePixel = 0
+    vu87.Position = UDim2.new(0.0352680534, 0, 0.115146533, 0)
+    vu87.Size = UDim2.new(0, 147, 0, 81)
+    v88.Parent = vu87
+    v88.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    v88.SortOrder = Enum.SortOrder.LayoutOrder
+    v88.Padding = UDim.new(0, 2)
+    vu89.Name = 'Strength'
+    vu89.Parent = v83
+    vu89.Active = true
+    vu89.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+    vu89.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu89.BorderSizePixel = 0
+    vu89.Position = UDim2.new(0.511357963, 0, 0.115146533, 0)
+    vu89.Size = UDim2.new(0, 147, 0, 81)
+    vu89.CanvasSize = UDim2.new(0, 0, 3, 0)
+    v90.Parent = vu89
+    v90.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    v90.SortOrder = Enum.SortOrder.LayoutOrder
+    v90.Padding = UDim.new(0, 2)
+    vu91.Name = 'Weights'
+    vu91.Parent = v83
+    vu91.Active = true
+    vu91.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+    vu91.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu91.BorderSizePixel = 0
+    vu91.Position = UDim2.new(0.0352680534, 0, 0.593615532, 0)
+    vu91.Size = UDim2.new(0, 147, 0, 81)
+    v92.Parent = vu91
+    v92.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    v92.SortOrder = Enum.SortOrder.LayoutOrder
+    v92.Padding = UDim.new(0, 2)
+    v93.Parent = v83
+    v93.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v93.BackgroundTransparency = 1
+    v93.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v93.BorderSizePixel = 0
+    v93.Position = UDim2.new(0.0108032227, 0, 0.501271546, 0)
+    v93.Size = UDim2.new(0, 164, 0, 19)
+    v93.Font = Enum.Font.FredokaOne
+    v93.Text = 'Players Weights'
+    v93.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v93.TextSize = 14
+    v93.TextStrokeTransparency = 0
+    v94.Parent = v83
+    v94.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v94.BackgroundTransparency = 1
+    v94.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v94.BorderSizePixel = 0
+    v94.Position = UDim2.new(0.486893117, 0, 0.0228026789, 0)
+    v94.Size = UDim2.new(0, 164, 0, 19)
+    v94.Font = Enum.Font.FredokaOne
+    v94.Text = 'Players Strength'
+    v94.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v94.TextSize = 14
+    v94.TextStrokeTransparency = 0
+    v94.TextWrapped = true
+    v95.Parent = v83
+    v95.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v95.BackgroundTransparency = 1
+    v95.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v95.BorderSizePixel = 0
+    v95.Position = UDim2.new(0.486893117, 0, 0.501271546, 0)
+    v95.Size = UDim2.new(0, 164, 0, 19)
+    v95.Font = Enum.Font.FredokaOne
+    v95.Text = 'Players Farming'
+    v95.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v95.TextSize = 14
+    v95.TextStrokeTransparency = 0
+    v96.Parent = v83
+    v96.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v96.BackgroundTransparency = 1
+    v96.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v96.BorderSizePixel = 0
+    v96.Position = UDim2.new(0.0108032227, 0, 0.0228026789, 0)
+    v96.Size = UDim2.new(0, 164, 0, 19)
+    v96.Font = Enum.Font.FredokaOne
+    v96.Text = 'Players Size'
+    v96.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v96.TextSize = 14
+    v96.TextStrokeTransparency = 0
+    v97.Name = 'CredFrame'
+    v97.Parent = vu3
+    v97.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v97.BackgroundTransparency = 0.8
+    v97.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v97.BorderSizePixel = 0
+    v97.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
+    v97.Size = UDim2.new(0, 327, 0, 222)
+    v97.Visible = false
+    v98.Parent = v97
+    v99.Parent = v97
+    v99.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v99.BackgroundTransparency = 1
+    v99.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v99.BorderSizePixel = 0
+    v99.Position = UDim2.new(0.0526423566, 0, 0.717487752, 0)
+    v99.Size = UDim2.new(0, 292, 0, 62)
+    v99.Font = Enum.Font.FredokaOne
+    v99.Text = 'This Gui Was Made By: Abercke04'
+    v99.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v99.TextSize = 14
+    v99.TextStrokeTransparency = 0
+    v100.Parent = v97
+    v100.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v100.BackgroundTransparency = 1
+    v100.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v100.BorderSizePixel = 0
+    v100.Position = UDim2.new(0.0526423566, 0, -0.0032329387, 0)
+    v100.Size = UDim2.new(0, 292, 0, 62)
+    v100.Font = Enum.Font.FredokaOne
+    v100.Text = 'Thank You For Using Zaza Hub!!'
+    v100.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v100.TextSize = 14
+    v100.TextStrokeTransparency = 0
+    v101.Parent = v97
+    v101.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v101.BackgroundTransparency = 1
+    v101.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v101.BorderSizePixel = 0
+    v101.Position = UDim2.new(0.0526423566, 0, 0.343613923, 0)
+    v101.Size = UDim2.new(0, 292, 0, 62)
+    v101.Font = Enum.Font.FredokaOne
+    v101.Text = 'Zaza Hub Is 1 year and 6 months Old!!'
+    v101.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v101.TextSize = 14
+    v101.TextStrokeTransparency = 0
+    v102.Name = 'DupeFrame'
+    v102.Parent = vu3
+    v102.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v102.BackgroundTransparency = 0.8
+    v102.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v102.BorderSizePixel = 0
+    v102.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
+    v102.Size = UDim2.new(0, 327, 0, 222)
+    v102.Visible = false
+    v103.Parent = v102
+    vu104.Name = 'Dupe'
+    vu104.Parent = v102
+    vu104.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu104.BackgroundTransparency = 0.5
+    vu104.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu104.BorderSizePixel = 0
+    vu104.Position = UDim2.new(0.272098452, 0, 0.567567587, 0)
+    vu104.Size = UDim2.new(0, 148, 0, 27)
+    vu104.Font = Enum.Font.FredokaOne
+    vu104.Text = 'Dupe Weights'
+    vu104.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu104.TextScaled = true
+    vu104.TextSize = 14
+    vu104.TextStrokeTransparency = 0
+    vu104.TextWrapped = true
+    v105.Parent = vu104
+    vu106.Name = 'Weights'
+    vu106.Parent = v102
+    vu106.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu106.BackgroundTransparency = 8
+    vu106.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu106.BorderSizePixel = 0
+    vu106.Position = UDim2.new(0.159021407, 0, 0.382882893, 0)
+    vu106.Size = UDim2.new(0, 223, 0, 26)
+    vu106.Font = Enum.Font.FredokaOne
+    vu106.Text = 'Weight Amount: 0'
+    vu106.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu106.TextScaled = true
+    vu106.TextSize = 14
+    vu106.TextStrokeTransparency = 0
+    vu106.TextWrapped = true
+    v107.Name = 'Duper'
+    v107.Parent = v102
+    v107.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v107.BackgroundTransparency = 0.6
+    v107.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v107.BorderSizePixel = 0
+    v107.Position = UDim2.new(0.192660555, 0, 0.162162155, 0)
+    v107.Size = UDim2.new(0, 200, 0, 30)
+    v107.Font = Enum.Font.FredokaOne
+    v107.PlaceholderColor3 = Color3.fromRGB(85, 255, 0)
+    v107.PlaceholderText = 'Enter Any Number..'
+    v107.Text = ''
+    v107.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v107.TextScaled = true
+    v107.TextSize = 14
+    v107.TextStrokeTransparency = 0
+    v107.TextWrapped = true
+    v108.Parent = v107
+    v109.Name = 'Remain'
+    v109.Parent = v102
+    v109.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v109.BackgroundTransparency = 8
+    v109.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v109.BorderSizePixel = 0
+    v109.Position = UDim2.new(0.14984709, 0, 0.761261284, 0)
+    v109.Size = UDim2.new(0, 223, 0, 26)
+    v109.Font = Enum.Font.FredokaOne
+    v109.Text = 'Time Elapsed: 0s'
+    v109.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v109.TextScaled = true
+    v109.TextSize = 14
+    v109.TextStrokeTransparency = 0
+    v109.TextWrapped = true
+    v110.Name = 'Main2Frame'
+    v110.Parent = vu3
+    v110.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v110.BackgroundTransparency = 0.8
+    v110.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v110.BorderSizePixel = 0
+    v110.Position = UDim2.new(0.294956386, 0, 0.206663728, 0)
+    v110.Size = UDim2.new(0, 327, 0, 222)
+    v110.Visible = false
+    v111.Parent = v110
+    vu112.Name = 'farm'
+    vu112.Parent = v110
+    vu112.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu112.BackgroundTransparency = 0.5
+    vu112.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu112.BorderSizePixel = 0
+    vu112.Position = UDim2.new(0.0335663483, 0, 0.0405405387, 0)
+    vu112.Size = UDim2.new(0, 148, 0, 27)
+    vu112.Font = Enum.Font.FredokaOne
+    vu112.Text = 'Farm'
+    vu112.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu112.TextScaled = true
+    vu112.TextSize = 14
+    vu112.TextStrokeTransparency = 0
+    vu112.TextWrapped = true
+    v113.Parent = vu112
+    vu114.Name = 'unfarm'
+    vu114.Parent = v110
+    vu114.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu114.BackgroundTransparency = 0.5
+    vu114.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu114.BorderSizePixel = 0
+    vu114.Position = UDim2.new(0.0335663483, 0, 0.346846849, 0)
+    vu114.Size = UDim2.new(0, 148, 0, 27)
+    vu114.Font = Enum.Font.FredokaOne
+    vu114.Text = 'Stop Farm'
+    vu114.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu114.TextScaled = true
+    vu114.TextSize = 14
+    vu114.TextStrokeTransparency = 0
+    vu114.TextWrapped = true
+    v115.Parent = vu114
+    vu116.Name = 'equip'
+    vu116.Parent = v110
+    vu116.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu116.BackgroundTransparency = 0.5
+    vu116.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu116.BorderSizePixel = 0
+    vu116.Position = UDim2.new(0.516746759, 0, 0.0405405387, 0)
+    vu116.Size = UDim2.new(0, 148, 0, 27)
+    vu116.Font = Enum.Font.FredokaOne
+    vu116.Text = 'Equip'
+    vu116.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu116.TextScaled = true
+    vu116.TextSize = 14
+    vu116.TextStrokeTransparency = 0
+    vu116.TextWrapped = true
+    v117.Parent = vu116
+    vu118.Name = 'unequip'
+    vu118.Parent = v110
+    vu118.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu118.BackgroundTransparency = 0.5
+    vu118.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu118.BorderSizePixel = 0
+    vu118.Position = UDim2.new(0.516746759, 0, 0.346846849, 0)
+    vu118.Size = UDim2.new(0, 148, 0, 27)
+    vu118.Font = Enum.Font.FredokaOne
+    vu118.Text = 'Stop Equip'
+    vu118.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu118.TextScaled = true
+    vu118.TextSize = 14
+    vu118.TextStrokeTransparency = 0
+    vu118.TextWrapped = true
+    v119.Parent = vu118
+    vu120.Name = 'limiter'
+    vu120.Parent = v110
+    vu120.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu120.BackgroundTransparency = 8
+    vu120.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu120.BorderSizePixel = 0
+    vu120.Position = UDim2.new(0.140672788, 0, 0.842342317, 0)
+    vu120.Size = UDim2.new(0, 223, 0, 26)
+    vu120.Font = Enum.Font.FredokaOne
+    vu120.Text = 'Ping Limit Set To: ...'
+    vu120.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu120.TextScaled = true
+    vu120.TextSize = 14
+    vu120.TextStrokeTransparency = 0
+    vu120.TextWrapped = true
+    v121.Name = 'text'
+    v121.Parent = v110
+    v121.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v121.BackgroundTransparency = 8
+    v121.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v121.BorderSizePixel = 0
+    v121.Position = UDim2.new(0.516746759, 0, 0.162162155, 0)
+    v121.Size = UDim2.new(0, 147, 0, 41)
+    v121.Font = Enum.Font.FredokaOne
+    v121.Text = [[Wait Until You Get A Equip Notification After You Click This Button!]]
+    v121.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v121.TextScaled = true
+    v121.TextSize = 14
+    v121.TextStrokeTransparency = 0
+    v121.TextWrapped = true
+    vu122.Name = 'reduce'
+    vu122.Parent = v110
+    vu122.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    vu122.BackgroundTransparency = 0.5
+    vu122.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu122.BorderSizePixel = 0
+    vu122.Position = UDim2.new(0.272098452, 0, 0.5, 0)
+    vu122.Size = UDim2.new(0, 148, 0, 27)
+    vu122.Font = Enum.Font.FredokaOne
+    vu122.Text = 'Reduce Lag/Anti Afk'
+    vu122.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu122.TextScaled = true
+    vu122.TextSize = 14
+    vu122.TextStrokeTransparency = 0
+    vu122.TextWrapped = true
+    v123.Parent = vu122
+    v124.Name = 'Pinger'
+    v124.Parent = v110
+    v124.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    v124.BackgroundTransparency = 0.6
+    v124.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v124.BorderSizePixel = 0
+    v124.Position = UDim2.new(0.18960245, 0, 0.671171188, 0)
+    v124.Size = UDim2.new(0, 200, 0, 30)
+    v124.Font = Enum.Font.FredokaOne
+    v124.PlaceholderColor3 = Color3.fromRGB(85, 255, 0)
+    v124.PlaceholderText = 'Enter Any Number Between 17k-25k'
+    v124.Text = ''
+    v124.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v124.TextScaled = true
+    v124.TextSize = 14
+    v124.TextStrokeTransparency = 0
+    v124.TextWrapped = true
+    v125.Parent = v124
+    vu126.Name = 'Wait'
+    vu126.Parent = v110
+    vu126.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu126.BackgroundTransparency = 8
+    vu126.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu126.BorderSizePixel = 0
+    vu126.Position = UDim2.new(0.036624454, 0, 0.162162155, 0)
+    vu126.Size = UDim2.new(0, 147, 0, 30)
+    vu126.Font = Enum.Font.FredokaOne
+    vu126.Text = '0'
+    vu126.TextColor3 = Color3.fromRGB(85, 255, 0)
+    vu126.TextScaled = true
+    vu126.TextSize = 14
+    vu126.TextStrokeTransparency = 0
+    vu126.TextTransparency = 1
+    vu126.TextWrapped = true
+    v127.Name = 'text'
+    v127.Parent = v110
+    v127.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    v127.BackgroundTransparency = 8
+    v127.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    v127.BorderSizePixel = 0
+    v127.Position = UDim2.new(-0.0341126807, 0, -0.0720720738, 0)
+    v127.Size = UDim2.new(0, 339, 0, 15)
+    v127.Font = Enum.Font.FredokaOne
+    v127.Text = [[Ping Farm Makes You Last A lot Longer But Gains less Strength]]
+    v127.TextColor3 = Color3.fromRGB(85, 255, 0)
+    v127.TextScaled = true
+    v127.TextSize = 14
+    v127.TextStrokeTransparency = 0
+    v127.TextWrapped = true
 
-    local function var129()
-        local var128 = Instance.new('LocalScript', Main1Button)
+    local function v129()
+        local vu128 = Instance.new('LocalScript', vu8)
 
-        var128.Parent.MouseButton1Click:Connect(function()
-            var128.Parent.Parent.Parent.MainFrame.Visible = true
-            var128.Parent.Parent.Parent.Main2Frame.Visible = false
-            var128.Parent.Parent.Parent.DupeFrame.Visible = false
-            var128.Parent.Parent.Parent.MiscFrame.Visible = false
-            var128.Parent.Parent.Parent.InfoFrame.Visible = false
-            var128.Parent.Parent.Parent.PlayerFrame.Visible = false
-            var128.Parent.Parent.Parent.CredFrame.Visible = false
+        vu128.Parent.MouseButton1Click:Connect(function()
+            vu128.Parent.Parent.Parent.MainFrame.Visible = true
+            vu128.Parent.Parent.Parent.Main2Frame.Visible = false
+            vu128.Parent.Parent.Parent.DupeFrame.Visible = false
+            vu128.Parent.Parent.Parent.MiscFrame.Visible = false
+            vu128.Parent.Parent.Parent.InfoFrame.Visible = false
+            vu128.Parent.Parent.Parent.PlayerFrame.Visible = false
+            vu128.Parent.Parent.Parent.CredFrame.Visible = false
         end)
     end
 
-    coroutine.wrap(var129)()
+    coroutine.wrap(v129)()
 
-    local function var131()
-        local var130 = Instance.new('LocalScript', Main2Button)
+    local function v131()
+        local vu130 = Instance.new('LocalScript', vu10)
 
-        var130.Parent.MouseButton1Click:Connect(function()
-            var130.Parent.Parent.Parent.MainFrame.Visible = false
-            var130.Parent.Parent.Parent.Main2Frame.Visible = true
-            var130.Parent.Parent.Parent.DupeFrame.Visible = false
-            var130.Parent.Parent.Parent.MiscFrame.Visible = false
-            var130.Parent.Parent.Parent.InfoFrame.Visible = false
-            var130.Parent.Parent.Parent.PlayerFrame.Visible = false
-            var130.Parent.Parent.Parent.CredFrame.Visible = false
+        vu130.Parent.MouseButton1Click:Connect(function()
+            vu130.Parent.Parent.Parent.MainFrame.Visible = false
+            vu130.Parent.Parent.Parent.Main2Frame.Visible = true
+            vu130.Parent.Parent.Parent.DupeFrame.Visible = false
+            vu130.Parent.Parent.Parent.MiscFrame.Visible = false
+            vu130.Parent.Parent.Parent.InfoFrame.Visible = false
+            vu130.Parent.Parent.Parent.PlayerFrame.Visible = false
+            vu130.Parent.Parent.Parent.CredFrame.Visible = false
         end)
     end
 
-    coroutine.wrap(var131)()
+    coroutine.wrap(v131)()
 
-    local function var133()
-        local var132 = Instance.new('LocalScript', DupeButton)
+    local function v133()
+        local vu132 = Instance.new('LocalScript', vu12)
 
-        var132.Parent.MouseButton1Click:Connect(function()
-            var132.Parent.Parent.Parent.MainFrame.Visible = false
-            var132.Parent.Parent.Parent.Main2Frame.Visible = false
-            var132.Parent.Parent.Parent.DupeFrame.Visible = true
-            var132.Parent.Parent.Parent.MiscFrame.Visible = false
-            var132.Parent.Parent.Parent.InfoFrame.Visible = false
-            var132.Parent.Parent.Parent.PlayerFrame.Visible = false
-            var132.Parent.Parent.Parent.CredFrame.Visible = false
+        vu132.Parent.MouseButton1Click:Connect(function()
+            vu132.Parent.Parent.Parent.MainFrame.Visible = false
+            vu132.Parent.Parent.Parent.Main2Frame.Visible = false
+            vu132.Parent.Parent.Parent.DupeFrame.Visible = true
+            vu132.Parent.Parent.Parent.MiscFrame.Visible = false
+            vu132.Parent.Parent.Parent.InfoFrame.Visible = false
+            vu132.Parent.Parent.Parent.PlayerFrame.Visible = false
+            vu132.Parent.Parent.Parent.CredFrame.Visible = false
         end)
     end
 
-    coroutine.wrap(var133)()
+    coroutine.wrap(v133)()
 
-    local function var135()
-        local var134 = Instance.new('LocalScript', MiscButton)
+    local function v135()
+        local vu134 = Instance.new('LocalScript', vu14)
 
-        var134.Parent.MouseButton1Click:Connect(function()
-            var134.Parent.Parent.Parent.MainFrame.Visible = false
-            var134.Parent.Parent.Parent.Main2Frame.Visible = false
-            var134.Parent.Parent.Parent.DupeFrame.Visible = false
-            var134.Parent.Parent.Parent.MiscFrame.Visible = true
-            var134.Parent.Parent.Parent.InfoFrame.Visible = false
-            var134.Parent.Parent.Parent.PlayerFrame.Visible = false
-            var134.Parent.Parent.Parent.CredFrame.Visible = false
+        vu134.Parent.MouseButton1Click:Connect(function()
+            vu134.Parent.Parent.Parent.MainFrame.Visible = false
+            vu134.Parent.Parent.Parent.Main2Frame.Visible = false
+            vu134.Parent.Parent.Parent.DupeFrame.Visible = false
+            vu134.Parent.Parent.Parent.MiscFrame.Visible = true
+            vu134.Parent.Parent.Parent.InfoFrame.Visible = false
+            vu134.Parent.Parent.Parent.PlayerFrame.Visible = false
+            vu134.Parent.Parent.Parent.CredFrame.Visible = false
         end)
     end
 
-    coroutine.wrap(var135)()
+    coroutine.wrap(v135)()
 
-    local function var137()
-        local var136 = Instance.new('LocalScript', InfoButton)
+    local function v137()
+        local vu136 = Instance.new('LocalScript', vu16)
 
-        var136.Parent.MouseButton1Click:Connect(function()
-            var136.Parent.Parent.Parent.MainFrame.Visible = false
-            var136.Parent.Parent.Parent.Main2Frame.Visible = false
-            var136.Parent.Parent.Parent.DupeFrame.Visible = false
-            var136.Parent.Parent.Parent.MiscFrame.Visible = false
-            var136.Parent.Parent.Parent.InfoFrame.Visible = true
-            var136.Parent.Parent.Parent.PlayerFrame.Visible = false
-            var136.Parent.Parent.Parent.CredFrame.Visible = false
+        vu136.Parent.MouseButton1Click:Connect(function()
+            vu136.Parent.Parent.Parent.MainFrame.Visible = false
+            vu136.Parent.Parent.Parent.Main2Frame.Visible = false
+            vu136.Parent.Parent.Parent.DupeFrame.Visible = false
+            vu136.Parent.Parent.Parent.MiscFrame.Visible = false
+            vu136.Parent.Parent.Parent.InfoFrame.Visible = true
+            vu136.Parent.Parent.Parent.PlayerFrame.Visible = false
+            vu136.Parent.Parent.Parent.CredFrame.Visible = false
         end)
     end
 
-    coroutine.wrap(var137)()
+    coroutine.wrap(v137)()
 
-    local function var139()
-        local var138 = Instance.new('LocalScript', ToggleButton)
+    local function v139()
+        local vu138 = Instance.new('LocalScript', vu20)
 
-        var138.Parent.MouseButton1Click:Connect(function()
-            var138.Parent.Parent.Parent.MainFrame.Visible = false
-            var138.Parent.Parent.Parent.Main2Frame.Visible = false
-            var138.Parent.Parent.Parent.DupeFrame.Visible = false
-            var138.Parent.Parent.Parent.MiscFrame.Visible = false
-            var138.Parent.Parent.Parent.InfoFrame.Visible = false
-            var138.Parent.Parent.Parent.PlayerFrame.Visible = true
-            var138.Parent.Parent.Parent.CredFrame.Visible = false
+        vu138.Parent.MouseButton1Click:Connect(function()
+            vu138.Parent.Parent.Parent.MainFrame.Visible = false
+            vu138.Parent.Parent.Parent.Main2Frame.Visible = false
+            vu138.Parent.Parent.Parent.DupeFrame.Visible = false
+            vu138.Parent.Parent.Parent.MiscFrame.Visible = false
+            vu138.Parent.Parent.Parent.InfoFrame.Visible = false
+            vu138.Parent.Parent.Parent.PlayerFrame.Visible = true
+            vu138.Parent.Parent.Parent.CredFrame.Visible = false
         end)
     end
 
-    coroutine.wrap(var139)()
+    coroutine.wrap(v139)()
 
-    local function var149()
-        local var140 = Instance.new('LocalScript', var27)
-        local var141 = {
+    local function v149()
+        local v140 = Instance.new('LocalScript', vu27)
+        local vu141 = {
             '',
             'K',
             'M',
@@ -1354,62 +1354,62 @@ else
             'T',
         }
 
-        local function var147(p142, p143)
-            local var144 = math.floor(math.log(math.max(1, math.abs(p142)), 1000))
-            local var145 = var141[1 + var144] or 'e+' .. var144
-            local var146 = math.floor(p142 * (10 ^ p143 / 1000 ^ var144)) / 10 ^ p143
+        local function v147(p142, p143)
+            local v144 = math.floor(math.log(math.max(1, math.abs(p142)), 1000))
+            local v145 = vu141[1 + v144] or 'e+' .. v144
+            local v146 = math.floor(p142 * (10 ^ p143 / 1000 ^ v144)) / 10 ^ p143
 
-            return ('%.' .. p143 .. 'f%s'):format(var146, var145)
+            return ('%.' .. p143 .. 'f%s'):format(v146, v145)
         end
 
         while true do
-            local var148 = game:GetService('Stats').Network.ServerStatsItem['Data Ping']:GetValue()
+            local v148 = game:GetService('Stats').Network.ServerStatsItem['Data Ping']:GetValue()
 
-            var140.Parent.Text = 'Ping: ' .. var147(var148, 2) .. 'ms'
+            v140.Parent.Text = 'Ping: ' .. v147(v148, 2) .. 'ms'
 
             wait(1)
         end
     end
 
-    coroutine.wrap(var149)()
+    coroutine.wrap(v149)()
 
-    local function var151()
-        local var150 = Instance.new('LocalScript', var28)
+    local function v151()
+        local vu150 = Instance.new('LocalScript', vu28)
 
-        var150.Parent.MouseButton1Click:Connect(function()
-            var150.Parent.Parent.Parent:Destroy()
+        vu150.Parent.MouseButton1Click:Connect(function()
+            vu150.Parent.Parent.Parent:Destroy()
         end)
     end
 
-    coroutine.wrap(var151)()
+    coroutine.wrap(v151)()
 
-    local function var158()
-        local var152 = Instance.new('LocalScript', var33)
+    local function v158()
+        local vu152 = Instance.new('LocalScript', vu33)
 
-        var152.Parent.MouseButton1Click:Connect(function()
-            tonumber(var152.Parent.Parent.Wait.Text)
+        vu152.Parent.MouseButton1Click:Connect(function()
+            tonumber(vu152.Parent.Parent.Wait.Text)
 
-            local var153 = 0.0008 * 830
+            local vu153 = 0.0008 * 830
 
             coroutine.wrap(function()
                 pcall(function()
                     _G.farmer = true
 
                     while _G.farmer do
-                        task.wait(var153)
+                        task.wait(vu153)
 
-                        local var154, var155, var156 = pairs(game.Players.LocalPlayer.Character:GetChildren())
+                        local v154, v155, v156 = pairs(game.Players.LocalPlayer.Character:GetChildren())
 
                         while true do
-                            local var157
+                            local v157
 
-                            var156, var157 = var154(var155, var156)
+                            v156, v157 = v154(v155, v156)
 
-                            if var156 == nil then
+                            if v156 == nil then
                                 break
                             end
-                            if var157.Name == 'Double Weight' and var157:IsA('Tool') then
-                                var157:Activate()
+                            if v157.Name == 'Double Weight' and v157:IsA('Tool') then
+                                v157:Activate()
                             end
                         end
                     end
@@ -1418,21 +1418,21 @@ else
         end)
     end
 
-    coroutine.wrap(var158)()
+    coroutine.wrap(v158)()
 
-    local function var159()
-        Instance.new('LocalScript', var35).Parent.MouseButton1Click:Connect(function()
+    local function v159()
+        Instance.new('LocalScript', vu35).Parent.MouseButton1Click:Connect(function()
             _G.farmer = false
         end)
     end
 
-    coroutine.wrap(var159)()
+    coroutine.wrap(v159)()
 
-    local function var171()
-        Instance.new('LocalScript', var37).Parent.MouseButton1Click:Connect(function()
+    local function v171()
+        Instance.new('LocalScript', vu37).Parent.MouseButton1Click:Connect(function()
             _G.Equip = true
 
-            local var160 = false
+            local v160 = false
 
             if not _G.Equip then
                 return
@@ -1440,42 +1440,42 @@ else
 
             wait(0.631201)
 
-            local var161, var162, var163 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
-            local var164 = 0
+            local v161, v162, v163 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+            local v164 = 0
 
-            if var165.Name == 'Double Weight' then
-                var165.Parent = game.Players.LocalPlayer.Character
-                var164 = var164 + 1
+            if v165.Name == 'Double Weight' then
+                v165.Parent = game.Players.LocalPlayer.Character
+                v164 = v164 + 1
 
-                if var164 >= 100 then
+                if v164 >= 100 then
                     break
                 end
             end
 
-            local var165
+            local v165
 
-            var163, var165 = var161(var162, var163)
+            v163, v165 = v161(v162, v163)
 
-            if var163 ~= nil then
+            if v163 ~= nil then
             end
 
-            local var166, var167, var168 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
-            local var169 = 0
+            local v166, v167, v168 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+            local v169 = 0
 
             while true do
-                local var170
+                local v170
 
-                var168, var170 = var166(var167, var168)
+                v168, v170 = v166(v167, v168)
 
-                if var168 == nil then
+                if v168 == nil then
                     break
                 end
-                if var170.Name == 'Double Weight' then
-                    var169 = var169 + 1
+                if v170.Name == 'Double Weight' then
+                    v169 = v169 + 1
                 end
             end
 
-            if var169 == 0 and not var160 then
+            if v169 == 0 and not v160 then
                 wait(1)
                 game:GetService('StarterGui'):SetCore('SendNotification', {
                     Title = 'Equip',
@@ -1484,18 +1484,18 @@ else
                 })
 
                 _G.Equip = false
-                var160 = true
+                v160 = true
             end
         end)
     end
 
-    coroutine.wrap(var171)()
+    coroutine.wrap(v171)()
 
-    local function var183()
-        Instance.new('LocalScript', var39).Parent.MouseButton1Click:Connect(function()
+    local function v183()
+        Instance.new('LocalScript', vu39).Parent.MouseButton1Click:Connect(function()
             _G.Equip = true
 
-            local var172 = false
+            local v172 = false
 
             if not _G.Equip then
                 return
@@ -1503,42 +1503,42 @@ else
 
             wait(0.631201)
 
-            local var173, var174, var175 = pairs(game.Players.LocalPlayer.Character:GetChildren())
-            local var176 = 0
+            local v173, v174, v175 = pairs(game.Players.LocalPlayer.Character:GetChildren())
+            local v176 = 0
 
-            if var177.Name == 'Double Weight' then
-                var177.Parent = game.Players.LocalPlayer.Backpack
-                var176 = var176 + 1
+            if v177.Name == 'Double Weight' then
+                v177.Parent = game.Players.LocalPlayer.Backpack
+                v176 = v176 + 1
 
-                if var176 >= 100 then
+                if v176 >= 100 then
                     break
                 end
             end
 
-            local var177
+            local v177
 
-            var175, var177 = var173(var174, var175)
+            v175, v177 = v173(v174, v175)
 
-            if var175 ~= nil then
+            if v175 ~= nil then
             end
 
-            local var178, var179, var180 = pairs(game.Players.LocalPlayer.Character:GetChildren())
-            local var181 = 0
+            local v178, v179, v180 = pairs(game.Players.LocalPlayer.Character:GetChildren())
+            local v181 = 0
 
             while true do
-                local var182
+                local v182
 
-                var180, var182 = var178(var179, var180)
+                v180, v182 = v178(v179, v180)
 
-                if var180 == nil then
+                if v180 == nil then
                     break
                 end
-                if var182.Name == 'Double Weight' then
-                    var181 = var181 + 1
+                if v182.Name == 'Double Weight' then
+                    v181 = v181 + 1
                 end
             end
 
-            if var181 == 0 and not var172 then
+            if v181 == 0 and not v172 then
                 wait(1)
                 game:GetService('StarterGui'):SetCore('SendNotification', {
                     Title = 'Equip',
@@ -1547,65 +1547,65 @@ else
                 })
 
                 _G.Equip = false
-                var172 = true
+                v172 = true
             end
         end)
     end
 
-    coroutine.wrap(var183)()
+    coroutine.wrap(v183)()
 
-    local function var209()
-        Instance.new('LocalScript', var42).Parent.MouseButton1Click:Connect(function()
+    local function v209()
+        Instance.new('LocalScript', vu42).Parent.MouseButton1Click:Connect(function()
             loadstring(game:HttpGet('https://pastebin.com/raw/mmEr60d5', true))()
             game.ReplicatedFirst.TourneyQ:Destroy()
             game:GetService('Lighting').NormalSky:Destroy()
             game:GetService('Players').LocalPlayer.PlayerGui.HUD:Destroy()
 
-            local var184 = game
-            local var185 = var184.Workspace
-            local var186 = var184.Lighting
-            local var187 = var185.Terrain
+            local v184 = game
+            local v185 = v184.Workspace
+            local v186 = v184.Lighting
+            local v187 = v185.Terrain
 
-            var187.WaterWaveSize = 0
-            var187.WaterWaveSpeed = 0
-            var187.WaterReflectance = 0
-            var187.WaterTransparency = 0
-            var186.GlobalShadows = false
-            var186.FogEnd = 9000000000
+            v187.WaterWaveSize = 0
+            v187.WaterWaveSpeed = 0
+            v187.WaterReflectance = 0
+            v187.WaterTransparency = 0
+            v186.GlobalShadows = false
+            v186.FogEnd = 9000000000
             settings().Rendering.QualityLevel = 'Level01'
 
-            local var188, var189, var190 = pairs(var184:GetDescendants())
+            local v188, v189, v190 = pairs(v184:GetDescendants())
 
             while true do
-                local var191
+                local v191
 
-                var190, var191 = var188(var189, var190)
+                v190, v191 = v188(v189, v190)
 
-                if var190 == nil then
+                if v190 == nil then
                     break
                 end
-                if var191:IsA('Part') or (var191:IsA('Union') or var191:IsA('MeshPart')) then
-                    var191.Reflectance = 0
-                elseif var191:IsA('ParticleEmitter') or var191:IsA('Trail') then
-                    var191:Destroy()
-                elseif var191:IsA('Explosion') then
-                    var191.BlastPressure = 0
-                    var191.BlastRadius = 0
+                if v191:IsA('Part') or (v191:IsA('Union') or v191:IsA('MeshPart')) then
+                    v191.Reflectance = 0
+                elseif v191:IsA('ParticleEmitter') or v191:IsA('Trail') then
+                    v191:Destroy()
+                elseif v191:IsA('Explosion') then
+                    v191.BlastPressure = 0
+                    v191.BlastRadius = 0
                 end
             end
 
-            local var192, var193, var194 = pairs(var186:GetChildren())
+            local v192, v193, v194 = pairs(v186:GetChildren())
 
             while true do
-                local var195
+                local v195
 
-                var194, var195 = var192(var193, var194)
+                v194, v195 = v192(v193, v194)
 
-                if var194 == nil then
+                if v194 == nil then
                     break
                 end
-                if var195:IsA('BlurEffect') or (var195:IsA('SunRaysEffect') or (var195:IsA('ColorCorrectionEffect') or (var195:IsA('BloomEffect') or var195:IsA('DepthOfFieldEffect')))) then
-                    var195.Enabled = false
+                if v195:IsA('BlurEffect') or (v195:IsA('SunRaysEffect') or (v195:IsA('ColorCorrectionEffect') or (v195:IsA('BloomEffect') or v195:IsA('DepthOfFieldEffect')))) then
+                    v195.Enabled = false
                 end
             end
 
@@ -1616,118 +1616,118 @@ else
                 Duration = 7,
             })
 
-            local var196 = game:GetService('VirtualUser')
+            local vu196 = game:GetService('VirtualUser')
 
             game:GetService('Players').LocalPlayer.Idled:connect(function()
-                var196:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+                vu196:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
                 wait(1)
-                var196:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+                vu196:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
             end)
 
-            local var197, var198, var199 = pairs(game:GetService('Workspace'):GetChildren())
+            local v197, v198, v199 = pairs(game:GetService('Workspace'):GetChildren())
 
             while true do
-                local var200
+                local v200
 
-                var199, var200 = var197(var198, var199)
+                v199, v200 = v197(v198, v199)
 
-                if var199 == nil then
+                if v199 == nil then
                     break
                 end
 
-                local _ = var200.ClassName == 'Model'
+                local _ = v200.ClassName == 'Model'
 
-                if var200.Name ~= game.Players.LocalPlayer.Name and (var200.Name ~= 'Terrain' and (var200.Name ~= 'Baseplate' and var200.Name ~= 'Camera')) then
-                    var200:Destroy()
+                if v200.Name ~= game.Players.LocalPlayer.Name and (v200.Name ~= 'Terrain' and (v200.Name ~= 'Baseplate' and v200.Name ~= 'Camera')) then
+                    v200:Destroy()
                 end
             end
 
-            local var201, var202, var203 = pairs(game:GetService('ReplicatedStorage'):GetChildren())
+            local v201, v202, v203 = pairs(game:GetService('ReplicatedStorage'):GetChildren())
 
             while true do
-                local var204
+                local v204
 
-                var203, var204 = var201(var202, var203)
+                v203, v204 = v201(v202, v203)
 
-                if var203 == nil then
+                if v203 == nil then
                     break
                 end
-                if var204.Name ~= 'Data' then
-                    var204:Destroy()
+                if v204.Name ~= 'Data' then
+                    v204:Destroy()
                 end
             end
 
-            local var205, var206, var207 = pairs(game:GetService('CorePackages'):GetChildren())
+            local v205, v206, v207 = pairs(game:GetService('CorePackages'):GetChildren())
 
             while true do
-                local var208
+                local v208
 
-                var207, var208 = var205(var206, var207)
+                v207, v208 = v205(v206, v207)
 
-                if var207 == nil then
+                if v207 == nil then
                     break
                 end
 
-                var208:Destroy()
+                v208:Destroy()
             end
         end)
     end
 
-    coroutine.wrap(var209)()
+    coroutine.wrap(v209)()
 
-    local function var221()
-        local var210 = Instance.new('LocalScript', var44).Parent
-        local var211 = 0
+    local function v221()
+        local v210 = Instance.new('LocalScript', vu44).Parent
+        local vu211 = 0
 
-        local function var220()
-            var211 = 0
+        local function v220()
+            vu211 = 0
 
-            local var212, var213, var214 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+            local v212, v213, v214 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
 
             while true do
-                local var215
+                local v215
 
-                var214, var215 = var212(var213, var214)
+                v214, v215 = v212(v213, v214)
 
-                if var214 == nil then
+                if v214 == nil then
                     break
                 end
-                if var215.Name == 'Double Weight' then
-                    var211 = var211 + 1
+                if v215.Name == 'Double Weight' then
+                    vu211 = vu211 + 1
                 end
             end
 
-            if var211 == 0 then
-                local var216, var217, var218 = pairs(game.Players.LocalPlayer.Character:GetChildren())
+            if vu211 == 0 then
+                local v216, v217, v218 = pairs(game.Players.LocalPlayer.Character:GetChildren())
 
                 while true do
-                    local var219
+                    local v219
 
-                    var218, var219 = var216(var217, var218)
+                    v218, v219 = v216(v217, v218)
 
-                    if var218 == nil then
+                    if v218 == nil then
                         break
                     end
-                    if var219.Name == 'Double Weight' then
-                        var211 = var211 + 1
+                    if v219.Name == 'Double Weight' then
+                        vu211 = vu211 + 1
                     end
                 end
             end
         end
 
         while true do
-            var220()
+            v220()
 
-            var210.Text = 0.000886 * var211
+            v210.Text = 0.000886 * vu211
 
             wait(1)
         end
     end
 
-    coroutine.wrap(var221)()
+    coroutine.wrap(v221)()
 
-    local function var222()
-        Instance.new('LocalScript', var48).Parent.MouseButton1Click:Connect(function()
+    local function v222()
+        Instance.new('LocalScript', vu48).Parent.MouseButton1Click:Connect(function()
             if game:GetService('Lighting').ClockTime ~= 19 then
                 if game:GetService('Lighting').ClockTime == 14 then
                     game:GetService('Lighting').ClockTime = 19
@@ -1738,10 +1738,10 @@ else
         end)
     end
 
-    coroutine.wrap(var222)()
+    coroutine.wrap(v222)()
 
-    local function var226()
-        Instance.new('LocalScript', var51).Parent.MouseButton1Click:Connect(function()
+    local function v226()
+        Instance.new('LocalScript', vu51).Parent.MouseButton1Click:Connect(function()
             game:GetService('StarterGui'):SetCore('SendNotification', {
                 Title = 'Click TP Enabled!',
                 Text = 'Tap Left Alt to TP to your mouse.',
@@ -1752,37 +1752,37 @@ else
 
             game:GetService('UserInputService').InputBegan:connect(function(p223, _)
                 if p223.KeyCode == Enum.KeyCode.LeftAlt then
-                    local var224 = mouse.Hit + Vector3.new(0, 2.5, 0)
-                    local var225 = CFrame.new(var224.X, var224.Y, var224.Z)
+                    local v224 = mouse.Hit + Vector3.new(0, 2.5, 0)
+                    local v225 = CFrame.new(v224.X, v224.Y, v224.Z)
 
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = var225
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v225
                 end
             end)
             print('Successfully Executed Script!')
         end)
     end
 
-    coroutine.wrap(var226)()
+    coroutine.wrap(v226)()
 
-    local function var227()
-        Instance.new('LocalScript', var53).Parent.MouseButton1Click:Connect(function()
+    local function v227()
+        Instance.new('LocalScript', vu53).Parent.MouseButton1Click:Connect(function()
             loadstring(game:HttpGet([[https://raw.githubusercontent.com/Aberthegod/yoo/main/Flingg]]))()
         end)
     end
 
-    coroutine.wrap(var227)()
+    coroutine.wrap(v227)()
 
-    local function var228()
-        Instance.new('LocalScript', var55).Parent.MouseButton1Click:Connect(function()
+    local function v228()
+        Instance.new('LocalScript', vu55).Parent.MouseButton1Click:Connect(function()
             loadstring(game:HttpGetAsync('https://pastefy.app/mJ8vapGJ/raw'))()
             execute('https://scriptprotector-d6fe7-default-rtdb.firebaseio.com/', 'B4SraukVMMsjcGG2rAzqm2m0AkO5mY4bt3PkeNoo', 'Script9')
         end)
     end
 
-    coroutine.wrap(var228)()
+    coroutine.wrap(v228)()
 
-    local function var229()
-        Instance.new('LocalScript', var57).Parent.MouseButton1Click:Connect(function()
+    local function v229()
+        Instance.new('LocalScript', vu57).Parent.MouseButton1Click:Connect(function()
             coroutine.wrap(function()
                 game:GetService('RunService').RenderStepped:connect(function()
                     pcall(function()
@@ -1801,28 +1801,28 @@ else
         end)
     end
 
-    coroutine.wrap(var229)()
+    coroutine.wrap(v229)()
 
-    local function var230()
-        Instance.new('LocalScript', var59).Parent.MouseButton1Click:Connect(function()
+    local function v230()
+        Instance.new('LocalScript', vu59).Parent.MouseButton1Click:Connect(function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1837.48, 155.321, -5427.79)
         end)
     end
 
-    coroutine.wrap(var230)()
+    coroutine.wrap(v230)()
 
-    local function var232()
-        Instance.new('LocalScript', var61).Parent.MouseButton1Click:Connect(function()
-            local var231 = game.Players.LocalPlayer
+    local function v232()
+        Instance.new('LocalScript', vu61).Parent.MouseButton1Click:Connect(function()
+            local v231 = game.Players.LocalPlayer
 
-            game:GetService('Workspace'):FindFirstChild(var231.Name).HumanoidRootPart.CFrame = CFrame.new(-360.621582, 140.854309, 644.211487, 0.0188650358, -5.53209532e-8, -0.999822021, -3.23362626e-9, 1, -5.5391812e-8, 0.999822021, 4.27801927e-9, 0.0188650358)
+            game:GetService('Workspace'):FindFirstChild(v231.Name).HumanoidRootPart.CFrame = CFrame.new(-360.621582, 140.854309, 644.211487, 0.0188650358, -5.53209532e-8, -0.999822021, -3.23362626e-9, 1, -5.5391812e-8, 0.999822021, 4.27801927e-9, 0.0188650358)
         end)
     end
 
-    coroutine.wrap(var232)()
+    coroutine.wrap(v232)()
 
-    local function var233()
-        Instance.new('LocalScript', var63).Parent.MouseButton1Click:Connect(function()
+    local function v233()
+        Instance.new('LocalScript', vu63).Parent.MouseButton1Click:Connect(function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2000, 22000, -1000)
             baseplatee = Instance.new('Part', workspace)
             baseplatee.Size = Vector3.new(1000, 1, 1000)
@@ -1831,85 +1831,85 @@ else
         end)
     end
 
-    coroutine.wrap(var233)()
+    coroutine.wrap(v233)()
 
-    local function var235()
-        Instance.new('LocalScript', var65).Parent.MouseButton1Click:Connect(function()
-            local var234 = game.Players.LocalPlayer
+    local function v235()
+        Instance.new('LocalScript', vu65).Parent.MouseButton1Click:Connect(function()
+            local v234 = game.Players.LocalPlayer
 
-            game:GetService('Workspace'):FindFirstChild(var234.Name).HumanoidRootPart.CFrame = CFrame.new(-488.355652, 301.610565, 243.951614, -0.0439637043, -4.32802345e-8, 0.999033153, -4.49692124e-8, 1, 4.1343192e-8, -0.999033153, -4.31081304e-8, -0.0439637043)
+            game:GetService('Workspace'):FindFirstChild(v234.Name).HumanoidRootPart.CFrame = CFrame.new(-488.355652, 301.610565, 243.951614, -0.0439637043, -4.32802345e-8, 0.999033153, -4.49692124e-8, 1, 4.1343192e-8, -0.999033153, -4.31081304e-8, -0.0439637043)
         end)
     end
 
-    coroutine.wrap(var235)()
+    coroutine.wrap(v235)()
 
-    local function var238()
-        local var236 = Instance.new('LocalScript', var67)
+    local function v238()
+        local vu236 = Instance.new('LocalScript', vu67)
 
-        var236.Parent.MouseButton1Click:Connect(function()
-            local var237 = game:GetService('StarterGui')
+        vu236.Parent.MouseButton1Click:Connect(function()
+            local v237 = game:GetService('StarterGui')
 
-            var237:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
+            v237:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
 
             game:GetService('CoreGui').RobloxGui.Backpack.Visible = false
 
-            var237:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+            v237:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
 
-            var236.Parent.Visible = false
-            var236.Parent.Parent.hid2.Visible = true
+            vu236.Parent.Visible = false
+            vu236.Parent.Parent.hid2.Visible = true
         end)
     end
 
-    coroutine.wrap(var238)()
+    coroutine.wrap(v238)()
 
-    local function var241()
-        local var239 = Instance.new('LocalScript', var69)
+    local function v241()
+        local vu239 = Instance.new('LocalScript', vu69)
 
-        var239.Parent.MouseButton1Click:Connect(function()
-            local var240 = game:GetService('StarterGui')
+        vu239.Parent.MouseButton1Click:Connect(function()
+            local v240 = game:GetService('StarterGui')
 
-            var240:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
+            v240:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
 
             game:GetService('CoreGui').RobloxGui.Backpack.Visible = true
 
-            var240:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, true)
+            v240:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, true)
 
-            var239.Parent.Visible = false
-            var239.Parent.Parent.hid.Visible = true
+            vu239.Parent.Visible = false
+            vu239.Parent.Parent.hid.Visible = true
         end)
     end
 
-    coroutine.wrap(var241)()
+    coroutine.wrap(v241)()
 
-    local function var254()
-        local var242 = Instance.new('LocalScript', var73)
-        local var243 = nil
-        local var244 = var242.Parent
+    local function v254()
+        local v242 = Instance.new('LocalScript', vu73)
+        local vu243 = nil
+        local vu244 = v242.Parent
 
         function Format_1(p245)
             return string.format('%02i', p245)
         end
         function convertToDHMS(p246)
-            local var247 = math.floor(p246 / 60)
-            local var248 = p246 % 60
-            local var249 = math.floor(var247 / 60)
-            local var250 = var247 % 60
-            local var251 = math.floor(var249 / 24)
-            local var252 = var249 % 24
+            local v247 = math.floor(p246 / 60)
+            local v248 = p246 % 60
+            local v249 = math.floor(v247 / 60)
+            local v250 = v247 % 60
+            local v251 = math.floor(v249 / 24)
+            local v252 = v249 % 24
 
-            return Format_1(var251) .. ':' .. Format_1(var252) .. ':' .. Format_1(var250) .. ':' .. Format_1(var248)
+            return Format_1(v251) .. ':' .. Format_1(v252) .. ':' .. Format_1(v250) .. ':' .. Format_1(v248)
         end
 
         coroutine.wrap(function()
             while true do
                 if _G.farmer or _G.farmer2 then
-                    if not var243 then
-                        var243 = os.time()
+                    if not vu243 then
+                        vu243 = os.time()
                     end
 
-                    local var253 = os.time() - var243
+                    local v253 = os.time() - vu243
 
-                    var244.Text = 'Time Farming: ' .. convertToDHMS(var253)
+                    vu244.Text = 'Time Farming: ' .. convertToDHMS(v253)
                 end
 
                 task.wait(1)
@@ -1917,12 +1917,12 @@ else
         end)()
     end
 
-    coroutine.wrap(var254)()
+    coroutine.wrap(v254)()
 
-    local function var264()
-        local var255 = Instance.new('LocalScript', var79)
-        local var256 = game.Players.LocalPlayer
-        local var257 = {
+    local function v264()
+        local v255 = Instance.new('LocalScript', vu79)
+        local v256 = game.Players.LocalPlayer
+        local vu257 = {
             '',
             'K',
             'M',
@@ -1930,29 +1930,29 @@ else
             'T',
         }
 
-        local function var263(p258, p259)
-            local var260 = math.floor(math.log(math.max(1, math.abs(p258)), 1000))
-            local var261 = var257[1 + var260] or 'e+' .. var260
-            local var262 = math.floor(p258 * (10 ^ p259 / 1000 ^ var260)) / 10 ^ p259
+        local function v263(p258, p259)
+            local v260 = math.floor(math.log(math.max(1, math.abs(p258)), 1000))
+            local v261 = vu257[1 + v260] or 'e+' .. v260
+            local v262 = math.floor(p258 * (10 ^ p259 / 1000 ^ v260)) / 10 ^ p259
 
-            return ('%.' .. p259 .. 'f%s'):format(var262, var261)
+            return ('%.' .. p259 .. 'f%s'):format(v262, v261)
         end
 
         while true do
-            var255.Parent.Text = 'Your Size: ' .. var263(var256.leaderstats.Strength.Value, 1)
+            v255.Parent.Text = 'Your Size: ' .. v263(v256.leaderstats.Strength.Value, 1)
 
             wait(1)
         end
     end
 
-    coroutine.wrap(var264)()
+    coroutine.wrap(v264)()
 
-    local function var277()
-        local var265 = Instance.new('LocalScript', var80).Parent
-        local var266 = game:GetService('Players').LocalPlayer.leaderstats.Strength
-        local var267 = var266.Value
-        local var268 = 0
-        local var269 = {
+    local function v277()
+        local vu265 = Instance.new('LocalScript', vu80).Parent
+        local vu266 = game:GetService('Players').LocalPlayer.leaderstats.Strength
+        local vu267 = vu266.Value
+        local vu268 = 0
+        local vu269 = {
             '',
             'K',
             'M',
@@ -1960,621 +1960,621 @@ else
             'T',
         }
 
-        local function var275(p270, p271)
-            local var272 = math.floor(math.log(math.max(1, math.abs(p270)), 1000))
-            local var273 = var269[1 + var272] or 'e+' .. var272
-            local var274 = math.floor(p270 * (10 ^ p271 / 1000 ^ var272)) / 10 ^ p271
+        local function vu275(p270, p271)
+            local v272 = math.floor(math.log(math.max(1, math.abs(p270)), 1000))
+            local v273 = vu269[1 + v272] or 'e+' .. v272
+            local v274 = math.floor(p270 * (10 ^ p271 / 1000 ^ v272)) / 10 ^ p271
 
-            return ('%.' .. p271 .. 'f%s'):format(var274, var273)
+            return ('%.' .. p271 .. 'f%s'):format(v274, v273)
         end
 
-        local var276 = var266
+        local v276 = vu266
 
-        var266.GetPropertyChangedSignal(var276, 'Value'):Connect(function()
-            var268 = var268 + (var266.Value - var267)
-            var265.Text = 'You Earned: ' .. var275(var268, 1)
-            var267 = var266.Value
+        vu266.GetPropertyChangedSignal(v276, 'Value'):Connect(function()
+            vu268 = vu268 + (vu266.Value - vu267)
+            vu265.Text = 'You Earned: ' .. vu275(vu268, 1)
+            vu267 = vu266.Value
         end)
     end
 
-    coroutine.wrap(var277)()
+    coroutine.wrap(v277)()
 
-    local function var283()
-        local var278 = Instance.new('LocalScript', var81).Parent
-        local var279 = true
+    local function v283()
+        local v278 = Instance.new('LocalScript', vu81).Parent
+        local v279 = true
 
-        while var279 == true do
-            local var280 = game:GetService('Players').LocalPlayer.Name
+        while v279 == true do
+            local v280 = game:GetService('Players').LocalPlayer.Name
 
             wait(0.01)
 
-            local var281 = game.ReplicatedStorage.Data[var280].Strength.Value
-            local var282
+            local v281 = game.ReplicatedStorage.Data[v280].Strength.Value
+            local v282
 
-            if var281 >= 1000000000000 then
-                var282 = string.format('%.2fT', var281 / 1000000000000)
-            elseif var281 >= 1000000000 then
-                var282 = string.format('%.2fB', var281 / 1000000000)
-            elseif var281 >= 1000000 then
-                var282 = string.format('%.2fM', var281 / 1000000)
-            elseif var281 >= 1000 then
-                var282 = string.format('%.2fK', var281 / 1000)
+            if v281 >= 1000000000000 then
+                v282 = string.format('%.2fT', v281 / 1000000000000)
+            elseif v281 >= 1000000000 then
+                v282 = string.format('%.2fB', v281 / 1000000000)
+            elseif v281 >= 1000000 then
+                v282 = string.format('%.2fM', v281 / 1000000)
+            elseif v281 >= 1000 then
+                v282 = string.format('%.2fK', v281 / 1000)
             else
-                var282 = var281
+                v282 = v281
             end
 
-            var278.Text = 'Strength: ' .. var282 .. ' | ' .. var281
+            v278.Text = 'Strength: ' .. v282 .. ' | ' .. v281
         end
     end
 
-    coroutine.wrap(var283)()
+    coroutine.wrap(v283)()
 
-    local function var302()
-        local var284 = Instance.new('LocalScript', var82)
-        local var285 = {
+    local function v302()
+        local v284 = Instance.new('LocalScript', vu82)
+        local vu285 = {
             '',
             'K',
             'M',
             'B',
             'T',
         }
-        local _ = var284.Parent.Parent.Parent.MainFrame
+        local _ = v284.Parent.Parent.Parent.MainFrame
 
-        local function var291(p286, p287)
-            local var288 = math.floor(math.log(math.max(1, math.abs(p286)), 1000))
-            local var289 = var285[1 + var288] or 'e+' .. var288
-            local var290 = math.floor(p286 * (10 ^ p287 / 1000 ^ var288)) / 10 ^ p287
+        local function vu291(p286, p287)
+            local v288 = math.floor(math.log(math.max(1, math.abs(p286)), 1000))
+            local v289 = vu285[1 + v288] or 'e+' .. v288
+            local v290 = math.floor(p286 * (10 ^ p287 / 1000 ^ v288)) / 10 ^ p287
 
-            return ('%.' .. p287 .. 'f%s'):format(var290, var289)
+            return ('%.' .. p287 .. 'f%s'):format(v290, v289)
         end
 
-        local var292 = var284.Parent.Parent.SPS
-        local var293 = var284.Parent.Parent.SPM
-        local var294 = var284.Parent.Parent.SPTM
-        local var295 = var284.Parent.Parent.SPH
-        local var296 = var284.Parent.Parent.SPD
-        local var297 = var284.Parent.Parent.SPW;
+        local vu292 = v284.Parent.Parent.SPS
+        local vu293 = v284.Parent.Parent.SPM
+        local vu294 = v284.Parent.Parent.SPTM
+        local vu295 = v284.Parent.Parent.SPH
+        local vu296 = v284.Parent.Parent.SPD
+        local vu297 = v284.Parent.Parent.SPW;
 
         (function()
-            local var298 = game:GetService('Players').LocalPlayer.leaderstats.Strength
-            local var299 = var298.Value
+            local v298 = game:GetService('Players').LocalPlayer.leaderstats.Strength
+            local v299 = v298.Value
 
             while true do
                 wait(1)
 
-                local var300 = var298.Value
-                local var301 = var300 - var299
+                local v300 = v298.Value
+                local v301 = v300 - v299
 
-                var292.Text = 'SPS: ' .. var291(var301, 1)
-                var293.Text = 'SPM: ' .. var291(var301 * 60, 1)
-                var294.Text = 'SPTM: ' .. var291(var301 * 600, 1)
-                var295.Text = 'SPH: ' .. var291(var301 * 3600, 1)
-                var296.Text = 'SPD: ' .. var291(var301 * 86400, 1)
-                var297.Text = 'SPW: ' .. var291(var301 * 604800, 1)
-                var299 = var300
+                vu292.Text = 'SPS: ' .. vu291(v301, 1)
+                vu293.Text = 'SPM: ' .. vu291(v301 * 60, 1)
+                vu294.Text = 'SPTM: ' .. vu291(v301 * 600, 1)
+                vu295.Text = 'SPH: ' .. vu291(v301 * 3600, 1)
+                vu296.Text = 'SPD: ' .. vu291(v301 * 86400, 1)
+                vu297.Text = 'SPW: ' .. vu291(v301 * 604800, 1)
+                v299 = v300
             end
         end)()
     end
 
-    coroutine.wrap(var302)()
+    coroutine.wrap(v302)()
 
-    local function var321()
-        local var303 = Instance.new('LocalScript', var85).Parent
-        local var304 = {}
-        local var305 = 2
+    local function v321()
+        local vu303 = Instance.new('LocalScript', vu85).Parent
+        local vu304 = {}
+        local v305 = 2
 
-        local function var310(p306)
-            local var307 = var303:FindFirstChild(p306.Name)
+        local function vu310(p306)
+            local v307 = vu303:FindFirstChild(p306.Name)
 
-            if not var307 then
-                var307 = Instance.new('TextLabel')
-                var307.Name = p306.Name
-                var307.Size = UDim2.new(0, 149, 0, 19)
-                var307.BackgroundColor3 = Color3.new(0, 0, 0)
-                var307.TextColor3 = Color3.new(1, 1, 1)
-                var307.Font = Enum.Font.FredokaOne
-                var307.TextSize = 18
-                var307.TextScaled = true
-                var307.Parent = var303
+            if not v307 then
+                v307 = Instance.new('TextLabel')
+                v307.Name = p306.Name
+                v307.Size = UDim2.new(0, 149, 0, 19)
+                v307.BackgroundColor3 = Color3.new(0, 0, 0)
+                v307.TextColor3 = Color3.new(1, 1, 1)
+                v307.Font = Enum.Font.FredokaOne
+                v307.TextSize = 18
+                v307.TextScaled = true
+                v307.Parent = vu303
             end
 
-            local var308 = game.ReplicatedStorage.Data:FindFirstChild(p306.Name)
+            local v308 = game.ReplicatedStorage.Data:FindFirstChild(p306.Name)
 
-            if var308 and var308:FindFirstChild('Strength') then
-                local var309 = var308.Strength.Value
+            if v308 and v308:FindFirstChild('Strength') then
+                local v309 = v308.Strength.Value
 
-                if not var304[p306.Name] then
-                    var304[p306.Name] = var309
+                if not vu304[p306.Name] then
+                    vu304[p306.Name] = v309
                 end
-                if var309 - var304[p306.Name] < 50 then
-                    var307.Text = p306.Name .. ' Not Farming'
-                    var307.TextColor3 = Color3.new(1, 1, 1)
+                if v309 - vu304[p306.Name] < 50 then
+                    v307.Text = p306.Name .. ' Not Farming'
+                    v307.TextColor3 = Color3.new(1, 1, 1)
                 else
-                    var307.Text = p306.Name .. ' Is Farming'
-                    var307.TextColor3 = Color3.new(0, 1, 0)
+                    v307.Text = p306.Name .. ' Is Farming'
+                    v307.TextColor3 = Color3.new(0, 1, 0)
                 end
 
-                var304[p306.Name] = var309
+                vu304[p306.Name] = v309
             else
-                var307.Text = p306.Name .. ': No Strength Stat'
-                var304[p306.Name] = nil
+                v307.Text = p306.Name .. ': No Strength Stat'
+                vu304[p306.Name] = nil
             end
         end
-        local function var312()
-            local var311 = #game.Players:GetPlayers()
+        local function vu312()
+            local v311 = #game.Players:GetPlayers()
 
-            var303.CanvasSize = UDim2.new(0, 0, 0, var311 * 60)
+            vu303.CanvasSize = UDim2.new(0, 0, 0, v311 * 60)
         end
-        local function var317()
-            local var313, var314, var315 = pairs(game.Players:GetPlayers())
+        local function v317()
+            local v313, v314, v315 = pairs(game.Players:GetPlayers())
 
             while true do
-                local var316
+                local v316
 
-                var315, var316 = var313(var314, var315)
+                v315, v316 = v313(v314, v315)
 
-                if var315 == nil then
+                if v315 == nil then
                     break
                 end
 
-                var310(var316)
+                vu310(v316)
             end
 
-            var312()
+            vu312()
         end
 
         game.Players.PlayerAdded:Connect(function(p318)
-            var310(p318)
+            vu310(p318)
         end)
         game.Players.PlayerRemoving:Connect(function(p319)
-            local var320 = var303:FindFirstChild(p319.Name)
+            local v320 = vu303:FindFirstChild(p319.Name)
 
-            if var320 then
-                var320:Destroy()
+            if v320 then
+                v320:Destroy()
             end
 
-            var304[p319.Name] = nil
+            vu304[p319.Name] = nil
         end)
 
         while true do
-            var317()
-            wait(var305)
+            v317()
+            wait(v305)
         end
     end
 
-    coroutine.wrap(var321)()
+    coroutine.wrap(v321)()
 
-    local function var346()
-        local var322 = Instance.new('LocalScript', var87).Parent
-        local var323 = {
+    local function v346()
+        local vu322 = Instance.new('LocalScript', vu87).Parent
+        local vu323 = {
             '',
             'K',
             'M',
             'B',
             'T',
         }
-        local var324 = {}
+        local vu324 = {}
 
-        local function var330(p325, p326)
-            local var327 = math.floor(math.log(math.max(1, math.abs(p325)), 1000))
-            local var328 = var323[1 + var327] or 'e+' .. var327
-            local var329 = math.floor(p325 * (10 ^ p326 / 1000 ^ var327)) / 10 ^ p326
+        local function vu330(p325, p326)
+            local v327 = math.floor(math.log(math.max(1, math.abs(p325)), 1000))
+            local v328 = vu323[1 + v327] or 'e+' .. v327
+            local v329 = math.floor(p325 * (10 ^ p326 / 1000 ^ v327)) / 10 ^ p326
 
-            return ('%.' .. p326 .. 'f%s'):format(var329, var328)
+            return ('%.' .. p326 .. 'f%s'):format(v329, v328)
         end
-        local function var335(p331)
-            local var332 = var322:FindFirstChild(p331.Name)
+        local function vu335(p331)
+            local v332 = vu322:FindFirstChild(p331.Name)
 
-            if not var332 then
-                var332 = Instance.new('TextLabel')
-                var332.Name = p331.Name
-                var332.Size = UDim2.new(0, 149, 0, 19)
-                var332.BackgroundColor3 = Color3.new(0, 0, 0)
-                var332.TextColor3 = Color3.new(1, 1, 1)
-                var332.Font = Enum.Font.FredokaOne
-                var332.TextScaled = true
-                var332.TextSize = 18
-                var332.Parent = var322
+            if not v332 then
+                v332 = Instance.new('TextLabel')
+                v332.Name = p331.Name
+                v332.Size = UDim2.new(0, 149, 0, 19)
+                v332.BackgroundColor3 = Color3.new(0, 0, 0)
+                v332.TextColor3 = Color3.new(1, 1, 1)
+                v332.Font = Enum.Font.FredokaOne
+                v332.TextScaled = true
+                v332.TextSize = 18
+                v332.Parent = vu322
             end
 
-            local var333 = p331:FindFirstChild('leaderstats')
+            local v333 = p331:FindFirstChild('leaderstats')
 
-            if var333 and var333:FindFirstChild('Strength') then
-                local var334 = var333.Strength.Value
+            if v333 and v333:FindFirstChild('Strength') then
+                local v334 = v333.Strength.Value
 
-                if var324[p331.Name] ~= var334 then
-                    var332.Text = p331.Name .. ': ' .. var330(var334, 1)
-                    var324[p331.Name] = var334
+                if vu324[p331.Name] ~= v334 then
+                    v332.Text = p331.Name .. ': ' .. vu330(v334, 1)
+                    vu324[p331.Name] = v334
                 end
             else
-                var332.Text = p331.Name .. ': No Strength Stat'
+                v332.Text = p331.Name .. ': No Strength Stat'
             end
         end
-        local function var337()
-            local var336 = #game.Players:GetPlayers()
+        local function vu337()
+            local v336 = #game.Players:GetPlayers()
 
-            var322.CanvasSize = UDim2.new(0, 0, 0, var336 * 60)
+            vu322.CanvasSize = UDim2.new(0, 0, 0, v336 * 60)
         end
-        local function var342()
-            local var338, var339, var340 = pairs(game.Players:GetPlayers())
+        local function v342()
+            local v338, v339, v340 = pairs(game.Players:GetPlayers())
 
             while true do
-                local var341
+                local v341
 
-                var340, var341 = var338(var339, var340)
+                v340, v341 = v338(v339, v340)
 
-                if var340 == nil then
+                if v340 == nil then
                     break
                 end
 
-                var335(var341)
+                vu335(v341)
             end
 
-            var337()
+            vu337()
         end
 
         game.Players.PlayerAdded:Connect(function(p343)
-            var335(p343)
-            var337()
+            vu335(p343)
+            vu337()
         end)
         game.Players.PlayerRemoving:Connect(function(p344)
-            local var345 = var322:FindFirstChild(p344.Name)
+            local v345 = vu322:FindFirstChild(p344.Name)
 
-            if var345 then
-                var345:Destroy()
+            if v345 then
+                v345:Destroy()
             end
 
-            var324[p344.Name] = nil
+            vu324[p344.Name] = nil
 
-            var337()
+            vu337()
         end)
 
         while true do
-            var342()
+            v342()
             wait(5)
         end
     end
 
-    coroutine.wrap(var346)()
+    coroutine.wrap(v346)()
 
-    local function var371()
-        local var347 = Instance.new('LocalScript', var89).Parent
-        local var348 = {
+    local function v371()
+        local vu347 = Instance.new('LocalScript', vu89).Parent
+        local vu348 = {
             '',
             'K',
             'M',
             'B',
             'T',
         }
-        local var349 = {}
+        local vu349 = {}
 
-        local function var355(p350, p351)
-            local var352 = math.floor(math.log(math.max(1, math.abs(p350)), 1000))
-            local var353 = var348[1 + var352] or 'e+' .. var352
-            local var354 = math.floor(p350 * (10 ^ p351 / 1000 ^ var352)) / 10 ^ p351
+        local function vu355(p350, p351)
+            local v352 = math.floor(math.log(math.max(1, math.abs(p350)), 1000))
+            local v353 = vu348[1 + v352] or 'e+' .. v352
+            local v354 = math.floor(p350 * (10 ^ p351 / 1000 ^ v352)) / 10 ^ p351
 
-            return ('%.' .. p351 .. 'f%s'):format(var354, var353)
+            return ('%.' .. p351 .. 'f%s'):format(v354, v353)
         end
-        local function var360(p356)
-            local var357 = var347:FindFirstChild(p356.Name)
+        local function vu360(p356)
+            local v357 = vu347:FindFirstChild(p356.Name)
 
-            if not var357 then
-                var357 = Instance.new('TextLabel')
-                var357.Name = p356.Name
-                var357.Size = UDim2.new(0, 149, 0, 19)
-                var357.BackgroundColor3 = Color3.new(0, 0, 0)
-                var357.TextColor3 = Color3.new(1, 1, 1)
-                var357.TextScaled = true
-                var357.Font = Enum.Font.FredokaOne
-                var357.TextSize = 18
-                var357.Parent = var347
+            if not v357 then
+                v357 = Instance.new('TextLabel')
+                v357.Name = p356.Name
+                v357.Size = UDim2.new(0, 149, 0, 19)
+                v357.BackgroundColor3 = Color3.new(0, 0, 0)
+                v357.TextColor3 = Color3.new(1, 1, 1)
+                v357.TextScaled = true
+                v357.Font = Enum.Font.FredokaOne
+                v357.TextSize = 18
+                v357.Parent = vu347
             end
 
-            local var358 = game.ReplicatedStorage.Data:FindFirstChild(p356.Name)
+            local v358 = game.ReplicatedStorage.Data:FindFirstChild(p356.Name)
 
-            if var358 and var358:FindFirstChild('Strength') then
-                local var359 = var358.Strength.Value
+            if v358 and v358:FindFirstChild('Strength') then
+                local v359 = v358.Strength.Value
 
-                if var349[p356.Name] ~= var359 then
-                    var357.Text = p356.Name .. ': ' .. var355(var359, 1)
-                    var349[p356.Name] = var359
+                if vu349[p356.Name] ~= v359 then
+                    v357.Text = p356.Name .. ': ' .. vu355(v359, 1)
+                    vu349[p356.Name] = v359
                 end
             else
-                var357.Text = p356.Name .. ': No Strength Stat'
+                v357.Text = p356.Name .. ': No Strength Stat'
             end
         end
-        local function var362()
-            local var361 = #game.Players:GetPlayers()
+        local function vu362()
+            local v361 = #game.Players:GetPlayers()
 
-            var347.CanvasSize = UDim2.new(0, 0, 0, var361 * 60)
+            vu347.CanvasSize = UDim2.new(0, 0, 0, v361 * 60)
         end
-        local function var367()
-            local var363, var364, var365 = pairs(game.Players:GetPlayers())
+        local function v367()
+            local v363, v364, v365 = pairs(game.Players:GetPlayers())
 
             while true do
-                local var366
+                local v366
 
-                var365, var366 = var363(var364, var365)
+                v365, v366 = v363(v364, v365)
 
-                if var365 == nil then
+                if v365 == nil then
                     break
                 end
 
-                var360(var366)
+                vu360(v366)
             end
 
-            var362()
+            vu362()
         end
 
         game.Players.PlayerAdded:Connect(function(p368)
-            var360(p368)
-            var362()
+            vu360(p368)
+            vu362()
         end)
         game.Players.PlayerRemoving:Connect(function(p369)
-            local var370 = var347:FindFirstChild(p369.Name)
+            local v370 = vu347:FindFirstChild(p369.Name)
 
-            if var370 then
-                var370:Destroy()
+            if v370 then
+                v370:Destroy()
             end
 
-            var349[p369.Name] = nil
+            vu349[p369.Name] = nil
 
-            var362()
+            vu362()
         end)
 
         while true do
-            var367()
+            v367()
             wait(5)
         end
     end
 
-    coroutine.wrap(var371)()
+    coroutine.wrap(v371)()
 
-    local function var413()
-        local var372 = Instance.new('LocalScript', var91).Parent
+    local function v413()
+        local vu372 = Instance.new('LocalScript', vu91).Parent
 
-        local function var387(p373)
-            local var374 = var372:FindFirstChild(p373.Name)
+        local function vu387(p373)
+            local v374 = vu372:FindFirstChild(p373.Name)
 
-            if not var374 then
-                var374 = Instance.new('TextLabel')
-                var374.Name = p373.Name
-                var374.Size = UDim2.new(0, 149, 0, 19)
-                var374.BackgroundColor3 = Color3.new(0, 0, 0)
-                var374.TextColor3 = Color3.new(1, 1, 1)
-                var374.Font = Enum.Font.FredokaOne
-                var374.TextSize = 18
-                var374.TextScaled = true
-                var374.Parent = var372
+            if not v374 then
+                v374 = Instance.new('TextLabel')
+                v374.Name = p373.Name
+                v374.Size = UDim2.new(0, 149, 0, 19)
+                v374.BackgroundColor3 = Color3.new(0, 0, 0)
+                v374.TextColor3 = Color3.new(1, 1, 1)
+                v374.Font = Enum.Font.FredokaOne
+                v374.TextSize = 18
+                v374.TextScaled = true
+                v374.Parent = vu372
             end
 
-            local var375 = false
-            local var376 = 0
-            local var377 = p373:FindFirstChild('Backpack')
-            local var378 = p373:FindFirstChild('Character')
+            local v375 = false
+            local v376 = 0
+            local v377 = p373:FindFirstChild('Backpack')
+            local v378 = p373:FindFirstChild('Character')
 
-            if var377 then
-                local var379, var380, var381 = pairs(var377:GetChildren())
+            if v377 then
+                local v379, v380, v381 = pairs(v377:GetChildren())
 
                 while true do
-                    local var382
+                    local v382
 
-                    var381, var382 = var379(var380, var381)
+                    v381, v382 = v379(v380, v381)
 
-                    if var381 == nil then
+                    if v381 == nil then
                         break
                     end
-                    if var382.Name == 'Double Weight' then
-                        var376 = var376 + 1
-                        var375 = true
+                    if v382.Name == 'Double Weight' then
+                        v376 = v376 + 1
+                        v375 = true
                     end
                 end
             end
-            if var378 then
-                local var383, var384, var385 = pairs(var378:GetChildren())
+            if v378 then
+                local v383, v384, v385 = pairs(v378:GetChildren())
 
                 while true do
-                    local var386
+                    local v386
 
-                    var385, var386 = var383(var384, var385)
+                    v385, v386 = v383(v384, v385)
 
-                    if var385 == nil then
+                    if v385 == nil then
                         break
                     end
-                    if var386.Name == 'Double Weight' then
-                        var376 = var376 + 1
-                        var375 = true
+                    if v386.Name == 'Double Weight' then
+                        v376 = v376 + 1
+                        v375 = true
                     end
                 end
             end
-            if var375 then
-                var374.Text = p373.Name .. ': ' .. var376 .. ' Double Weight(s)'
+            if v375 then
+                v374.Text = p373.Name .. ': ' .. v376 .. ' Double Weight(s)'
             else
-                var374.Text = p373.Name .. ': Has No Double Weight'
+                v374.Text = p373.Name .. ': Has No Double Weight'
             end
         end
-        local function var389()
-            local var388 = #game.Players:GetPlayers()
+        local function vu389()
+            local v388 = #game.Players:GetPlayers()
 
-            var372.CanvasSize = UDim2.new(0, 0, 0, var388 * 60)
+            vu372.CanvasSize = UDim2.new(0, 0, 0, v388 * 60)
         end
-        local function var394()
-            local var390, var391, var392 = pairs(game.Players:GetPlayers())
+        local function v394()
+            local v390, v391, v392 = pairs(game.Players:GetPlayers())
 
             while true do
-                local var393
+                local v393
 
-                var392, var393 = var390(var391, var392)
+                v392, v393 = v390(v391, v392)
 
-                if var392 == nil then
+                if v392 == nil then
                     break
                 end
 
-                var387(var393)
+                vu387(v393)
             end
 
-            var389()
+            vu389()
         end
-        local function var402(pu395)
-            local var396 = pu395:WaitForChild('Backpack', 5)
-            local var397 = pu395.Character or pu395.CharacterAdded:Wait()
+        local function vu402(pu395)
+            local v396 = pu395:WaitForChild('Backpack', 5)
+            local v397 = pu395.Character or pu395.CharacterAdded:Wait()
 
-            if var396 then
-                var396.ChildAdded:Connect(function(p398)
+            if v396 then
+                v396.ChildAdded:Connect(function(p398)
                     if p398.Name == 'Double Weight' then
-                        var387(pu395)
+                        vu387(pu395)
                     end
                 end)
-                var396.ChildRemoved:Connect(function(p399)
+                v396.ChildRemoved:Connect(function(p399)
                     if p399.Name == 'Double Weight' then
-                        var387(pu395)
+                        vu387(pu395)
                     end
                 end)
             end
-            if var397 then
-                var397.ChildAdded:Connect(function(p400)
+            if v397 then
+                v397.ChildAdded:Connect(function(p400)
                     if p400.Name == 'Double Weight' then
-                        var387(pu395)
+                        vu387(pu395)
                     end
                 end)
-                var397.ChildRemoved:Connect(function(p401)
+                v397.ChildRemoved:Connect(function(p401)
                     if p401.Name == 'Double Weight' then
-                        var387(pu395)
+                        vu387(pu395)
                     end
                 end)
             end
         end
 
         game.Players.PlayerAdded:Connect(function(p403)
-            var387(p403)
-            var402(p403)
-            var389()
+            vu387(p403)
+            vu402(p403)
+            vu389()
         end)
         game.Players.PlayerRemoving:Connect(function(p404)
-            local var405 = var372:FindFirstChild(p404.Name)
+            local v405 = vu372:FindFirstChild(p404.Name)
 
-            if var405 then
-                var405:Destroy()
+            if v405 then
+                v405:Destroy()
             end
 
-            var389()
+            vu389()
         end)
 
-        local var406, var407, var408 = pairs(game.Players:GetPlayers())
-        local var409 = var389
-        local var410 = var402
-        local var411 = var387
+        local v406, v407, v408 = pairs(game.Players:GetPlayers())
+        local v409 = vu389
+        local v410 = vu402
+        local v411 = vu387
 
         while true do
-            local var412
+            local v412
 
-            var408, var412 = var406(var407, var408)
+            v408, v412 = v406(v407, v408)
 
-            if var408 == nil then
+            if v408 == nil then
                 break
             end
 
-            var411(var412)
-            var410(var412)
+            v411(v412)
+            v410(v412)
         end
 
-        var409()
+        v409()
 
         while true do
-            var394()
+            v394()
             wait(10)
         end
     end
 
-    coroutine.wrap(var413)()
+    coroutine.wrap(v413)()
 
-    local function var429()
-        local var414 = Instance.new('LocalScript', MainFrame)
-        local var415 = game:GetService('UserInputService')
-        local var416 = var414.Parent
-        local var417 = nil
-        local var418 = nil
-        local var419 = nil
-        local var420 = nil
+    local function v429()
+        local v414 = Instance.new('LocalScript', vu3)
+        local v415 = game:GetService('UserInputService')
+        local vu416 = v414.Parent
+        local vu417 = nil
+        local vu418 = nil
+        local vu419 = nil
+        local vu420 = nil
 
-        local function var423(p421)
-            local var422 = p421.Position - var419
+        local function vu423(p421)
+            local v422 = p421.Position - vu419
 
-            var416.Position = UDim2.new(var420.X.Scale, var420.X.Offset + var422.X, var420.Y.Scale, var420.Y.Offset + var422.Y)
+            vu416.Position = UDim2.new(vu420.X.Scale, vu420.X.Offset + v422.X, vu420.Y.Scale, vu420.Y.Offset + v422.Y)
         end
-        local function var425(pu424)
-            var417 = true
-            var419 = pu424.Position
-            var420 = var416.Position
+        local function vu425(pu424)
+            vu417 = true
+            vu419 = pu424.Position
+            vu420 = vu416.Position
 
             pu424.Changed:Connect(function()
                 if pu424.UserInputState == Enum.UserInputState.End then
-                    var417 = false
+                    vu417 = false
                 end
             end)
         end
 
-        var416.InputBegan:Connect(function(p426)
+        vu416.InputBegan:Connect(function(p426)
             if p426.UserInputType == Enum.UserInputType.MouseButton1 or p426.UserInputType == Enum.UserInputType.Touch then
-                var425(p426)
+                vu425(p426)
             end
         end)
-        var416.InputChanged:Connect(function(p427)
+        vu416.InputChanged:Connect(function(p427)
             if p427.UserInputType == Enum.UserInputType.MouseMovement or p427.UserInputType == Enum.UserInputType.Touch then
-                var418 = p427
+                vu418 = p427
             end
         end)
-        var415.InputChanged:Connect(function(p428)
-            if p428 == var418 and var417 then
-                var423(p428)
+        v415.InputChanged:Connect(function(p428)
+            if p428 == vu418 and vu417 then
+                vu423(p428)
             end
         end)
     end
 
-    coroutine.wrap(var429)()
+    coroutine.wrap(v429)()
 
-    local function var457()
-        local var430 = Instance.new('LocalScript', var104)
-        local var431 = var430.Parent.Parent:WaitForChild('Duper')
-        local var432 = var430.Parent
-        local var433 = var430.Parent.Parent:WaitForChild('Remain')
-        local var434 = 5949054
-        local var435 = 1
+    local function v457()
+        local v430 = Instance.new('LocalScript', vu104)
+        local vu431 = v430.Parent.Parent:WaitForChild('Duper')
+        local v432 = v430.Parent
+        local vu433 = v430.Parent.Parent:WaitForChild('Remain')
+        local vu434 = 5949054
+        local vu435 = 1
 
-        local function var439(pu436)
-            local var437 = game:GetService('MarketplaceService')
-            local var438 = game.Players.LocalPlayer
+        local function vu439(pu436)
+            local vu437 = game:GetService('MarketplaceService')
+            local vu438 = game.Players.LocalPlayer
 
             pcall(function()
-                var437:SignalPromptGamePassPurchaseFinished(var438, pu436, true)
+                vu437:SignalPromptGamePassPurchaseFinished(vu438, pu436, true)
             end)
         end
-        local function var445()
-            local var440, var441, var442 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
-            local var443 = 0
+        local function vu445()
+            local v440, v441, v442 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+            local v443 = 0
 
             while true do
-                local var444
+                local v444
 
-                var442, var444 = var440(var441, var442)
+                v442, v444 = v440(v441, v442)
 
-                if var442 == nil then
+                if v442 == nil then
                     break
                 end
-                if var444.Name == 'Double Weight' then
-                    var443 = var443 + 1
+                if v444.Name == 'Double Weight' then
+                    v443 = v443 + 1
                 end
             end
 
-            return var443
+            return v443
         end
-        local function var450(p446, p447)
-            local var448 = math.floor(p447 / 60)
-            local var449 = p447 % 60
+        local function vu450(p446, p447)
+            local v448 = math.floor(p447 / 60)
+            local v449 = p447 % 60
 
-            p446.Text = string.format('Time Remaining: %d min %.2f sec', var448, var449)
+            p446.Text = string.format('Time Remaining: %d min %.2f sec', v448, v449)
         end
-        local function var453(p451, p452)
+        local function vu453(p451, p452)
             game:GetService('StarterGui'):SetCore('SendNotification', {
                 Title = 'Auto Dupe!',
                 Text = 'Started',
@@ -2586,10 +2586,10 @@ else
 
                 p451 = p451 - 1
 
-                var450(var433, p451)
-                var439(var434)
+                vu450(vu433, p451)
+                vu439(vu434)
 
-                if p452 <= var445() then
+                if p452 <= vu445() then
                     break
                 end
             end
@@ -2600,105 +2600,105 @@ else
                 Duration = 5,
             })
 
-            var433.Text = 'Countdown Finished!'
+            vu433.Text = 'Countdown Finished!'
 
             print('Dupe Stopped')
         end
 
-        var432.MouseButton1Click:Connect(function()
-            local var454 = var431.Text
-            local var455 = tonumber(var454) or 0
-            local var456 = var445()
+        v432.MouseButton1Click:Connect(function()
+            local v454 = vu431.Text
+            local v455 = tonumber(v454) or 0
+            local v456 = vu445()
 
-            if var456 < var455 then
-                var453((var455 - var456) * var435, var455)
+            if v456 < v455 then
+                vu453((v455 - v456) * vu435, v455)
             else
                 print('You already have enough Double Weights.')
 
-                var433.Text = 'No more weights needed!'
+                vu433.Text = 'No more weights needed!'
             end
         end)
     end
 
-    coroutine.wrap(var457)()
+    coroutine.wrap(v457)()
 
-    local function var468()
-        local var458 = Instance.new('LocalScript', var106).Parent
+    local function v468()
+        local v458 = Instance.new('LocalScript', vu106).Parent
 
         while true do
             wait(0.1)
 
-            local var459, var460, var461 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
-            local var462 = 0
-            local var463
+            local v459, v460, v461 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+            local v462 = 0
+            local v463
 
-            var461, var463 = var459(var460, var461)
+            v461, v463 = v459(v460, v461)
 
-            if var461 ~= nil then
-                if var463.Name == 'Double Weight' then
-                    var462 = var462 + 1
+            if v461 ~= nil then
+                if v463.Name == 'Double Weight' then
+                    v462 = v462 + 1
                 end
             end
-            if var462 == 0 then
-                local var464, var465, var466 = pairs(game.Players.LocalPlayer.Character:GetChildren())
+            if v462 == 0 then
+                local v464, v465, v466 = pairs(game.Players.LocalPlayer.Character:GetChildren())
 
                 while true do
-                    local var467
+                    local v467
 
-                    var466, var467 = var464(var465, var466)
+                    v466, v467 = v464(v465, v466)
 
-                    if var466 == nil then
+                    if v466 == nil then
                         break
                     end
-                    if var467.Name == 'Double Weight' then
-                        var462 = var462 + 1
+                    if v467.Name == 'Double Weight' then
+                        v462 = v462 + 1
                     end
                 end
             end
 
-            var458.Text = 'Weights: ' .. var462
+            v458.Text = 'Weights: ' .. v462
 
-            if var462 == 9999999999999 then
+            if v462 == 9999999999999 then
                 return
             end
         end
     end
 
-    coroutine.wrap(var468)()
+    coroutine.wrap(v468)()
 
-    local function var483()
-        local var469 = Instance.new('LocalScript', var112)
+    local function v483()
+        local vu469 = Instance.new('LocalScript', vu112)
 
-        var469.Parent.MouseButton1Click:Connect(function()
-            local var470 = tonumber(var469.Parent.Parent.Wait.Text) or 1
-            local var471 = game:GetService('Stats')
-            local var472 = tonumber(var469.Parent.Parent.Parent.Main2Frame.Pinger.Text)
-            local var473 = false
-            local var474 = false
+        vu469.Parent.MouseButton1Click:Connect(function()
+            local vu470 = tonumber(vu469.Parent.Parent.Wait.Text) or 1
+            local v471 = game:GetService('Stats')
+            local v472 = tonumber(vu469.Parent.Parent.Parent.Main2Frame.Pinger.Text)
+            local v473 = false
+            local vu474 = false
 
-            local function var479()
-                if not var474 then
-                    var474 = true
+            local function v479()
+                if not vu474 then
+                    vu474 = true
 
                     coroutine.wrap(function()
                         pcall(function()
                             _G.farmer2 = true
 
                             while _G.farmer2 do
-                                task.wait(var470)
+                                task.wait(vu470)
 
-                                local var475, var476, var477 = pairs(game.Players.LocalPlayer.Character:GetChildren())
+                                local v475, v476, v477 = pairs(game.Players.LocalPlayer.Character:GetChildren())
 
                                 while true do
-                                    local var478
+                                    local v478
 
-                                    var477, var478 = var475(var476, var477)
+                                    v477, v478 = v475(v476, v477)
 
-                                    if var477 == nil then
+                                    if v477 == nil then
                                         break
                                     end
-                                    if var478.Name == 'Double Weight' then
-                                        var478:Activate()
+                                    if v478.Name == 'Double Weight' then
+                                        v478:Activate()
                                     end
                                 end
                             end
@@ -2706,60 +2706,60 @@ else
                     end)()
                 end
             end
-            local function var480()
-                if var474 then
+            local function v480()
+                if vu474 then
                     _G.farmer2 = false
-                    var474 = false
+                    vu474 = false
                 end
             end
 
-            var479()
+            v479()
 
-            local var481 = var470
+            local v481 = vu470
 
             while true do
-                local var482 = var471.Network.ServerStatsItem['Data Ping']:GetValue()
+                local v482 = v471.Network.ServerStatsItem['Data Ping']:GetValue()
 
-                if var472 <= var482 and not var473 then
+                if v472 <= v482 and not v473 then
                     game:GetService('StarterGui'):SetCore('SendNotification', {
                         Title = 'Ping Limiter!',
                         Text = 'Farm Stopped - Ping Over Limit',
                         Duration = 3,
                     })
-                    var480()
+                    v480()
 
-                    var473 = true
-                elseif var482 < var472 and var473 then
+                    v473 = true
+                elseif v482 < v472 and v473 then
                     game:GetService('StarterGui'):SetCore('SendNotification', {
                         Title = 'Ping Limiter!',
                         Text = 'Farm Started - Ping Under Limit',
                         Duration = 3,
                     })
-                    var479()
+                    v479()
 
-                    var473 = false
+                    v473 = false
                 end
 
-                task.wait(var481)
+                task.wait(v481)
             end
         end)
     end
 
-    coroutine.wrap(var483)()
+    coroutine.wrap(v483)()
 
-    local function var484()
-        Instance.new('LocalScript', var114).Parent.MouseButton1Click:Connect(function()
+    local function v484()
+        Instance.new('LocalScript', vu114).Parent.MouseButton1Click:Connect(function()
             _G.farmer2 = false
         end)
     end
 
-    coroutine.wrap(var484)()
+    coroutine.wrap(v484)()
 
-    local function var496()
-        Instance.new('LocalScript', var116).Parent.MouseButton1Click:Connect(function()
+    local function v496()
+        Instance.new('LocalScript', vu116).Parent.MouseButton1Click:Connect(function()
             _G.Equip = true
 
-            local var485 = false
+            local v485 = false
 
             if not _G.Equip then
                 return
@@ -2767,42 +2767,42 @@ else
 
             wait(0.631201)
 
-            local var486, var487, var488 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
-            local var489 = 0
+            local v486, v487, v488 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+            local v489 = 0
 
-            if var490.Name == 'Double Weight' then
-                var490.Parent = game.Players.LocalPlayer.Character
-                var489 = var489 + 1
+            if v490.Name == 'Double Weight' then
+                v490.Parent = game.Players.LocalPlayer.Character
+                v489 = v489 + 1
 
-                if var489 >= 100 then
+                if v489 >= 100 then
                     break
                 end
             end
 
-            local var490
+            local v490
 
-            var488, var490 = var486(var487, var488)
+            v488, v490 = v486(v487, v488)
 
-            if var488 ~= nil then
+            if v488 ~= nil then
             end
 
-            local var491, var492, var493 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
-            local var494 = 0
+            local v491, v492, v493 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+            local v494 = 0
 
             while true do
-                local var495
+                local v495
 
-                var493, var495 = var491(var492, var493)
+                v493, v495 = v491(v492, v493)
 
-                if var493 == nil then
+                if v493 == nil then
                     break
                 end
-                if var495.Name == 'Double Weight' then
-                    var494 = var494 + 1
+                if v495.Name == 'Double Weight' then
+                    v494 = v494 + 1
                 end
             end
 
-            if var494 == 0 and not var485 then
+            if v494 == 0 and not v485 then
                 wait(1)
                 game:GetService('StarterGui'):SetCore('SendNotification', {
                     Title = 'Equip',
@@ -2811,18 +2811,18 @@ else
                 })
 
                 _G.Equip = false
-                var485 = true
+                v485 = true
             end
         end)
     end
 
-    coroutine.wrap(var496)()
+    coroutine.wrap(v496)()
 
-    local function var508()
-        Instance.new('LocalScript', var118).Parent.MouseButton1Click:Connect(function()
+    local function v508()
+        Instance.new('LocalScript', vu118).Parent.MouseButton1Click:Connect(function()
             _G.Equip = true
 
-            local var497 = false
+            local v497 = false
 
             if not _G.Equip then
                 return
@@ -2830,42 +2830,42 @@ else
 
             wait(0.631201)
 
-            local var498, var499, var500 = pairs(game.Players.LocalPlayer.Character:GetChildren())
-            local var501 = 0
+            local v498, v499, v500 = pairs(game.Players.LocalPlayer.Character:GetChildren())
+            local v501 = 0
 
-            if var502.Name == 'Double Weight' then
-                var502.Parent = game.Players.LocalPlayer.Backpack
-                var501 = var501 + 1
+            if v502.Name == 'Double Weight' then
+                v502.Parent = game.Players.LocalPlayer.Backpack
+                v501 = v501 + 1
 
-                if var501 >= 100 then
+                if v501 >= 100 then
                     break
                 end
             end
 
-            local var502
+            local v502
 
-            var500, var502 = var498(var499, var500)
+            v500, v502 = v498(v499, v500)
 
-            if var500 ~= nil then
+            if v500 ~= nil then
             end
 
-            local var503, var504, var505 = pairs(game.Players.LocalPlayer.Character:GetChildren())
-            local var506 = 0
+            local v503, v504, v505 = pairs(game.Players.LocalPlayer.Character:GetChildren())
+            local v506 = 0
 
             while true do
-                local var507
+                local v507
 
-                var505, var507 = var503(var504, var505)
+                v505, v507 = v503(v504, v505)
 
-                if var505 == nil then
+                if v505 == nil then
                     break
                 end
-                if var507.Name == 'Double Weight' then
-                    var506 = var506 + 1
+                if v507.Name == 'Double Weight' then
+                    v506 = v506 + 1
                 end
             end
 
-            if var506 == 0 and not var497 then
+            if v506 == 0 and not v497 then
                 wait(1)
                 game:GetService('StarterGui'):SetCore('SendNotification', {
                     Title = 'Equip',
@@ -2874,18 +2874,18 @@ else
                 })
 
                 _G.Equip = false
-                var497 = true
+                v497 = true
             end
         end)
     end
 
-    coroutine.wrap(var508)()
+    coroutine.wrap(v508)()
 
-    local function var520()
-        local var509 = Instance.new('LocalScript', var120)
-        local var510 = var509.Parent
-        local var511 = var509.Parent.Parent.Pinger
-        local var512 = {
+    local function v520()
+        local v509 = Instance.new('LocalScript', vu120)
+        local v510 = v509.Parent
+        local v511 = v509.Parent.Parent.Pinger
+        local vu512 = {
             '',
             'K',
             'M',
@@ -2893,81 +2893,81 @@ else
             'T',
         }
 
-        local function var518(p513, p514)
-            local var515 = math.floor(math.log(math.max(1, math.abs(p513)), 1000))
-            local var516 = var512[1 + var515] or 'e+' .. var515
-            local var517 = math.floor(p513 * (10 ^ p514 / 1000 ^ var515)) / 10 ^ p514
+        local function v518(p513, p514)
+            local v515 = math.floor(math.log(math.max(1, math.abs(p513)), 1000))
+            local v516 = vu512[1 + v515] or 'e+' .. v515
+            local v517 = math.floor(p513 * (10 ^ p514 / 1000 ^ v515)) / 10 ^ p514
 
-            return ('%.' .. p514 .. 'f%s'):format(var517, var516)
+            return ('%.' .. p514 .. 'f%s'):format(v517, v516)
         end
 
         while true do
-            local var519 = tonumber(var511.Text)
+            local v519 = tonumber(v511.Text)
 
-            if var519 then
-                var510.Text = 'Ping Limit Set To: ' .. var518(var519, 0)
+            if v519 then
+                v510.Text = 'Ping Limit Set To: ' .. v518(v519, 0)
             else
-                var510.Text = 'Invalid Ping Limit'
+                v510.Text = 'Invalid Ping Limit'
             end
 
             wait(1)
         end
     end
 
-    coroutine.wrap(var520)()
+    coroutine.wrap(v520)()
 
-    local function var546()
-        Instance.new('LocalScript', var122).Parent.MouseButton1Click:Connect(function()
+    local function v546()
+        Instance.new('LocalScript', vu122).Parent.MouseButton1Click:Connect(function()
             loadstring(game:HttpGet('https://pastebin.com/raw/mmEr60d5', true))()
             game.ReplicatedFirst.TourneyQ:Destroy()
             game:GetService('Lighting').NormalSky:Destroy()
             game:GetService('Players').LocalPlayer.PlayerGui.HUD:Destroy()
 
-            local var521 = game
-            local var522 = var521.Workspace
-            local var523 = var521.Lighting
-            local var524 = var522.Terrain
+            local v521 = game
+            local v522 = v521.Workspace
+            local v523 = v521.Lighting
+            local v524 = v522.Terrain
 
-            var524.WaterWaveSize = 0
-            var524.WaterWaveSpeed = 0
-            var524.WaterReflectance = 0
-            var524.WaterTransparency = 0
-            var523.GlobalShadows = false
-            var523.FogEnd = 9000000000
+            v524.WaterWaveSize = 0
+            v524.WaterWaveSpeed = 0
+            v524.WaterReflectance = 0
+            v524.WaterTransparency = 0
+            v523.GlobalShadows = false
+            v523.FogEnd = 9000000000
             settings().Rendering.QualityLevel = 'Level01'
 
-            local var525, var526, var527 = pairs(var521:GetDescendants())
+            local v525, v526, v527 = pairs(v521:GetDescendants())
 
             while true do
-                local var528
+                local v528
 
-                var527, var528 = var525(var526, var527)
+                v527, v528 = v525(v526, v527)
 
-                if var527 == nil then
+                if v527 == nil then
                     break
                 end
-                if var528:IsA('Part') or (var528:IsA('Union') or var528:IsA('MeshPart')) then
-                    var528.Reflectance = 0
-                elseif var528:IsA('ParticleEmitter') or var528:IsA('Trail') then
-                    var528:Destroy()
-                elseif var528:IsA('Explosion') then
-                    var528.BlastPressure = 0
-                    var528.BlastRadius = 0
+                if v528:IsA('Part') or (v528:IsA('Union') or v528:IsA('MeshPart')) then
+                    v528.Reflectance = 0
+                elseif v528:IsA('ParticleEmitter') or v528:IsA('Trail') then
+                    v528:Destroy()
+                elseif v528:IsA('Explosion') then
+                    v528.BlastPressure = 0
+                    v528.BlastRadius = 0
                 end
             end
 
-            local var529, var530, var531 = pairs(var523:GetChildren())
+            local v529, v530, v531 = pairs(v523:GetChildren())
 
             while true do
-                local var532
+                local v532
 
-                var531, var532 = var529(var530, var531)
+                v531, v532 = v529(v530, v531)
 
-                if var531 == nil then
+                if v531 == nil then
                     break
                 end
-                if var532:IsA('BlurEffect') or (var532:IsA('SunRaysEffect') or (var532:IsA('ColorCorrectionEffect') or (var532:IsA('BloomEffect') or var532:IsA('DepthOfFieldEffect')))) then
-                    var532.Enabled = false
+                if v532:IsA('BlurEffect') or (v532:IsA('SunRaysEffect') or (v532:IsA('ColorCorrectionEffect') or (v532:IsA('BloomEffect') or v532:IsA('DepthOfFieldEffect')))) then
+                    v532.Enabled = false
                 end
             end
 
@@ -2978,113 +2978,113 @@ else
                 Duration = 7,
             })
 
-            local var533 = game:GetService('VirtualUser')
+            local vu533 = game:GetService('VirtualUser')
 
             game:GetService('Players').LocalPlayer.Idled:connect(function()
-                var533:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+                vu533:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
                 wait(1)
-                var533:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+                vu533:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
             end)
 
-            local var534, var535, var536 = pairs(game:GetService('Workspace'):GetChildren())
+            local v534, v535, v536 = pairs(game:GetService('Workspace'):GetChildren())
 
             while true do
-                local var537
+                local v537
 
-                var536, var537 = var534(var535, var536)
+                v536, v537 = v534(v535, v536)
 
-                if var536 == nil then
+                if v536 == nil then
                     break
                 end
 
-                local _ = var537.ClassName == 'Model'
+                local _ = v537.ClassName == 'Model'
 
-                if var537.Name ~= game.Players.LocalPlayer.Name and (var537.Name ~= 'Terrain' and (var537.Name ~= 'Baseplate' and var537.Name ~= 'Camera')) then
-                    var537:Destroy()
+                if v537.Name ~= game.Players.LocalPlayer.Name and (v537.Name ~= 'Terrain' and (v537.Name ~= 'Baseplate' and v537.Name ~= 'Camera')) then
+                    v537:Destroy()
                 end
             end
 
-            local var538, var539, var540 = pairs(game:GetService('ReplicatedStorage'):GetChildren())
+            local v538, v539, v540 = pairs(game:GetService('ReplicatedStorage'):GetChildren())
 
             while true do
-                local var541
+                local v541
 
-                var540, var541 = var538(var539, var540)
+                v540, v541 = v538(v539, v540)
 
-                if var540 == nil then
+                if v540 == nil then
                     break
                 end
-                if var541.Name ~= 'Data' then
-                    var541:Destroy()
+                if v541.Name ~= 'Data' then
+                    v541:Destroy()
                 end
             end
 
-            local var542, var543, var544 = pairs(game:GetService('CorePackages'):GetChildren())
+            local v542, v543, v544 = pairs(game:GetService('CorePackages'):GetChildren())
 
             while true do
-                local var545
+                local v545
 
-                var544, var545 = var542(var543, var544)
+                v544, v545 = v542(v543, v544)
 
-                if var544 == nil then
+                if v544 == nil then
                     break
                 end
 
-                var545:Destroy()
+                v545:Destroy()
             end
         end)
     end
 
-    coroutine.wrap(var546)()
+    coroutine.wrap(v546)()
 
-    local function var558()
-        local var547 = Instance.new('LocalScript', var126).Parent
-        local var548 = 0
+    local function v558()
+        local v547 = Instance.new('LocalScript', vu126).Parent
+        local vu548 = 0
 
-        local function var557()
-            var548 = 0
+        local function v557()
+            vu548 = 0
 
-            local var549, var550, var551 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+            local v549, v550, v551 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
 
             while true do
-                local var552
+                local v552
 
-                var551, var552 = var549(var550, var551)
+                v551, v552 = v549(v550, v551)
 
-                if var551 == nil then
+                if v551 == nil then
                     break
                 end
-                if var552.Name == 'Double Weight' then
-                    var548 = var548 + 1
+                if v552.Name == 'Double Weight' then
+                    vu548 = vu548 + 1
                 end
             end
 
-            if var548 == 0 then
-                local var553, var554, var555 = pairs(game.Players.LocalPlayer.Character:GetChildren())
+            if vu548 == 0 then
+                local v553, v554, v555 = pairs(game.Players.LocalPlayer.Character:GetChildren())
 
                 while true do
-                    local var556
+                    local v556
 
-                    var555, var556 = var553(var554, var555)
+                    v555, v556 = v553(v554, v555)
 
-                    if var555 == nil then
+                    if v555 == nil then
                         break
                     end
-                    if var556.Name == 'Double Weight' then
-                        var548 = var548 + 1
+                    if v556.Name == 'Double Weight' then
+                        vu548 = vu548 + 1
                     end
                 end
             end
         end
 
         while true do
-            var557()
+            v557()
 
-            var547.Text = 0.00092 * var548
+            v547.Text = 0.00092 * vu548
 
             wait(1)
         end
     end
 
-    coroutine.wrap(var558)()
+    coroutine.wrap(v558)()
 end
