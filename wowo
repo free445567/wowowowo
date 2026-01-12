@@ -1,8 +1,8 @@
 -- ts file was generated at discord.gg/25ms
 
-local v1 = game.Players.LocalPlayer
+local function = game.Players.LocalPlayer
 
-if v1.Name ~= '26y_PE' then
+if function.Name ~= '26y_PE' then
     v1:Kick()
 else
     local v2 = Instance.new('ScreenGui')
