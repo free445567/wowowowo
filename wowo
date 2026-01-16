@@ -554,7 +554,6 @@ HelpFarmingSection:Button({
             virtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
         end)
         
-        -- Modificado: não apaga SafeZone e SafezonePlatform
         for _, obj in pairs(workspace:GetChildren()) do
             if obj.Name ~= localPlayer.Name and 
                obj.Name ~= 'Terrain' and 
@@ -632,7 +631,6 @@ HelpFarmingSection:Button({
     end
 })
 
--- Botão Day/Night substituindo a Slider
 local isDay = true
 HelpFarmingSection:Button({
     Name = 'Day/Night',
@@ -686,7 +684,6 @@ spawn(function()
                 
                 local tool = player.Backpack:FindFirstChild("Boxing")
                 if tool then
-                    -- Ataca sem equipar a tool
                     game:GetService("ReplicatedStorage").Remotes.Human_Punch:FireServer(
                         player.Character:FindFirstChild("LeftHand"),
                         "LeftPunch",
@@ -703,7 +700,6 @@ spawn(function()
     end
 end)
 
--- Sistema de auto-complete para Loop Kill Target
 local loopKillSuggestion = nil
 local loopKillConfirmed = false
 
@@ -715,7 +711,6 @@ UsuallySection:BigTextbox({
             local searchTerm = value:lower()
             local targetPlayer = nil
             
-            -- Busca jogador começando com o termo
             for _, p in pairs(Players:GetPlayers()) do
                 if p.Name:lower():sub(1, #searchTerm) == searchTerm then
                     targetPlayer = p
@@ -723,7 +718,6 @@ UsuallySection:BigTextbox({
                 end
             end
             
-            -- Se não encontrou exato, busca contendo
             if not targetPlayer then
                 for _, p in pairs(Players:GetPlayers()) do
                     if p.Name:lower():find(searchTerm) then
@@ -734,9 +728,7 @@ UsuallySection:BigTextbox({
             end
             
             if targetPlayer then
-                -- Verifica se está confirmando ou apenas sugerindo
                 if value:lower() == targetPlayer.Name:lower() then
-                    -- Nome completo = confirmado
                     loopKillTarget = targetPlayer
                     loopKillConfirmed = true
                     Library:Notify({ 
@@ -745,7 +737,6 @@ UsuallySection:BigTextbox({
                         Duration = 2 
                     })
                 else
-                    -- Nome parcial = sugestão
                     loopKillSuggestion = targetPlayer
                     loopKillTarget = nil
                     loopKillConfirmed = false
@@ -787,166 +778,52 @@ UsuallySection:Toggle({
     Enabled = false,
     Callback = function(state)
         antiHitEnabled = state
-        if not state then
-            antiHitTarget = nil
-        end
     end
 })
 
--- Detecta quando alguém te bate (FUNCIONA APÓS RESPAWN)
-spawn(function()
-    while true do
-        wait(0.1)
-        if antiHitEnabled then
-            pcall(function()
-                -- Aguarda o personagem existir
-                if not player.Character then
-                    return
-                end
-                
-                -- Aguarda o Humanoid existir
-                local humanoid = player.Character:WaitForChild("Humanoid", 5)
-                if not humanoid then
-                    return
-                end
-                
-                -- Detecta dano
-                local lastHealth = humanoid.Health
-                
-                humanoid.HealthChanged:Connect(function(health)
-                    if not antiHitEnabled then return end
-                    
-                    -- Se tomou dano
-                    if health < lastHealth then
-                        pcall(function()
-                            -- Encontra o jogador mais próximo (o atacante)
-                            local closestPlayer = nil
-                            local closestDistance = math.huge
-                            
-                            for _, targetPlayer in pairs(Players:GetPlayers()) do
-                                if targetPlayer ~= player and targetPlayer.Character then
-                                    local targetHRP = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
-                                    if targetHRP and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                                        local distance = (targetHRP.Position - player.Character.HumanoidRootPart.Position).Magnitude
-                                        if distance < closestDistance and distance < 50 then
-                                            closestDistance = distance
-                                            closestPlayer = targetPlayer
-                                        end
-                                    end
-                                end
-                            end
-                            
-                            if closestPlayer then
-                                antiHitTarget = closestPlayer
-                                Library:Notify({ 
-                                    Name = "Anti Hit Locked", 
-                                    Text = "Target: " .. closestPlayer.Name, 
-                                    Duration = 2 
-                                })
-                            end
-                        end)
-                    end
-                    
-                    lastHealth = health
-                end)
-            end)
+game:GetService("RunService").RenderStepped:Connect(function()
+    if not antiHitEnabled then return end
+    
+    pcall(function()
+        local humanoid = player.Character and player.Character:FindFirstChild("Humanoid")
+        if not humanoid then return end
+        
+        local creator = humanoid:FindFirstChild("creator")
+        if not creator then return end
+        
+        local attackerName = tostring(creator.Value)
+        local attackerChar = workspace:FindFirstChild(attackerName)
+        
+        if attackerChar then
+            local targetTorso = attackerChar:FindFirstChild("UpperTorso") or attackerChar:FindFirstChild("Torso")
+            if not targetTorso then return end
+            
+            local tool = player.Backpack:FindFirstChild("Boxing")
+            if not tool then return end
+            
+            game:GetService("ReplicatedStorage").Remotes.Human_Punch:FireServer(
+                player.Character.RightHand,
+                "RightPunch",
+                targetTorso,
+                5,
+                true,
+                "RightPunch",
+                tool.Handle.Hit,
+                5
+            )
+            
+            game:GetService("ReplicatedStorage").Remotes.Human_Punch:FireServer(
+                player.Character.LeftHand,
+                "LeftPunch",
+                targetTorso,
+                5,
+                true,
+                "LeftPunch",
+                tool.Handle.Hit,
+                5
+            )
         end
-    end
-end)
-
--- Reconecta a detecção quando você respawna
-player.CharacterAdded:Connect(function(character)
-    if antiHitEnabled then
-        wait(1) -- Aguarda o personagem carregar completamente
-        pcall(function()
-            local humanoid = character:WaitForChild("Humanoid", 5)
-            if humanoid then
-                local lastHealth = humanoid.Health
-                
-                humanoid.HealthChanged:Connect(function(health)
-                    if not antiHitEnabled then return end
-                    
-                    -- Se tomou dano
-                    if health < lastHealth then
-                        pcall(function()
-                            -- Encontra o jogador mais próximo (o atacante)
-                            local closestPlayer = nil
-                            local closestDistance = math.huge
-                            
-                            for _, targetPlayer in pairs(Players:GetPlayers()) do
-                                if targetPlayer ~= player and targetPlayer.Character then
-                                    local targetHRP = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
-                                    if targetHRP and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                                        local distance = (targetHRP.Position - player.Character.HumanoidRootPart.Position).Magnitude
-                                        if distance < closestDistance and distance < 50 then
-                                            closestDistance = distance
-                                            closestPlayer = targetPlayer
-                                        end
-                                    end
-                                end
-                            end
-                            
-                            if closestPlayer then
-                                antiHitTarget = closestPlayer
-                                Library:Notify({ 
-                                    Name = "Anti Hit Locked", 
-                                    Text = "Target: " .. closestPlayer.Name, 
-                                    Duration = 2 
-                                })
-                            end
-                        end)
-                    end
-                    
-                    lastHealth = health
-                end)
-            end
-        end)
-    end
-end)
-
--- Loop infinito atacando o atacante (CONTINUA APÓS MORTE)
-spawn(function()
-    while true do
-        wait(0.05)
-        if antiHitEnabled and antiHitTarget then
-            pcall(function()
-                -- Aguarda o personagem respawnar se necessário
-                if not player.Character or not player.Character:FindFirstChild("HumanoidRootPart") then
-                    return
-                end
-                
-                -- Verifica se o atacante ainda existe
-                if antiHitTarget.Character then
-                    local targetTorso = antiHitTarget.Character:FindFirstChild("UpperTorso") or antiHitTarget.Character:FindFirstChild("Torso")
-                    local targetHead = antiHitTarget.Character:FindFirstChild("Head")
-                    
-                    if targetTorso or targetHead then
-                        local tool = player.Backpack:FindFirstChild("Boxing")
-                        if tool then
-                            game:GetService("ReplicatedStorage").Remotes.Human_Punch:FireServer(
-                                player.Character:FindFirstChild("LeftHand"),
-                                "LeftPunch",
-                                targetHead or targetTorso,
-                                5,
-                                true,
-                                "RightPunch",
-                                tool.Handle.Hit,
-                                5
-                            )
-                        end
-                    end
-                else
-                    -- Se o jogador saiu, limpa o alvo
-                    antiHitTarget = nil
-                    Library:Notify({ 
-                        Name = "Anti Hit", 
-                        Text = "Target left the game", 
-                        Duration = 2 
-                    })
-                end
-            end)
-        end
-    end
+    end)
 end)
 
 UsuallySection:Toggle({
@@ -957,12 +834,9 @@ UsuallySection:Toggle({
     end
 })
 
--- Kill Aura usando RunService.Stepped (ataca TODOS os jogadores - não depende de Loop Kill)
 RunService.Stepped:Connect(function()
     if killAuraEnabled and killAuraDistance then
-        -- Ataca TODOS os jogadores no servidor que estão dentro da distância
         for _, targetPlayer in pairs(Players:GetPlayers()) do
-            -- Ignora apenas o próprio jogador local
             if targetPlayer ~= player and targetPlayer.Character then
                 pcall(function()
                     local targetTorso = targetPlayer.Character:FindFirstChild("UpperTorso") or targetPlayer.Character:FindFirstChild("Torso")
@@ -1001,7 +875,6 @@ UsuallySection:SmallTextbox({
     end
 })
 
--- Sistema de auto-complete para Strength Spy
 local spyStrengthLabel = UsuallySection:Label({ Name = "Strength: N/A" })
 
 UsuallySection:BigTextbox({
@@ -1015,7 +888,6 @@ UsuallySection:BigTextbox({
                     local targetPlayer = nil
                     local searchTerm = value:lower()
                     
-                    -- Busca jogador começando com o termo
                     for _, plr in pairs(game:GetService("Players"):GetPlayers()) do
                         if plr.Name:lower():sub(1, #searchTerm) == searchTerm then
                             targetPlayer = plr
@@ -1023,7 +895,6 @@ UsuallySection:BigTextbox({
                         end
                     end
                     
-                    -- Se não encontrou exato, busca contendo
                     if not targetPlayer then
                         for _, plr in pairs(game:GetService("Players"):GetPlayers()) do
                             if plr.Name:lower():find(searchTerm) then
@@ -1034,7 +905,6 @@ UsuallySection:BigTextbox({
                     end
                     
                     if targetPlayer then
-                        -- Mostra sugestão se for nome parcial
                         if value:lower() ~= targetPlayer.Name:lower() then
                             Library:Notify({ 
                                 Name = "Suggestion", 
