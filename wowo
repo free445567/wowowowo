@@ -172,9 +172,31 @@ MainSection:Toggle({
     Name = "Farm Weights",
     Enabled = false,
     Callback = function(state)
-        farmEnabled = state
-        autoFarmEnabled = state
         if state then
+            -- Verifica se há Double Weights equipados
+            local hasEquippedWeights = false
+            pcall(function()
+                if player.Character then
+                    for _, tool in pairs(player.Character:GetChildren()) do
+                        if tool.Name == 'Double Weight' and tool:IsA("Tool") then
+                            hasEquippedWeights = true
+                            break
+                        end
+                    end
+                end
+            end)
+            
+            if not hasEquippedWeights then
+                Library:Notify({ 
+                    Name = "Farm Error", 
+                    Text = "Need to Equip First!", 
+                    Duration = 2 
+                })
+                return
+            end
+            
+            farmEnabled = true
+            autoFarmEnabled = true
             farmWeights()
             Library:Notify({ 
                 Name = "Farm Weights", 
@@ -182,6 +204,8 @@ MainSection:Toggle({
                 Duration = 2 
             })
         else
+            farmEnabled = false
+            autoFarmEnabled = false
             Library:Notify({ 
                 Name = "Farm Weights", 
                 Text = "Farm stopped", 
