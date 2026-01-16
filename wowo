@@ -1,1393 +1,1187 @@
-local vu1 = {}
-local vu2 = game:GetService("TweenService")
-local vu3 = game:GetService("UserInputService")
-local vu4 = game:GetService("UserInputService")
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Loco-CTO/UI-Library/main/VisionLibV2/source.lua'))()
+Library:SetTheme({
+    Main = Color3.fromRGB(18, 11, 41),
+    Secondary = Color3.fromRGB(39, 13, 66),
+    Tertiary = Color3.fromRGB(60, 27, 110),
+    Text = Color3.fromRGB(255, 255, 255),
+    PlaceholderText = Color3.fromRGB(200, 180, 255),
+    Textbox = Color3.fromRGB(70, 50, 110),
+    NavBar = Color3.fromRGB(90, 60, 180),
+    Theme = Color3.fromRGB(140, 96, 255)
+})
 
--- ===== SISTEMA DE INSTÂNCIA ÚNICA =====
--- Verifica se Ghost Hub já está rodando
-if _G.GhostHubActive then
-    local StarterGui = game:GetService("StarterGui")
-    
-    -- Notifica o usuário
-    pcall(function()
-        StarterGui:SetCore("SendNotification", {
-            Title = "⚠️ Ghost Hub Already Running";
-            Text = "Destroying old instance and creating new one...";
-            Duration = 3;
-        })
-    end)
-    
-    -- Destrói a UI anterior
-    if _G.GhostHubInstance then
-        pcall(function()
-            _G.GhostHubInstance:Destroy()
-        end)
+local scriptName = "Cyborg Hub Boxing Simulator 2"
+
+-- Detecta se está em mobile
+local UserInputService = game:GetService("UserInputService")
+local isMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
+
+local Window = Library:Create({
+    Name = scriptName,
+    Footer = "Cyborg Hub by vMxtic",
+    ToggleKey = Enum.KeyCode.RightShift,
+    -- Configurações específicas para mobile
+    Mobile = isMobile,
+    Size = isMobile and UDim2.new(0, 450, 0, 550) or nil, -- Tamanho otimizado para mobile
+    Position = isMobile and UDim2.new(0.5, -225, 0.5, -275) or nil, -- Centralizado
+    LoadedCallback = function()
+        if isMobile then
+            Library:Notify({ 
+                Name = "Mobile Detected", 
+                Text = "UI optimized for mobile!", 
+                Duration = 3 
+            })
+        end
     end
-    
-    -- Limpa variáveis globais do farm anterior
-    _G.farmEnabled = false
-    _G.farmActive = false
-    _G.pingPaused = false
-    _G.Equip = false
-    
-    wait(0.5) -- Aguarda destruição completa
+})
+
+local MainTab = Window:Tab({
+    Name = "Main",
+    Icon = "rbxassetid://11401835376",
+    Color = Color3.fromRGB(140, 96, 255)
+})
+
+local MainSection = MainTab:Section({ Name = "Main Controls" })
+
+-- Label mais compacto para mobile
+if isMobile then
+    MainSection:Label({ Name = "Cyborg Hub - Mobile Edition" })
+    MainSection:Label({ Name = "Drag to move | Tap tabs to switch" })
+else
+    MainSection:Label({ Name = "╔═══════════════════════════╗\n" .. scriptName .. "\n╚═══════════════════════════╝" })
+    MainSection:Label({ Name = "Welcome to Cyborg Hub!" })
 end
 
--- Marca que Ghost Hub está ativo
-_G.GhostHubActive = true
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+local equipWeightsEnabled = false
+local equipWeightsRunning = false
+local farmEnabled = false
+local farmRunning = false
+local autoFarmEnabled = false
 
-function vu1.DraggingEnabled(_, p5, p6)
-    local vu7 = p6 or p5
-    local vu8 = false
-    local vu9 = nil
-    local vu10 = nil
-    local vu11 = nil
-    p5.InputBegan:Connect(function(pu12)
-        if pu12.UserInputType == Enum.UserInputType.MouseButton1 or pu12.UserInputType == Enum.UserInputType.Touch then
-            vu8 = true
-            vu10 = pu12.Position
-            vu11 = vu7.Position
-            pu12.Changed:Connect(function()
-                if pu12.UserInputState == Enum.UserInputState.End then
-                    vu8 = false
-                end
-            end)
-        end
-    end)
-    p5.InputChanged:Connect(function(p13)
-        if p13.UserInputType == Enum.UserInputType.MouseMovement or p13.UserInputType == Enum.UserInputType.Touch then
-            vu9 = p13
-        end
-    end)
-    vu4.InputChanged:Connect(function(p14)
-        if p14 == vu9 and vu8 then
-            local v15 = p14.Position - vu10
-            vu7.Position = UDim2.new(vu11.X.Scale, vu11.X.Offset + v15.X, vu11.Y.Scale, vu11.Y.Offset + v15.Y)
-        end
-    end)
-end
-local vu16 = tostring(math.random(1, 100)) .. tostring(math.random(1, 50)) .. tostring(math.random(1, 100))
-function vu1.Toggle(_)
-    if game.CoreGui:FindFirstChild(vu16).Enabled then
-        game.CoreGui:FindFirstChild(vu16).Enabled = false
+local function abbreviateNumber(num)
+    if num < 1000 then
+        return tostring(num)
+    elseif num < 1000000 then
+        return string.format("%.1fk", num / 1000)
+    elseif num < 1000000000 then
+        return string.format("%.1fM", num / 1000000)
+    elseif num < 1000000000000 then
+        return string.format("%.1fB", num / 1000000000)
     else
-        game.CoreGui:FindFirstChild(vu16).Enabled = true
-    end
-end
-function vu1.Create(_, p17)
-    local vu18 = Instance.new("ScreenGui")
-    local v19 = Instance.new("Frame")
-    local v20 = Instance.new("UICorner")
-    local v21 = Instance.new("ImageLabel")
-    local v22 = Instance.new("Frame")
-    local v23 = Instance.new("UICorner")
-    local v24 = Instance.new("Frame")
-    local v25 = Instance.new("Frame")
-    local v26 = Instance.new("ImageLabel")
-    local vu27 = Instance.new("ImageButton")
-    local v28 = Instance.new("TextLabel")
-    local vu29 = Instance.new("Frame")
-    local v30 = Instance.new("UICorner")
-    local v31 = Instance.new("UICorner")
-    local vu32 = Instance.new("Frame")
-    local v33 = Instance.new("UIListLayout")
-    local v34 = Instance.new("UIPadding")
-    local v35 = Instance.new("Frame")
-    local v36 = Instance.new("Frame")
-    vu1:DraggingEnabled(v35, v19)
-    function vu1.Destroy(_)
-        vu18:Destroy()
-    end
-    vu18.Name = vu16
-    vu18.Parent = game.CoreGui
-    vu18.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    v19.Name = "Main"
-    v19.Parent = vu18
-    v19.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    v19.BorderSizePixel = 0
-    v19.Position = UDim2.new(0.377, 0, 0.368, 0)
-    v19.Size = UDim2.new(0, 480, 0, 293)
-    v19.Active = true
-    v19.Selectable = true
-    v19.Draggable = true
-    v20.CornerRadius = UDim.new(0, 6)
-    v20.Parent = v19
-    v21.Name = "Shadow"
-    v21.Parent = v19
-    v21.AnchorPoint = Vector2.new(0.5, 0.5)
-    v21.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    v21.BackgroundTransparency = 1
-    v21.Position = UDim2.new(0.5, 0, 0.5, 0)
-    v21.Size = UDim2.new(1, 30, 1, 30)
-    v21.ZIndex = 0
-    v21.Image = "rbxassetid://5554236805"
-    v21.ImageColor3 = Color3.fromRGB(0, 0, 0)
-    v21.ScaleType = Enum.ScaleType.Slice
-    v21.SliceCenter = Rect.new(23, 23, 277, 277)
-    v35.Name = "tabs"
-    v35.Parent = v19
-    v35.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-    v35.BorderSizePixel = 0
-    v35.Position = UDim2.new(0, 0, 0, 35)
-    v35.Size = UDim2.new(0, 122, 1, - 35)
-    v30.CornerRadius = UDim.new(0, 6)
-    v30.Parent = v35
-    v36.Name = "Cover"
-    v36.Parent = v35
-    v36.AnchorPoint = Vector2.new(1, 0.5)
-    v36.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-    v36.BorderSizePixel = 0
-    v36.Position = UDim2.new(1, 0, 0.5, 0)
-    v36.Size = UDim2.new(0, 5, 1, 0)
-    v22.Name = "Top"
-    v22.Parent = v19
-    v22.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-    v22.BorderSizePixel = 0
-    v22.Size = UDim2.new(1, 0, 0, 34)
-    v23.CornerRadius = UDim.new(0, 6)
-    v23.Parent = v22
-    v24.Name = "Cover"
-    v24.Parent = v22
-    v24.AnchorPoint = Vector2.new(0.5, 1)
-    v24.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-    v24.BorderSizePixel = 0
-    v24.Position = UDim2.new(0.5, 0, 1, 0)
-    v24.Size = UDim2.new(1, 0, 0, 4)
-    v25.Name = "Line"
-    v25.Parent = v22
-    v25.AnchorPoint = Vector2.new(0.5, 1)
-    v25.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    v25.BackgroundTransparency = 0.92
-    v25.Position = UDim2.new(0.5, 0, 1, 1)
-    v25.Size = UDim2.new(1, 0, 0, 1)
-    v26.Name = "Logo"
-    v26.Parent = v22
-    v26.AnchorPoint = Vector2.new(0, 0.5)
-    v26.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    v26.BackgroundTransparency = 1
-    v26.Position = UDim2.new(0, 4, 0.5, 0)
-    v26.Size = UDim2.new(0, 26, 0, 25)
-    v26.Image = "rbxassetid://17825568299"
-    v26.ImageColor3 = Color3.fromRGB(0, 150, 255)
-    vu27.Name = "Close"
-    vu27.Parent = v22
-    vu27.AnchorPoint = Vector2.new(1, 0.5)
-    vu27.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    vu27.BackgroundTransparency = 1
-    vu27.Position = UDim2.new(1, - 6, 0.5, 0)
-    vu27.Size = UDim2.new(0, 20, 0, 20)
-    vu27.Image = "http://www.roblox.com/asset/?id=7755372427"
-    vu27.ImageColor3 = Color3.fromRGB(199, 199, 199)
-    vu27.ScaleType = Enum.ScaleType.Crop
-    vu27.MouseButton1Click:connect(function()
-        vu18.Enabled = false
-    end)
-    vu27.MouseEnter:connect(function()
-        vu2:Create(vu27, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = Color3.fromRGB(255, 255, 255)}, true):Play()
-    end)
-    vu27.MouseLeave:connect(function()
-        vu2:Create(vu27, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = Color3.fromRGB(166, 166, 166)}, true):Play()
-    end)
-    v28.Name = "GameName"
-    v28.Parent = v22
-    v28.AnchorPoint = Vector2.new(0, 0.5)
-    v28.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    v28.BackgroundTransparency = 1
-    v28.Position = UDim2.new(0, 32, 0.5, 0)
-    v28.Size = UDim2.new(0, 165, 0, 22)
-    v28.Font = Enum.Font.Gotham
-    v28.Text = p17 or "Game Name"
-    v28.TextColor3 = Color3.fromRGB(0, 150, 255)
-    v28.TextSize = 14
-    v28.TextXAlignment = Enum.TextXAlignment.Left
-    vu29.Name = "Pages"
-    vu29.Parent = v19
-    vu29.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    vu29.BorderSizePixel = 0
-    vu29.Position = UDim2.new(0, 130, 0, 42)
-    vu29.Size = UDim2.new(1, - 138, 1, - 50)
-    vu32.Name = "TabsContainer"
-    vu32.Parent = v35
-    vu32.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    vu32.BackgroundTransparency = 1
-    vu32.Size = UDim2.new(1, 0, 1, 0)
-    v33.Name = "TabsList"
-    v33.Parent = vu32
-    v33.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    v33.SortOrder = Enum.SortOrder.LayoutOrder
-    v33.Padding = UDim.new(0, 5)
-    v34.Parent = vu32
-    v34.PaddingTop = UDim.new(0, 5)
-    v31.CornerRadius = UDim.new(0, 6)
-    v31.Parent = v35
-    return {
-        Tab = function(_, p37)
-            local vu38 = Instance.new("UIListLayout")
-            local vu39 = Instance.new("ScrollingFrame")
-            local v40 = Instance.new("UICorner")
-            local vu41 = Instance.new("TextButton")
-            vu41.Name = "TabButton"
-            vu41.Parent = vu32
-            vu41.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-            vu41.BackgroundTransparency = 1
-            vu41.Size = UDim2.new(1, - 12, 0, 30)
-            vu41.AutoButtonColor = false
-            vu41.Font = Enum.Font.Gotham
-            vu41.Text = p37 or "Tab"
-            vu41.TextColor3 = Color3.fromRGB(255, 255, 255)
-            vu41.TextSize = 14
-            v40.CornerRadius = UDim.new(0, 6)
-            v40.Parent = vu41
-            vu39.Name = "Page"
-            vu39.Visible = false
-            vu39.Parent = vu29
-            vu39.Active = true
-            vu39.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            vu39.BackgroundTransparency = 1
-            vu39.BorderSizePixel = 0
-            vu39.Size = UDim2.new(1, 0, 1, 0)
-            vu39.CanvasPosition = Vector2.new(0, 0)
-            vu39.ScrollBarThickness = 2
-            vu39.ScrollBarImageColor3 = Color3.fromRGB(0, 150, 255)
-            vu38.Parent = vu39
-            vu38.HorizontalAlignment = Enum.HorizontalAlignment.Center
-            vu38.SortOrder = Enum.SortOrder.LayoutOrder
-            vu38.Padding = UDim.new(0, 5)
-            vu38:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-                vu39.CanvasSize = UDim2.new(0, 0, 0, vu38.AbsoluteContentSize.Y)
-            end)
-            vu41.MouseButton1Click:Connect(function()
-                for _, v45 in pairs(vu29:GetChildren()) do
-                    if v45:IsA("ScrollingFrame") then
-                        v45.Visible = false
-                    end
-                end
-                vu39.Visible = true
-                for _, v49 in pairs(vu32:GetChildren()) do
-                    if v49.Name == "TabButton" then
-                        vu2:Create(v49, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-                        vu2:Create(v49, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(72, 72, 72)}):Play()
-                    end
-                end
-                vu2:Create(vu41, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.5}):Play()
-                vu2:Create(vu41, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-            end)
-            return {
-                Button = function(_, p50, p51)
-                    local vu52 = Instance.new("TextButton")
-                    local v53 = Instance.new("UICorner")
-                    local vu54 = p51 or function() end
-                    vu52.Name = "Button"
-                    vu52.Text = "  " .. (p50 or "Button")
-                    vu52.Parent = vu39
-                    vu52.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-                    vu52.BorderSizePixel = 0
-                    vu52.Size = UDim2.new(1, - 6, 0, 34)
-                    vu52.AutoButtonColor = false
-                    vu52.Font = Enum.Font.Gotham
-                    vu52.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    vu52.TextSize = 15
-                    vu52.TextXAlignment = Enum.TextXAlignment.Left
-                    v53.CornerRadius = UDim.new(0, 6)
-                    v53.Parent = vu52
-                    vu52.MouseEnter:Connect(function()
-                        vu2:Create(vu52, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(40, 40, 40)}):Play()
-                    end)
-                    vu52.MouseLeave:Connect(function()
-                        vu2:Create(vu52, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(35, 35, 35)}):Play()
-                    end)
-                    vu52.MouseButton1Click:Connect(function()
-                        vu54()
-                    end)
-                end,
-                Toggle = function(_, p55, p56, pu57)
-                    local vu58 = Instance.new("TextButton")
-                    local v59 = Instance.new("UICorner")
-                    local v60 = Instance.new("TextLabel")
-                    local vu61 = Instance.new("Frame")
-                    local v62 = Instance.new("UIStroke")
-                    vu58.Name = "Toggle"
-                    vu58.Parent = vu39
-                    vu58.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-                    vu58.Size = UDim2.new(1, - 6, 0, 34)
-                    vu58.AutoButtonColor = false
-                    vu58.Font = Enum.Font.SourceSans
-                    vu58.Text = ""
-                    vu58.TextColor3 = Color3.fromRGB(0, 0, 0)
-                    vu58.TextSize = 15
-                    v59.CornerRadius = UDim.new(0, 6)
-                    v59.Parent = vu58
-                    v60.Name = "Title"
-                    v60.Parent = vu58
-                    v60.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                    v60.BackgroundTransparency = 1
-                    v60.Position = UDim2.new(0, 8, 0, 0)
-                    v60.Size = UDim2.new(1, - 6, 1, 0)
-                    v60.Font = Enum.Font.Gotham
-                    v60.Text = p55 or "Toggle"
-                    v60.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    v60.TextSize = 15
-                    v60.TextXAlignment = Enum.TextXAlignment.Left
-                    vu61.Name = "Toggle"
-                    vu61.Parent = vu58
-                    vu61.AnchorPoint = Vector2.new(1, 0.5)
-                    vu61.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-                    vu61.BackgroundTransparency = 1
-                    vu61.BorderSizePixel = 0
-                    vu61.Position = UDim2.new(1, - 8, 0.5, 0)
-                    vu61.Size = UDim2.new(0, 14, 0, 14)
-                    v62.Parent = vu61
-                    v62.LineJoinMode = Enum.LineJoinMode.Round
-                    v62.Thickness = 2
-                    v62.Color = Color3.fromRGB(0, 150, 255)
-                    vu58.MouseEnter:Connect(function()
-                        vu2:Create(vu58, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(40, 40, 40)}, true):Play()
-                    end)
-                    vu58.MouseLeave:Connect(function()
-                        vu2:Create(vu58, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {BackgroundColor3 = Color3.fromRGB(35, 35, 35)}, true):Play()
-                    end)
-                    local vu63 = p56 or false
-                    if vu63 then
-                        vu2:Create(vu61, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}, true):Play()
-                        pu57(vu63)
-                    end
-                    vu58.MouseButton1Click:Connect(function()
-                        vu63 = not vu63
-                        if vu63 then
-                            vu2:Create(vu61, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}, true):Play()
-                        else
-                            vu2:Create(vu61, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}, true):Play()
-                        end
-                        pu57(vu63)
-                    end)
-                end,
-                Label = function(_, p64)
-                    local v65 = Instance.new("TextLabel")
-                    local v66 = Instance.new("UICorner")
-                    v65.Parent = vu39
-                    v65.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-                    v65.BorderSizePixel = 0
-                    v65.Size = UDim2.new(1, - 6, 0, 34)
-                    v65.Font = Enum.Font.Gotham
-                    v65.Text = "  " .. (p64 or "Label")
-                    v65.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    v65.TextSize = 15
-                    v65.TextXAlignment = Enum.TextXAlignment.Left
-                    v66.CornerRadius = UDim.new(0, 6)
-                    v66.Parent = v65
-                    return v65
-                end,
-                PlayerLabel = function(_, p64)
-                    local v65 = Instance.new("TextLabel")
-                    v65.Name = p64
-                    v65.Parent = vu39
-                    v65.BackgroundTransparency = 1
-                    v65.BorderSizePixel = 0
-                    v65.Size = UDim2.new(1, - 6, 0, 24)
-                    v65.Font = Enum.Font.Gotham
-                    v65.Text = "  " .. (p64 or "Player")
-                    v65.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    v65.TextSize = 13
-                    v65.TextXAlignment = Enum.TextXAlignment.Left
-                    return v65
-                end,
-                TextBox = function(_, p67, p68, p69)
-                    local vu70 = Instance.new("Frame")
-                    local v71 = Instance.new("UICorner")
-                    local v72 = Instance.new("TextLabel")
-                    local vu73 = Instance.new("TextBox")
-                    local v74 = Instance.new("UICorner")
-                    vu70.Name = "TextBoxFrame"
-                    vu70.Parent = vu39
-                    vu70.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-                    vu70.BorderSizePixel = 0
-                    vu70.Size = UDim2.new(1, -6, 0, 34)
-                    v71.CornerRadius = UDim.new(0, 6)
-                    v71.Parent = vu70
-                    v72.Name = "Title"
-                    v72.Parent = vu70
-                    v72.BackgroundTransparency = 1
-                    v72.Position = UDim2.new(0, 8, 0, 0)
-                    v72.Size = UDim2.new(0.5, -8, 1, 0)
-                    v72.Font = Enum.Font.Gotham
-                    v72.Text = p67 or "TextBox"
-                    v72.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    v72.TextSize = 15
-                    v72.TextXAlignment = Enum.TextXAlignment.Left
-                    vu73.Name = "InputBox"
-                    vu73.Parent = vu70
-                    vu73.AnchorPoint = Vector2.new(1, 0.5)
-                    vu73.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-                    vu73.BorderSizePixel = 0
-                    vu73.Position = UDim2.new(1, -8, 0.5, 0)
-                    vu73.Size = UDim2.new(0, 100, 0, 24)
-                    vu73.Font = Enum.Font.Gotham
-                    vu73.Text = p68 or ""
-                    vu73.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    vu73.TextSize = 14
-                    vu73.ClearTextOnFocus = false
-                    v74.CornerRadius = UDim.new(0, 4)
-                    v74.Parent = vu73
-                    vu73.FocusLost:Connect(function(enterPressed)
-                        if enterPressed and p69 then
-                            p69(vu73.Text)
-                        end
-                    end)
-                    vu70.MouseEnter:Connect(function()
-                        vu2:Create(vu70, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(40, 40, 40)}):Play()
-                    end)
-                    vu70.MouseLeave:Connect(function()
-                        vu2:Create(vu70, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(35, 35, 35)}):Play()
-                    end)
-                    return vu73
-                end
-            }
-        end
-    }
-end
-
-local Library = vu1
-local Window = Library:Create("Ghost Hub")
-local LocalPlayer = game.Players.LocalPlayer
-local StarterGui = game:GetService("StarterGui")
-
--- Armazena a instância da UI para controle de duplicatas
-_G.GhostHubInstance = game.CoreGui:FindFirstChild(vu16)
-
-local function Notify(title, text, duration)
-    pcall(function()
-        StarterGui:SetCore("SendNotification", {
-            Title = title;
-            Text = text;
-            Duration = duration or 5;
-        })
-    end)
-end
-
-local reduceLagEnabled = false
-local function reduceLag()
-    if reduceLagEnabled then 
-        Notify("Del All", "Já está ativado!", 3)
-        return 
-    end
-    reduceLagEnabled = true
-    
-    local Lighting = game:GetService("Lighting")
-    
-    pcall(function() game.ReplicatedFirst:FindFirstChild("TourneyQ"):Destroy() end)
-    pcall(function() Lighting:FindFirstChild("NormalSky"):Destroy() end)
-    pcall(function() LocalPlayer.PlayerGui:FindFirstChild("HUD"):Destroy() end)
-    
-    local Terrain = workspace.Terrain
-    Terrain.WaterWaveSize = 0
-    Terrain.WaterWaveSpeed = 0
-    Terrain.WaterReflectance = 0
-    Terrain.WaterTransparency = 0
-    Lighting.GlobalShadows = false
-    Lighting.FogEnd = 9e9
-    settings().Rendering.QualityLevel = "Level01"
-    
-    for _, instance in pairs(game:GetDescendants()) do
-        pcall(function()
-            if instance:IsA("ParticleEmitter") or instance:IsA("Trail") then
-                instance:Destroy()
-            elseif instance:IsA("Explosion") then
-                instance.BlastPressure = 0
-                instance.BlastRadius = 0
-            end
-        end)
-    end
-    
-    for _, effect in pairs(Lighting:GetChildren()) do
-        pcall(function()
-            if effect:IsA("BlurEffect") or effect:IsA("SunRaysEffect")
-            or effect:IsA("ColorCorrectionEffect") or effect:IsA("BloomEffect")
-            or effect:IsA("DepthOfFieldEffect") then
-                effect.Enabled = false
-            end
-        end)
-    end
-    
-    Notify("Anti-Afk Active", "Good Boy", 7)
-    
-    local VirtualUser = game:GetService("VirtualUser")
-    LocalPlayer.Idled:Connect(function()
-        VirtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-        task.wait(1)
-        VirtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-    end)
-end
-
--- ===== FUNÇÃO DE ABREVIAÇÃO DE PING =====
-local function abbreviatePing(ping)
-    if ping >= 1000 then
-        return string.format("%.1fk", ping / 1000)
-    else
-        return tostring(math.floor(ping))
+        return string.format("%.1fT", num / 1000000000000)
     end
 end
 
--- ===== FARM TAB =====
-local FarmTab = Window:Tab("Farm")
-local waitTimerLabel = FarmTab:Label("Wait Timer: 0")
-local currentPingLabel = FarmTab:Label("Current Ping: 0ms")
+local function isDoubleWeightTool(tool)
+    if not tool or typeof(tool) ~= "Instance" then return false end
+    if not tool:IsA("Tool") then return false end
+    local n = tostring(tool.Name):lower()
+    return ((n:find("double") and n:find("weight")) or n:find("doubleweight"))
+end
 
--- Função helper para contar todos os Double Weights
-local function countAllWeights()
+local function findDoubleWeightToolsIn(container)
+    local out = {}
+    if not container or not container.GetChildren then return out end
+    for _, v in ipairs(container:GetChildren()) do
+        if isDoubleWeightTool(v) then table.insert(out, v) end
+    end
+    return out
+end
+
+local function countDoubleWeights()
     local count = 0
     pcall(function()
-        -- Conta weights no Backpack
-        for _, item in pairs(LocalPlayer.Backpack:GetChildren()) do
-            if item.Name == "Double Weight" then 
-                count = count + 1 
-            end
+        local backpack = player:FindFirstChild("Backpack")
+        if backpack then
+            count = count + #findDoubleWeightToolsIn(backpack)
         end
-        -- Conta weights equipados no Character
-        if LocalPlayer.Character then
-            for _, item in pairs(LocalPlayer.Character:GetChildren()) do
-                if item.Name == "Double Weight" then 
-                    count = count + 1 
-                end
-            end
+        local char = player.Character
+        if char then
+            count = count + #findDoubleWeightToolsIn(char)
         end
     end)
     return count
 end
 
--- Sistema otimizado com cache
-local lastWeightCount = -1
-spawn(function()
-    while wait(1) do
-        pcall(function()
-            local weightCount = countAllWeights()
-            
-            -- Só atualiza a label se o valor mudou (cache)
-            if weightCount ~= lastWeightCount then
-                lastWeightCount = weightCount
-                local waitTime = 0.0007605 * weightCount
-                waitTimerLabel.Text = "  Wait Timer: " .. string.format("%.4f", waitTime)
-            end
-        end)
-    end
-end)
-
--- Função para obter ping atual
-local function getCurrentPing()
-    local Stats = game:GetService("Stats")
-    local pingValue = Stats.Network.ServerStatsItem["Data Ping"]
-    if pingValue then
-        return tonumber(pingValue:GetValue()) or 0
-    end
-    return 0
-end
-
--- Atualização do ping na UI COM ABREVIAÇÃO
-spawn(function()
-    while wait(0.5) do
-        pcall(function()
-            local currentPing = getCurrentPing()
-            local abbreviated = abbreviatePing(currentPing)
-            currentPingLabel.Text = "  Current Ping: " .. abbreviated .. "ms"
-        end)
-    end
-end)
-
--- Loop de atualização do Ping Limit Display
-spawn(function()
-    while true do
-        pcall(function()
-            local pingValue = _G.customPingLimit
-            if pingValue then
-                -- Você pode criar uma label para mostrar isso se quiser
-                -- Ex: pingLimitDisplayLabel.Text = 'Ping Limit Set To: ' .. FormatNumber(pingValue, 0)
-            end
-        end)
-        wait(1)
-    end
-end)
-
-_G.Equip = false
-_G.farmEnabled = false
-_G.farmActive = false
-_G.pingPaused = false
-
-FarmTab:Toggle("Equip", false, function(value)
-    _G.Equip = value
-    if value then
-        Notify("Equip", "Equipping weights...", 3)
-        spawn(function()
-            pcall(function()
-                local equipped = 0
-                local batchCount = 0
-                for _, item in pairs(LocalPlayer.Backpack:GetChildren()) do
-                    if item.Name == "Double Weight" then
-                        item.Parent = LocalPlayer.Character
-                        if item:FindFirstChild("Handle") then
-                            item.Handle.CanCollide = false
-                            item.Handle.Massless = true
-                            item.Handle.Transparency = 1
-                        end
-                        equipped = equipped + 1
-                        batchCount = batchCount + 1
-                        
-                        if batchCount >= 100 then
-                            wait(0.05)
-                            batchCount = 0
-                        end
-                    end
-                end
-                wait(0.5)
-                Notify("Equip", "Equipped " .. equipped .. " Weights!", 3)
-            end)
-        end)
-    else
-        Notify("Equip", "Stopped", 3)
-    end
-end)
-
-local function farmLoop()
-    while _G.farmEnabled do
-        if not _G.pingPaused then
-            pcall(function()
-                local wt = tonumber(string.match(waitTimerLabel.Text, "%d+%.?%d*")) or 0.1
-                wait(wt)
-                if LocalPlayer.Character then
-                    for _, item in pairs(LocalPlayer.Character:GetChildren()) do
-                        if item.Name == "Double Weight" then
-                            item:Activate()
-                        end
-                    end
-                end
-            end)
-        else
-            wait(0.5)
-        end
-    end
-    _G.farmActive = false
-end
-
-FarmTab:Toggle("Farm", false, function(value)
-    if value then
-        local hasEquippedWeights = false
-        pcall(function()
-            if LocalPlayer.Character then
-                for _, item in pairs(LocalPlayer.Character:GetChildren()) do
-                    if item.Name == "Double Weight" then
-                        hasEquippedWeights = true
-                        break
-                    end
-                end
-            end
-        end)
-        
-        if not hasEquippedWeights then
-            Notify("Farm", "You need to equip first", 3)
-            return
-        end
-        
-        _G.farmEnabled = true
-        _G.farmActive = true
-        _G.pingPaused = false
-        Notify("Farm", "Farm started!", 3)
-        
-        spawn(farmLoop)
-        
-    else
-        _G.farmEnabled = false
-        _G.farmActive = false
-        _G.pingPaused = false
-        Notify("Farm", "Farm stopped!", 3)
-    end
-end)
-
--- ===== SISTEMA DE PING LIMITER MELHORADO =====
-_G.customPingLimit = 25000
-_G.resumePingThreshold = 3000
-
-local pingLimitTextBox = FarmTab:TextBox("Ping Limit", "25000", function(text)
-    local value = tonumber(text)
-    if value and value > 0 then
-        _G.customPingLimit = value
-        local abbreviated = abbreviatePing(value)
-        Notify("Ping Limit", "Set to " .. abbreviated .. "ms", 3)
-    else
-        Notify("Error", "Invalid number!", 3)
-        pingLimitTextBox.Text = tostring(_G.customPingLimit)
-    end
-end)
-
-local pingLimiterEnabled = false
-
--- Função para pausar farming
-local function pauseFarming()
-    _G.pingPaused = true
-    Notify("⚠️ High Ping!", "Farm will be paused soon... - Ping too high", 5)
-end
-
--- Função para retomar farming
-local function resumeFarming()
-    if _G.farmActive then
-        _G.pingPaused = false
-        Notify("✅ Normal Ping", "Farm RESUMED", 5)
-    end
-end
-
-FarmTab:Toggle("Enable Ping Limiter", false, function(value)
-    pingLimiterEnabled = value
-    
-    if value then
-        local abbreviated = abbreviatePing(_G.customPingLimit)
-        Notify("Ping Limiter", "Monitoring activated - Limit: " .. abbreviated .. "ms", 3)
-        
-        spawn(function()
-            local checkInterval = 1.5
-            
-            while pingLimiterEnabled do
+local function equipDoubleWeights()
+    if not equipWeightsRunning then
+        equipWeightsRunning = true
+        task.spawn(function()
+            while equipWeightsEnabled do
+                task.wait(0.631201)
                 pcall(function()
-                    local currentPing = getCurrentPing()
-                    local abbreviatedPing = abbreviatePing(currentPing)
-                    
-                    -- Se o ping exceder o limite e o farm estiver ativo
-                    if _G.farmActive and currentPing >= _G.customPingLimit and not _G.pingPaused then
-                        pauseFarming()
-                        Notify("⚠️ High Ping!", "Paused - Ping: " .. abbreviatedPing .. "ms", 3)
-                    
-                    -- Se o ping normalizar e o farm estiver pausado
-                    elseif _G.pingPaused and currentPing < _G.resumePingThreshold then
-                        resumeFarming()
-                        Notify("✅ Normal Ping", "Resumed - Ping: " .. abbreviatedPing .. "ms", 3)
+                    local equipCount = 0
+                    for _, item in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if item.Name == 'Double Weight' then
+                            item.Parent = game.Players.LocalPlayer.Character
+                            equipCount = equipCount + 1
+                            if equipCount >= 100 then break end
+                        end
+                    end
+                    local remainingWeights = 0
+                    for _, item in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if item.Name == "Double Weight" then
+                            remainingWeights = remainingWeights + 1
+                        end
+                    end
+                    if remainingWeights == 0 then
+                        Library:Notify({ 
+                            Name = "Equip Complete", 
+                            Text = "All weights equipped!", 
+                            Duration = 3 
+                        })
+                        equipWeightsEnabled = false
                     end
                 end)
-                
-                wait(checkInterval)
             end
+            equipWeightsRunning = false
         end)
-        
-    else
-        pingLimiterEnabled = false
-        _G.pingPaused = false
-        Notify("Ping Limiter", "Deactivated", 3)
     end
-end)
-
--- ===== BOTÃO PING FARM CORRIGIDO =====
-local isPingFarmActive = false
-
-FarmTab:Button("Start Ping Farm", function()
-    if isPingFarmActive then
-        -- Parar Ping Farm
-        isPingFarmActive = false
-        _G.farmer2 = false
-        Notify("Ping Farm", "Stopped!", 3)
-        return
-    end
-    
-    -- Verificar se tem weights equipados
-    local hasEquippedWeights = false
-    pcall(function()
-        if LocalPlayer.Character then
-            for _, item in pairs(LocalPlayer.Character:GetChildren()) do
-                if item.Name == "Double Weight" then
-                    hasEquippedWeights = true
-                    break
-                end
-            end
-        end
-    end)
-    
-    if not hasEquippedWeights then
-        Notify("Ping Farm", "You need to equip weights first!", 3)
-        return
-    end
-    
-    -- Iniciar Ping Farm
-    isPingFarmActive = true
-    _G.farmer2 = true
-    
-    local waitTime = tonumber(string.match(waitTimerLabel.Text, "%d+%.?%d*")) or 0.1
-    local stats = game:GetService('Stats')
-    local pingLimit = _G.customPingLimit
-    local isPingStopped = false
-    local isFarming = false
-    
-    local function StartFarm()
-        if not isFarming then
-            isFarming = true
-            Notify("Ping Farm", "Farm Started!", 3)
-            
-            spawn(function()
-                while _G.farmer2 and isFarming do
-                    pcall(function()
-                        local wt = tonumber(string.match(waitTimerLabel.Text, "%d+%.?%d*")) or 0.1
-                        task.wait(wt)
-                        
-                        if LocalPlayer.Character then
-                            for _, tool in pairs(LocalPlayer.Character:GetChildren()) do
-                                if tool.Name == 'Double Weight' then
-                                    tool:Activate()
-                                end
-                            end
-                        end
-                    end)
-                end
-            end)
-        end
-    end
-    
-    local function StopFarm()
-        if isFarming then
-            isFarming = false
-            Notify("Ping Farm", "Paused - High Ping!", 3)
-        end
-    end
-    
-    -- Iniciar o farm
-    StartFarm()
-    
-    -- Loop de monitoramento de ping
-    spawn(function()
-        while _G.farmer2 do
-            pcall(function()
-                local currentPing = stats.Network.ServerStatsItem['Data Ping']:GetValue()
-                local abbreviatedPing = abbreviatePing(currentPing)
-                
-                -- Parar se ping exceder o limite
-                if pingLimit <= currentPing and not isPingStopped then
-                    game:GetService('StarterGui'):SetCore('SendNotification', {
-                        Title = '⚠️ Ping Limiter!',
-                        Text = 'Farm Stopped - Ping: ' .. abbreviatedPing .. 'ms',
-                        Duration = 3,
-                    })
-                    StopFarm()
-                    isPingStopped = true
-                    
-                -- Retomar se ping normalizar
-                elseif currentPing < (_G.resumePingThreshold or 3000) and isPingStopped then
-                    game:GetService('StarterGui'):SetCore('SendNotification', {
-                        Title = '✅ Ping Limiter!',
-                        Text = 'Farm Resumed - Ping: ' .. abbreviatedPing .. 'ms',
-                        Duration = 3,
-                    })
-                    StartFarm()
-                    isPingStopped = false
-                end
-            end)
-            
-            task.wait(1.5) -- Verificar a cada 1.5 segundos
-        end
-    end)
-    
-    local abbreviated = abbreviatePing(pingLimit)
-    Notify("Ping Farm", "Started! Limit: " .. abbreviated .. "ms", 3)
-end)
-
--- ===== DUPE TAB =====
-local DupeTab = Window:Tab("Dupe")
-local isDuping = false
-local dupeTimeLabel = DupeTab:Label("Time: 00:00:00")
-local doubleWeightsLabel = DupeTab:Label("Double Weight(s): 0")
-local remainingDupes = 0
-
-_G.dupeAmount = 800
-
-local function updateDupeTimeEstimate(amount)
-    local totalSeconds = amount * 1
-    local hours = math.floor(totalSeconds / 3600)
-    local minutes = math.floor((totalSeconds % 3600) / 60)
-    local seconds = math.floor(totalSeconds % 60)
-    dupeTimeLabel.Text = string.format("  Time: %02d:%02d:%02d", hours, minutes, seconds)
 end
 
-local dupeAmountTextBox = DupeTab:TextBox("Dupe Amount", "800", function(text)
-    local value = tonumber(text)
-    if value and value > 0 then
-        _G.dupeAmount = math.floor(value)
-        updateDupeTimeEstimate(_G.dupeAmount)
-        Notify("Dupe Amount", "Set to " .. _G.dupeAmount .. " DW", 3)
-    else
-        Notify("Error", "Invalid number!", 3)
-        dupeAmountTextBox.Text = tostring(_G.dupeAmount)
-    end
-end)
+local function calculateWaitTime()
+    local weightCount = countDoubleWeights()
+    return 0.0008 * weightCount
+end
 
-updateDupeTimeEstimate(_G.dupeAmount)
+local currentWaitTime = calculateWaitTime()
 
--- Sistema de atualização do contador de Double Weights
-spawn(function()
-    while wait(1) do
-        pcall(function()
-            local dwCount = countAllWeights()
-            doubleWeightsLabel.Text = "  Double Weight(s): " .. tostring(dwCount)
+local function farmWeights()
+    if not farmRunning then
+        farmRunning = true
+        task.spawn(function()
+            while farmEnabled do
+                currentWaitTime = calculateWaitTime()
+                task.wait(currentWaitTime)
+                pcall(function()
+                    for _, tool in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                        if tool.Name == 'Double Weight' and tool:IsA("Tool") then
+                            pcall(function()
+                                tool:Activate()
+                            end)
+                        end
+                    end
+                end)
+            end
+            farmRunning = false
         end)
     end
-end)
+end
+
+MainSection:Button({
+    Name = "Equip Weights",
+    Callback = function()
+        equipWeightsEnabled = not equipWeightsEnabled
+        if equipWeightsEnabled then
+            equipDoubleWeights()
+            Library:Notify({ 
+                Name = "Equip Weights", 
+                Text = "Equipping weights...", 
+                Duration = 2 
+            })
+        else
+            Library:Notify({ 
+                Name = "Equip Weights", 
+                Text = "Equip disabled", 
+                Duration = 2 
+            })
+        end
+    end
+})
+
+MainSection:Toggle({
+    Name = "Farm Weights",
+    Enabled = false,
+    Callback = function(state)
+        farmEnabled = state
+        autoFarmEnabled = state
+        if state then
+            farmWeights()
+            Library:Notify({ 
+                Name = "Farm Weights", 
+                Text = "Farm started!", 
+                Duration = 2 
+            })
+        else
+            Library:Notify({ 
+                Name = "Farm Weights", 
+                Text = "Farm stopped", 
+                Duration = 1 
+            })
+        end
+    end
+})
+
+local function getCurrentPing()
+    local pingStats = game:GetService('Stats').Network.ServerStatsItem['Data Ping']
+    return pingStats and math.floor(pingStats:GetValue()) or 0
+end
+
+local function pauseFarming()
+    farmEnabled = false
+    equipWeightsEnabled = false
+end
+
+local function resumeFarming()
+    if autoFarmEnabled then
+        farmEnabled = true
+        equipWeightsEnabled = true
+        farmWeights()
+        equipDoubleWeights()
+    end
+end
+
+local pingLimiterEnabled = false
+local maxPingThreshold = 30000
+local resumePingThreshold = 3000
+local checkInterval = 1.5
+
+MainSection:Toggle({
+    Name = "Enable Ping Limit (30k)",
+    Enabled = false,
+    Callback = function(state)
+        pingLimiterEnabled = state
+        if state then
+            Library:Notify({ 
+                Name = "Ping Limiter", 
+                Text = "Farm will pause at 30k ping", 
+                Duration = 2 
+            })
+            spawn(function()
+                local isPaused = false
+                while pingLimiterEnabled do
+                    local currentPing = getCurrentPing()
+                    if autoFarmEnabled then
+                        if currentPing >= maxPingThreshold and not isPaused then
+                            pauseFarming()
+                            isPaused = true
+                            Library:Notify({ 
+                                Name = "Ping Limiter", 
+                                Text = "Ping is high, the farm will be paused soon... " .. abbreviateNumber(currentPing) .. " ms", 
+                                Duration = 2 
+                            })
+                        elseif currentPing <= resumePingThreshold and isPaused then
+                            resumeFarming()
+                            isPaused = false
+                            Library:Notify({ 
+                                Name = "Ping Limiter", 
+                                Text = "Ping normalized, Farm resumed " .. abbreviateNumber(currentPing) .. " ms", 
+                                Duration = 2 
+                            })
+                        end
+                    end
+                    task.wait(checkInterval)
+                end
+            end)
+        end
+    end
+})
+
+local isDuping = false
 
 local function startDuping(amount)
     if isDuping then
-        Notify("Dupe", "Already duping!", 3)
+        Library:Notify({
+            Name = 'Dupe Error',
+            Text = 'Already duping, Please wait.',
+            Duration = 2
+        })
         return
     end
     isDuping = true
-    remainingDupes = amount
-    Notify("Dupe", "Duping " .. amount .. " DW!", 3)
+    Library:Notify({
+        Name = 'Dupe Started',
+        Text = 'Duping ' .. amount .. ' Double Weights!',
+        Duration = 3
+    })
+    local marketplaceService = game:GetService('MarketplaceService')
     spawn(function()
-        local marketplaceService = game:GetService('MarketplaceService')
-        for remaining = remainingDupes, 0, -1 do
-            if not isDuping then 
-                remainingDupes = remaining
-                break 
+        for remaining = amount, 1, -1 do
+            if not isDuping then
+                break
             end
-            local totalSeconds = remaining * 1
-            local hours = math.floor(totalSeconds / 3600)
-            local minutes = math.floor((totalSeconds % 3600) / 60)
-            local seconds = math.floor(totalSeconds % 60)
-            dupeTimeLabel.Text = string.format("  Time: %02d:%02d:%02d", hours, minutes, seconds)
-            pcall(function()
-                marketplaceService:SignalPromptGamePassPurchaseFinished(LocalPlayer, 5949054, true)
-            end)
-            wait(1)
-        end
-        if isDuping then
-            Notify("Dupe", "Finished!", 5)
-            dupeTimeLabel.Text = "  Time: 00:00:00"
-            remainingDupes = 0
-        else
-            local totalSeconds = remainingDupes * 1
-            local hours = math.floor(totalSeconds / 3600)
-            local minutes = math.floor((totalSeconds % 3600) / 60)
-            local seconds = math.floor(totalSeconds % 60)
-            dupeTimeLabel.Text = string.format("  Time: %02d:%02d:%02d - %d left", hours, minutes, seconds, remainingDupes)
+            marketplaceService:SignalPromptGamePassPurchaseFinished(player, 5949054, true)
+            task.wait(1)
         end
         isDuping = false
+        Library:Notify({
+            Name = 'Dupe Complete',
+            Text = 'Finished duping! Total: ' .. countDoubleWeights(),
+            Duration = 3
+        })
     end)
 end
 
-DupeTab:Button("Dupe", function()
-    startDuping(_G.dupeAmount)
-end)
-
-DupeTab:Button("Stop Dupe", function()
-    if isDuping then
-        isDuping = false
-        Notify("Dupe", "Paused! " .. remainingDupes .. " DW remaining", 3)
-    else
-        Notify("Dupe", "Not duping!", 3)
+MainSection:Button({
+    Name = "Dupe 55 Double Weight(s)",
+    Callback = function()
+        startDuping(53)
     end
-end)
+})
 
-DupeTab:Button("Return Dupe", function()
-    if remainingDupes > 0 and not isDuping then
-        startDuping(remainingDupes)
-    else
-        Notify("Dupe", "No dupes to return!", 3)
+MainSection:Button({
+    Name = "Dupe 750 Double Weight(s)",
+    Callback = function()
+        startDuping(748)
     end
-end)
+})
 
--- ===== GAME TAB =====
-local GameTab = Window:Tab("Game")
-GameTab:Button("Del All", function()
-    -- Seu código de otimização
-    local decalsyeeted = true
-    local g = game
-    local w = g.Workspace
-    local l = g.Lighting
-    local t = w.Terrain
-    t.WaterWaveSize = 0
-    t.WaterWaveSpeed = 0
-    t.WaterReflectance = 0
-    t.WaterTransparency = 0
-    l.GlobalShadows = false
-    l.FogEnd = 9e9
-    l.Brightness = 0
-    settings().Rendering.QualityLevel = "Level01"
-    
-    -- ✅ ADICIONE AQUI A REMOÇÃO DE NUVENS:
-    pcall(function() 
-        w.Clouds:Destroy() 
-    end)
-    
-    for i, v in pairs(g:GetDescendants()) do
-        if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-            v.Material = "Plastic"
-            v.Reflectance = 0
-        elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
-            v.Transparency = 1
-        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-            v.Lifetime = NumberRange.new(0)
-        elseif v:IsA("Explosion") then
-            v.BlastPressure = 1
-            v.BlastRadius = 1
-        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") then
-            v.Enabled = false
-        elseif v:IsA("MeshPart") then
-            v.Material = "Plastic"
-            v.Reflectance = 0
-            v.TextureID = 10385902758728957
-        end
+MainSection:Button({
+    Name = "Dupe 830 Double Weight(s)",
+    Callback = function()
+        startDuping(828)
     end
-    
-    for i, e in pairs(l:GetChildren()) do
-        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") 
-        or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-            e.Enabled = false
-        end
-    end
-    
-    -- Anti-AFK
-    local VirtualUser = game:GetService("VirtualUser")
-    LocalPlayer.Idled:Connect(function()
-        VirtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-        task.wait(1)
-        VirtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-    end)
-    
-    -- ✅ CHAMA A FUNÇÃO reduceLag() TAMBÉM
-    reduceLag()
-end)
+})
 
-GameTab:Button("Cam Zoom", function()
-    LocalPlayer.CameraMaxZoomDistance = 1000
-end)
-GameTab:Button("Anti Hit", function()
-    local RunService = game:GetService("RunService")
-    spawn(function()
-        RunService.RenderStepped:Connect(function()
-            pcall(function()
-                if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") then
-                    local creator = LocalPlayer.Character.Humanoid:FindFirstChild("creator")
-                    if creator then
-                        creator:Destroy()
-                    end
-                end
-            end)
+local currentPingLabel = MainSection:Label({ Name = "Current Ping: 0 ms" })
+local waitTimerLabel = MainSection:Label({ Name = "Wait Time: 0.0000s" })
+local doubleWeightsLabel = MainSection:Label({ Name = "Double Weights: 0" })
+
+spawn(function()
+    while wait(1) do
+        pcall(function()
+            local ping = getCurrentPing()
+            currentPingLabel:SetName("Current Ping: " .. abbreviateNumber(ping) .. " ms")
         end)
-    end)
-    Notify("Anti Hit", "Active! Creator tag removed on hit", 3)
-end)
-GameTab:Button("Change Sky", function()
-    pcall(function()
-        local Lighting = game:GetService("Lighting")
-        
-        -- Remove sky existente
-        for _, sky in pairs(Lighting:GetChildren()) do
-            if sky:IsA("Sky") then
-                sky:Destroy()
-            end
-        end
-        
-        -- Cria sky galáxia
-        local sky = Instance.new("Sky")
-        sky.Name = "GalaxySky"
-        sky.SkyboxBk = "rbxassetid://159454299"
-        sky.SkyboxDn = "rbxassetid://159454296"
-        sky.SkyboxFt = "rbxassetid://159454293"
-        sky.SkyboxLf = "rbxassetid://159454286"
-        sky.SkyboxRt = "rbxassetid://159454300"
-        sky.SkyboxUp = "rbxassetid://159454288"
-        sky.StarCount = 3000
-        sky.SunAngularSize = 0
-        sky.MoonAngularSize = 0
-        sky.Parent = Lighting
-        
-        -- Ajusta iluminação para galáxia
-        Lighting.ClockTime = 0
-        Lighting.Brightness = 2
-        Lighting.Ambient = Color3.fromRGB(100, 100, 150)
-        Lighting.OutdoorAmbient = Color3.fromRGB(50, 50, 100)
-        Lighting.GlobalShadows = true
-        
-        Notify("Change Sky", "Galaxy sky applied!", 3)
-    end)
-end)
-GameTab:Button("Animation Lift", function()
-    pcall(function()
-        if LocalPlayer.Character then
-            for _, part in pairs(LocalPlayer.Character:GetChildren()) do
-                if part:IsA("MeshPart") then
-                    part.Anchored = not part.Anchored
-                end
-            end
-            Notify("Animation Lift", "MeshParts anchored toggled!", 3)
-        end
-    end)
-end)
-GameTab:Button("Extras", function()
-    local StarterGui = game:GetService("StarterGui")
-    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
-    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
-    game:GetService("CoreGui").RobloxGui.Backpack.Visible = false
+    end
 end)
 
--- ===== MOVE TO TAB =====
-local MoveToTab = Window:Tab("MoveTo")
-
-MoveToTab:Button("Safezone", function()
-    pcall(function()
-        if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-            LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1837.48, 155.321, -5427.79)
-            Notify("Safezone", "Teleported to safezone!", 3)
-        end
-    end)
+spawn(function()
+    while wait(1) do
+        pcall(function()
+            local weightCount = countDoubleWeights()
+            currentWaitTime = 0.0008 * weightCount
+            waitTimerLabel:SetName("Wait Time: " .. string.format("%.4f", currentWaitTime) .. "s")
+        end)
+    end
 end)
 
-MoveToTab:Button("Plataform", function()
-    pcall(function()
-        if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-            local hrp = LocalPlayer.Character.HumanoidRootPart
-            hrp.CFrame = CFrame.new(-2000, 22000, -1000)
-            
-            local baseplate = Instance.new("Part", workspace)
-            baseplate.Name = "CustomPlatform"
-            baseplate.Size = Vector3.new(1000, 1, 1000)
-            baseplate.CFrame = hrp.CFrame + Vector3.new(0, -2, 0)
-            baseplate.Anchored = true
-            baseplate.Transparency = 0
-            baseplate.CanCollide = true
-            baseplate.Material = Enum.Material.SmoothPlastic
-            baseplate.BrickColor = BrickColor.new("Dark stone grey")
-            
-            Notify("Plataform", "Created platform at high altitude!", 3)
-        end
-    end)
+spawn(function()
+    while wait(1) do
+        pcall(function()
+            local dwCount = countDoubleWeights()
+            doubleWeightsLabel:SetName("Double Weights: " .. dwCount)
+        end)
+    end
 end)
 
+local InfoTab = Window:Tab({
+    Name = "Info",
+    Icon = "rbxassetid://6031265972",
+    Color = Color3.fromRGB(106, 76, 255)
+})
 
--- ===== PLAYER STATS TAB (RENOMEADO) =====
-local StatsTab = Window:Tab("Player Stats")
-StatsTab:Label("Player: " .. LocalPlayer.Name)
-local farmTimeLabel = StatsTab:PlayerLabel("Time Farming: 00d 00h 00m 00s")
-local totalStrengthLabel = StatsTab:PlayerLabel("Strenght Total: 0")
-local strengthGainedLabel = StatsTab:PlayerLabel("Strenght Gained: 0")
-local sizeLabel = StatsTab:PlayerLabel("Size: 0")
-local spsLabel = StatsTab:PlayerLabel("SPS: 0")
-local spmLabel = StatsTab:PlayerLabel("SPM: 0")
-local sphLabel = StatsTab:PlayerLabel("SPH: 0")
-local spdLabel = StatsTab:PlayerLabel("SPD: 0")
-local spmoLabel = StatsTab:PlayerLabel("SPMO: 0")
+local StrengthSection = InfoTab:Section({ Name = "Strength Info" })
 
--- Função de formatação com abreviações
-local function formatNumberAbbrev(num)
-    if num >= 1e12 then
-        return string.format("%.1fT", math.floor(num / 1e11) / 10)
-    elseif num >= 1e9 then
-        return string.format("%.1fB", math.floor(num / 1e8) / 10)
-    elseif num >= 1e6 then
-        return string.format("%.1fM", math.floor(num / 1e5) / 10)
-    elseif num >= 1e3 then
-        return string.format("%.1fK", math.floor(num / 1e2) / 10)
+local function formatNumberAbbrev(num, decimals)
+    decimals = decimals or 2  
+    local suffixes = {"", "K", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc"}
+    local index = 1
+    local value = num
+    while value >= 1000 and index < #suffixes do
+        value = value / 1000
+        index = index + 1
+    end
+    if index > 1 then
+        local multiplier = 10 ^ decimals
+        return string.format("%." .. decimals .. "f%s", math.floor(value * multiplier) / multiplier, suffixes[index])
     else
         return tostring(math.floor(num))
     end
 end
+
+local farmTimeLabel = StrengthSection:Label({ Name = "Time Farming: 00d 00h 00m 00s" })
+local totalStrengthLabel = StrengthSection:Label({ Name = "Total Strength: 0" })
+local strengthGainedLabel = StrengthSection:Label({ Name = "Strength Gained: 0" })
+local spsLabel = StrengthSection:Label({ Name = "SPS (Strength/sec): " })
+local spmLabel = StrengthSection:Label({ Name = "SPM (Strength/min): 0" })
+local sphLabel = StrengthSection:Label({ Name = "SPH (Strength/hour): 0" })
+local spdLabel = StrengthSection:Label({ Name = "SPD (Strength/day): 0" })
+local spwLabel = StrengthSection:Label({ Name = "SPW (Strength/week): 0" })
+local spmthLabel = StrengthSection:Label({ Name = "SPMTH (Strength/month): 0" })
+local spyLabel = StrengthSection:Label({ Name = "SPY (Strength/year): 0" })
+
+local initialStrength = 0
+
+spawn(function()
+    wait(2)
+    pcall(function()
+        local replicatedStorage = game:GetService("ReplicatedStorage")
+        local dataFolder = replicatedStorage:WaitForChild("Data", 5)
+        if dataFolder then
+            local playerFolder = dataFolder:WaitForChild(player.Name, 5)
+            if playerFolder then
+                local strengthValue = playerFolder:WaitForChild("Strength", 5)
+                if strengthValue then
+                    initialStrength = strengthValue.Value
+                    totalStrengthLabel:SetName("Total Strength: " .. formatNumberAbbrev(strengthValue.Value))
+                    strengthGainedLabel:SetName("Strength Gained: 0")
+                    strengthValue:GetPropertyChangedSignal("Value"):Connect(function()
+                        local current = strengthValue.Value
+                        local gained = current - initialStrength
+                        totalStrengthLabel:SetName("Total Strength: " .. formatNumberAbbrev(current))
+                        strengthGainedLabel:SetName("Strength Gained: " .. formatNumberAbbrev(gained))
+                    end)
+                end
+            end
+        end
+    end)
+end)
 
 local farmStartTime = nil
 local isFarming = false
 
 spawn(function()
     while wait(1) do
-        if _G.farmActive and not isFarming then
+        if autoFarmEnabled and not isFarming then
             isFarming = true
             farmStartTime = os.time()
-        elseif not _G.farmActive and isFarming then
+        elseif not autoFarmEnabled and isFarming then
             isFarming = false
-            farmTimeLabel.Text = "  Time Farming: 00d 00h 00m 00s"
+            farmTimeLabel:SetName("Time Farming: 00d 00h 00m 00s")
         end
-        
         if isFarming and farmStartTime then
             local elapsed = os.time() - farmStartTime
             local days = math.floor(elapsed / 86400)
             local hours = math.floor((elapsed % 86400) / 3600)
             local minutes = math.floor((elapsed % 3600) / 60)
             local seconds = elapsed % 60
-
-            farmTimeLabel.Text = string.format(
-                "  Time Farming: %02dd %02dh %02dm %02ds",
+            farmTimeLabel:SetName(string.format(
+                "Time Farming: %02dd %02dh %02dm %02ds",
                 days, hours, minutes, seconds
-            )
+            ))
         end
     end
 end)
 
--- Sistema de SPS com formatação melhorada
-local currentSPS = 0
 spawn(function()
-    local leaderstats = LocalPlayer.leaderstats
-    local index = -1
-    local calibrated = false
+    local strengthValue = game:GetService('Players').LocalPlayer.leaderstats.Strength
+    local previousStrength = strengthValue.Value
     while true do
-        index = index + 1
-        local strbefore = leaderstats.Strength.Value
         wait(1)
-        if index > 3 then
-            local strafter = leaderstats.Strength.Value - strbefore
-            currentSPS = strafter
-            
-            -- SPS (por segundo)
-            spsLabel.Text = "  SPS: " .. tostring(strafter)
-            
-            -- SPM (por minuto) - FORMATADO
-            local spmValue = strafter * 60
-            spmLabel.Text = "  SPM: " .. formatNumberAbbrev(spmValue)
-            
-            -- SPH (por hora) - FORMATADO
-            local sphValue = strafter * 3600
-            sphLabel.Text = "  SPH: " .. formatNumberAbbrev(sphValue)
-            
-            -- SPD (por dia) - FORMATADO
-            local spdValue = strafter * 86400
-            spdLabel.Text = "  SPD: " .. formatNumberAbbrev(spdValue)
-            
-            -- SPMO (por mês) - FORMATADO
-            local spmoValue = strafter * 2592000
-            spmoLabel.Text = "  SPMO: " .. formatNumberAbbrev(spmoValue)
-            
-            if calibrated ~= true then
-                calibrated = true
-            end
-        else
-            spsLabel.Text = "  SPS: Calibrating..."
-            spmLabel.Text = "  SPM: Calibrating..."
-            sphLabel.Text = "  SPH: Calibrating..."
-            spdLabel.Text = "  SPD: Calibrating..."
-            spmoLabel.Text = "  SPMO: Calibrating..."
-        end
+        local currentStrength = strengthValue.Value
+        local strengthGained = currentStrength - previousStrength
+        spsLabel:SetName("SPS (Strength/sec): " .. formatNumberAbbrev(strengthGained, 1))
+        spmLabel:SetName("SPM (Strength/min): " .. formatNumberAbbrev(strengthGained * 60, 1))
+        sphLabel:SetName("SPH (Strength/hour): " .. formatNumberAbbrev(strengthGained * 3600, 1))
+        spdLabel:SetName("SPD (Strength/day): " .. formatNumberAbbrev(strengthGained * 86400, 1))
+        spwLabel:SetName("SPW (Strength/week): " .. formatNumberAbbrev(strengthGained * 604800, 1))
+        spmthLabel:SetName("SPMTH (Strength/month): " .. formatNumberAbbrev(strengthGained * 2592000, 1))
+        spyLabel:SetName("SPY (Strength/year): " .. formatNumberAbbrev(strengthGained * 31536000, 1))
+        previousStrength = currentStrength
     end
 end)
 
-local initialStrength = 0
-spawn(function()
-    wait(2)
-    pcall(function()
-        local dataFolder = game.ReplicatedStorage:WaitForChild("Data", 5)
-        if dataFolder then
-            local playerFolder = dataFolder:WaitForChild(LocalPlayer.Name, 5)
-            if playerFolder then
-                local strengthValue = playerFolder:WaitForChild("Strength", 5)
-                if strengthValue then
-                    initialStrength = strengthValue.Value
-                    local abbrevNum = formatNumberAbbrev(strengthValue.Value)
-                    local fullNum = tostring(math.floor(strengthValue.Value))
-                    totalStrengthLabel.Text = "  Strenght Total: " .. fullNum .. " (" .. abbrevNum .. ")"
-                    strengthGainedLabel.Text = "  Strenght Gained: 0"
-                    
-                    strengthValue:GetPropertyChangedSignal("Value"):Connect(function()
-                        local current = strengthValue.Value
-                        local gained = current - initialStrength
-                        local abbrevNum = formatNumberAbbrev(current)
-                        local fullNum = tostring(math.floor(current))
-                        totalStrengthLabel.Text = "  Strenght Total: " .. fullNum .. " (" .. abbrevNum .. ")"
-                        strengthGainedLabel.Text = "  Strenght Gained: " .. formatNumberAbbrev(gained)
-                    end)
-                end
+local FeaturesTab = Window:Tab({
+    Name = "Features",
+    Icon = "rbxassetid://6031280882",
+    Color = Color3.fromRGB(102, 51, 153)
+})
+
+local HelpFarmingSection = FeaturesTab:Section({ Name = "Help Farming" })
+
+HelpFarmingSection:Button({
+    Name = 'Delete All + Anti-AFK',
+    Callback = function()
+        local localPlayer = game:GetService('Players').LocalPlayer
+        local StarterGui = game:GetService("StarterGui")
+        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
+        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+        game:GetService("CoreGui").RobloxGui.Backpack.Visible = false
+        localPlayer.CameraMaxZoomDistance = 1000
+        pcall(function()
+            game.ReplicatedFirst.TourneyQ:Destroy()
+        end)
+        pcall(function()
+            game:GetService('Lighting').NormalSky:Destroy()
+        end)
+        pcall(function()
+            localPlayer.PlayerGui.HUD:Destroy()
+        end)
+        
+        local decalsyeeted = true
+        local g = game
+        local w = g.Workspace
+        local l = g.Lighting
+        local t = w.Terrain
+        t.WaterWaveSize = 0
+        t.WaterWaveSpeed = 0
+        t.WaterReflectance = 0
+        t.WaterTransparency = 0
+        l.GlobalShadows = false
+        l.FogEnd = 9e9
+        l.Brightness = 0
+        settings().Rendering.QualityLevel = "Level01"
+        
+        for i, v in pairs(g:GetDescendants()) do
+            if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+                v.Material = "Plastic"
+                v.Reflectance = 0
+            elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+                v.Transparency = 1
+            elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                v.Lifetime = NumberRange.new(0)
+            elseif v:IsA("Explosion") then
+                v.BlastPressure = 1
+                v.BlastRadius = 1
+            elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") then
+                v.Enabled = false
+            elseif v:IsA("MeshPart") then
+                v.Material = "Plastic"
+                v.Reflectance = 0
+                v.TextureID = 10385902758728957
             end
         end
         
-        local leaderstats = LocalPlayer:WaitForChild("leaderstats", 5)
-        if leaderstats then
-            local sizeValue = leaderstats:WaitForChild("Strength", 5)
-            if sizeValue then
-                sizeLabel.Text = "  Size: " .. formatNumberAbbrev(sizeValue.Value)
-                
-                sizeValue:GetPropertyChangedSignal("Value"):Connect(function()
-                    sizeLabel.Text = "  Size: " .. formatNumberAbbrev(sizeValue.Value)
+        for i, e in pairs(l:GetChildren()) do
+            if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                e.Enabled = false
+            end
+        end
+        
+        pcall(function()
+            sethiddenproperty(l, 'Technology', 'Compatibility')
+        end)
+        
+        local virtualUser = game:GetService('VirtualUser')
+        localPlayer.Idled:Connect(function()
+            virtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+            wait(1)
+            virtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+        end)
+        
+        -- Modificado: não apaga SafeZone e SafezonePlatform
+        for _, obj in pairs(workspace:GetChildren()) do
+            if obj.Name ~= localPlayer.Name and 
+               obj.Name ~= 'Terrain' and 
+               obj.Name ~= 'Baseplate' and 
+               obj.Name ~= 'Camera' and
+               obj.Name ~= 'SafeZone' and
+               obj.Name ~= 'SafezonePlatform' then -- Adicionado para preservar plataformas
+                pcall(function()
+                    obj:Destroy()
                 end)
             end
         end
-    end)
-end)
-
--- ===== PLAYERS TAB =====
-local PlayersTab = Window:Tab("Players")
-local function formatNumber(num)
-    if num >= 1000000000 then
-        local billions = num / 1000000000
-        return string.format("%.2fB", billions)
-    elseif num >= 1000000 then
-        local millions = num / 1000000
-        return string.format("%.2fM", millions)
-    elseif num >= 1000 then
-        local thousands = num / 1000
-        return string.format("%.1fK", thousands)
-    else
-        return tostring(math.floor(num))
+        
+        pcall(function()
+            for _, package in pairs(game:GetService('CorePackages'):GetChildren()) do
+                package:Destroy()
+            end
+        end)
+        
+        Library:Notify({ 
+            Name = "FPS Boost", 
+            Text = "Anti-Afk Active", 
+            Duration = 3 
+        })
     end
-end
+})
 
-local function getPlayerStrength(player)
-    local success, strength = pcall(function()
-        local data = game.ReplicatedStorage:FindFirstChild("Data")
-        if data then
-            local playerFolder = data:FindFirstChild(player.Name)
+HelpFarmingSection:Button({
+    Name = 'TP High',
+    Callback = function()
+        pcall(function()
+            local localPlayer = game:GetService('Players').LocalPlayer
+            localPlayer.Character.HumanoidRootPart.CFrame = 
+                workspace.Terrain.CFrame + Vector3.new(0, 1000, 0)
+            local baseplate = Instance.new("Part", workspace)
+            baseplate.Size = Vector3.new(1000, 1, 1000)
+            baseplate.CFrame = localPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
+            baseplate.Anchored = true
+            baseplate.Transparency = 0.9
+        end)
+    end
+})
+
+HelpFarmingSection:Button({
+    Name = 'TP Safezone',
+    Callback = function()
+        pcall(function()
+            local LocalPlayer = game:GetService('Players').LocalPlayer
+            if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1837.48, 155.321, -5427.79)
+                local baseplate = Instance.new("Part", workspace)
+                baseplate.Name = "SafezonePlatform"
+                baseplate.Size = Vector3.new(1000, 1, 1000)
+                baseplate.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
+                baseplate.Anchored = true
+                baseplate.Transparency = 0.9
+            end
+        end)
+    end
+})
+
+HelpFarmingSection:Button({
+    Name = 'TP High AF',
+    Callback = function()
+        pcall(function()
+            local localPlayer = game:GetService('Players').LocalPlayer
+            localPlayer.Character.HumanoidRootPart.CFrame = 
+                localPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 50000, 0)
+            local baseplate = Instance.new("Part", workspace)
+            baseplate.Size = Vector3.new(1000, 1, 1000)
+            baseplate.CFrame = localPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
+            baseplate.Anchored = true
+            baseplate.Transparency = 0.9
+        end)
+    end
+})
+
+-- Botão Day/Night substituindo a Slider
+local isDay = true
+HelpFarmingSection:Button({
+    Name = 'Day/Night',
+    Callback = function()
+        local Lighting = game:GetService('Lighting')
+        if isDay then
+            Lighting.ClockTime = 0  -- Noite (meia-noite)
+            isDay = false
+        else
+            Lighting.ClockTime = 12  -- Dia (meio-dia)
+            isDay = true
+        end
+    end
+})
+
+local UsuallySection = FeaturesTab:Section({ Name = "Combat Options" })
+
+local loopKillEnabled = false
+local loopKillTarget = nil
+local loopKillTargetName = ""
+local spyPlayerName = ""
+
+local function getPlayerStrength(targetPlayer)
+    local strength = 0
+    pcall(function()
+        local replicatedStorage = game:GetService("ReplicatedStorage")
+        local dataFolder = replicatedStorage:FindFirstChild("Data")
+        if dataFolder then
+            local playerFolder = dataFolder:FindFirstChild(targetPlayer.Name)
             if playerFolder then
                 local strengthValue = playerFolder:FindFirstChild("Strength")
                 if strengthValue then
-                    return strengthValue.Value
+                    strength = strengthValue.Value
                 end
             end
         end
-        return 0
     end)
-    return success and strength or 0
+    return strength
 end
-
-local playerLabels = {}
-local function updatePlayerLabel(player)
-    local strength = getPlayerStrength(player)
-    local strengthText = formatNumber(strength)
-    local text = player.Name .. ": " .. strengthText
-    if playerLabels[player.Name] then
-        playerLabels[player.Name].Text = "  " .. text
-    else
-        local label = PlayersTab:PlayerLabel(text)
-        playerLabels[player.Name] = label
-    end
-end
-
-local function removePlayerLabel(player)
-    if playerLabels[player.Name] then
-        playerLabels[player.Name]:Destroy()
-        playerLabels[player.Name] = nil
-    end
-end
-
-for _, player in pairs(game.Players:GetPlayers()) do
-    updatePlayerLabel(player)
-end
-
-game.Players.PlayerAdded:Connect(function(player)
-    wait(1)
-    updatePlayerLabel(player)
-end)
-
-game.Players.PlayerRemoving:Connect(function(player)
-    removePlayerLabel(player)
-end)
 
 spawn(function()
-    while wait(2) do
-        for _, player in pairs(game.Players:GetPlayers()) do
-            updatePlayerLabel(player)
+    while true do
+        wait(0.05)
+        if loopKillEnabled and loopKillTarget then
+            pcall(function()
+                if not loopKillTarget or not loopKillTarget.Character then return end
+                
+                local targetTorso = loopKillTarget.Character:FindFirstChild("UpperTorso") or loopKillTarget.Character:FindFirstChild("Torso")
+                local targetHead = loopKillTarget.Character:FindFirstChild("Head")
+                if not targetTorso and not targetHead then return end
+                
+                local tool = player.Backpack:FindFirstChild("Boxing")
+                if tool then
+                    -- Ataca sem equipar a tool
+                    game:GetService("ReplicatedStorage").Remotes.Human_Punch:FireServer(
+                        player.Character:FindFirstChild("LeftHand"),
+                        "LeftPunch",
+                        targetHead or targetTorso,
+                        5,
+                        true,
+                        "RightPunch",
+                        tool.Handle.Hit,
+                        5
+                    )
+                end
+            end)
         end
     end
 end)
 
--- ===== INICIALIZAÇÃO DA UI =====
-wait(0.5)
-local firstTab = vu32:FindFirstChild("TabButton")
-if firstTab then
-    for _, v45 in pairs(vu29:GetChildren()) do
-        if v45:IsA("ScrollingFrame") then
-            v45.Visible = false
+-- Sistema de auto-complete para Loop Kill Target
+local loopKillSuggestion = nil
+local loopKillConfirmed = false
+
+UsuallySection:BigTextbox({
+    Name = "Loop Kill Target",
+    Placeholder = "",
+    Callback = function(value)
+        if value and value ~= "" then
+            local searchTerm = value:lower()
+            local targetPlayer = nil
+            
+            -- Busca jogador começando com o termo
+            for _, p in pairs(Players:GetPlayers()) do
+                if p.Name:lower():sub(1, #searchTerm) == searchTerm then
+                    targetPlayer = p
+                    break
+                end
+            end
+            
+            -- Se não encontrou exato, busca contendo
+            if not targetPlayer then
+                for _, p in pairs(Players:GetPlayers()) do
+                    if p.Name:lower():find(searchTerm) then
+                        targetPlayer = p
+                        break
+                    end
+                end
+            end
+            
+            if targetPlayer then
+                -- Verifica se está confirmando ou apenas sugerindo
+                if value:lower() == targetPlayer.Name:lower() then
+                    -- Nome completo = confirmado
+                    loopKillTarget = targetPlayer
+                    loopKillConfirmed = true
+                    Library:Notify({ 
+                        Name = "Target Locked", 
+                        Text = "✓ " .. targetPlayer.Name, 
+                        Duration = 2 
+                    })
+                else
+                    -- Nome parcial = sugestão
+                    loopKillSuggestion = targetPlayer
+                    loopKillTarget = nil
+                    loopKillConfirmed = false
+                    Library:Notify({ 
+                        Name = "Suggestion", 
+                        Text = "Did you mean: " .. targetPlayer.Name .. "? (Type full name)", 
+                        Duration = 3 
+                    })
+                end
+            else
+                loopKillTarget = nil
+                loopKillSuggestion = nil
+                loopKillConfirmed = false
+            end
+        else
+            loopKillTarget = nil
+            loopKillSuggestion = nil
+            loopKillConfirmed = false
         end
     end
-    local firstPage = vu29:FindFirstChild("Page")
-    if firstPage then
-        firstPage.Visible = true
+})
+
+UsuallySection:Toggle({
+    Name = "Loop Kill Player",
+    Enabled = false,
+    Callback = function(state)
+        loopKillEnabled = state
     end
-    vu2:Create(firstTab, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.5}):Play()
-    vu2:Create(firstTab, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+})
+
+local killAuraEnabled = false
+local killAuraDistance = nil
+local antiHitEnabled = false
+local antiHitTarget = nil
+local RunService = game:GetService("RunService")
+
+UsuallySection:Toggle({
+    Name = "Anti Hit",
+    Enabled = false,
+    Callback = function(state)
+        antiHitEnabled = state
+        if not state then
+            antiHitTarget = nil
+        end
+    end
+})
+
+-- Detecta quando alguém te bate (FUNCIONA APÓS RESPAWN)
+spawn(function()
+    while true do
+        wait(0.1)
+        if antiHitEnabled then
+            pcall(function()
+                -- Aguarda o personagem existir
+                if not player.Character then
+                    return
+                end
+                
+                -- Aguarda o Humanoid existir
+                local humanoid = player.Character:WaitForChild("Humanoid", 5)
+                if not humanoid then
+                    return
+                end
+                
+                -- Detecta dano
+                local lastHealth = humanoid.Health
+                
+                humanoid.HealthChanged:Connect(function(health)
+                    if not antiHitEnabled then return end
+                    
+                    -- Se tomou dano
+                    if health < lastHealth then
+                        pcall(function()
+                            -- Encontra o jogador mais próximo (o atacante)
+                            local closestPlayer = nil
+                            local closestDistance = math.huge
+                            
+                            for _, targetPlayer in pairs(Players:GetPlayers()) do
+                                if targetPlayer ~= player and targetPlayer.Character then
+                                    local targetHRP = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                    if targetHRP and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                                        local distance = (targetHRP.Position - player.Character.HumanoidRootPart.Position).Magnitude
+                                        if distance < closestDistance and distance < 50 then
+                                            closestDistance = distance
+                                            closestPlayer = targetPlayer
+                                        end
+                                    end
+                                end
+                            end
+                            
+                            if closestPlayer then
+                                antiHitTarget = closestPlayer
+                                Library:Notify({ 
+                                    Name = "Anti Hit Locked", 
+                                    Text = "Target: " .. closestPlayer.Name, 
+                                    Duration = 2 
+                                })
+                            end
+                        end)
+                    end
+                    
+                    lastHealth = health
+                end)
+            end)
+        end
+    end
+end)
+
+-- Reconecta a detecção quando você respawna
+player.CharacterAdded:Connect(function(character)
+    if antiHitEnabled then
+        wait(1) -- Aguarda o personagem carregar completamente
+        pcall(function()
+            local humanoid = character:WaitForChild("Humanoid", 5)
+            if humanoid then
+                local lastHealth = humanoid.Health
+                
+                humanoid.HealthChanged:Connect(function(health)
+                    if not antiHitEnabled then return end
+                    
+                    -- Se tomou dano
+                    if health < lastHealth then
+                        pcall(function()
+                            -- Encontra o jogador mais próximo (o atacante)
+                            local closestPlayer = nil
+                            local closestDistance = math.huge
+                            
+                            for _, targetPlayer in pairs(Players:GetPlayers()) do
+                                if targetPlayer ~= player and targetPlayer.Character then
+                                    local targetHRP = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                    if targetHRP and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                                        local distance = (targetHRP.Position - player.Character.HumanoidRootPart.Position).Magnitude
+                                        if distance < closestDistance and distance < 50 then
+                                            closestDistance = distance
+                                            closestPlayer = targetPlayer
+                                        end
+                                    end
+                                end
+                            end
+                            
+                            if closestPlayer then
+                                antiHitTarget = closestPlayer
+                                Library:Notify({ 
+                                    Name = "Anti Hit Locked", 
+                                    Text = "Target: " .. closestPlayer.Name, 
+                                    Duration = 2 
+                                })
+                            end
+                        end)
+                    end
+                    
+                    lastHealth = health
+                end)
+            end
+        end)
+    end
+end)
+
+-- Loop infinito atacando o atacante (CONTINUA APÓS MORTE)
+spawn(function()
+    while true do
+        wait(0.05)
+        if antiHitEnabled and antiHitTarget then
+            pcall(function()
+                -- Aguarda o personagem respawnar se necessário
+                if not player.Character or not player.Character:FindFirstChild("HumanoidRootPart") then
+                    return
+                end
+                
+                -- Verifica se o atacante ainda existe
+                if antiHitTarget.Character then
+                    local targetTorso = antiHitTarget.Character:FindFirstChild("UpperTorso") or antiHitTarget.Character:FindFirstChild("Torso")
+                    local targetHead = antiHitTarget.Character:FindFirstChild("Head")
+                    
+                    if targetTorso or targetHead then
+                        local tool = player.Backpack:FindFirstChild("Boxing")
+                        if tool then
+                            game:GetService("ReplicatedStorage").Remotes.Human_Punch:FireServer(
+                                player.Character:FindFirstChild("LeftHand"),
+                                "LeftPunch",
+                                targetHead or targetTorso,
+                                5,
+                                true,
+                                "RightPunch",
+                                tool.Handle.Hit,
+                                5
+                            )
+                        end
+                    end
+                else
+                    -- Se o jogador saiu, limpa o alvo
+                    antiHitTarget = nil
+                    Library:Notify({ 
+                        Name = "Anti Hit", 
+                        Text = "Target left the game", 
+                        Duration = 2 
+                    })
+                end
+            end)
+        end
+    end
+end)
+
+UsuallySection:Toggle({
+    Name = "Kill Aura",
+    Enabled = false,
+    Callback = function(state)
+        killAuraEnabled = state
+    end
+})
+
+-- Kill Aura usando RunService.Stepped (ataca TODOS os jogadores - não depende de Loop Kill)
+RunService.Stepped:Connect(function()
+    if killAuraEnabled and killAuraDistance then
+        -- Ataca TODOS os jogadores no servidor que estão dentro da distância
+        for _, targetPlayer in pairs(Players:GetPlayers()) do
+            -- Ignora apenas o próprio jogador local
+            if targetPlayer ~= player and targetPlayer.Character then
+                pcall(function()
+                    local targetTorso = targetPlayer.Character:FindFirstChild("UpperTorso") or targetPlayer.Character:FindFirstChild("Torso")
+                    if targetTorso then
+                        local distance = player:DistanceFromCharacter(targetTorso.Position)
+                        if distance < tonumber(killAuraDistance) then
+                            local tool = player.Backpack:FindFirstChild("Boxing")
+                            if tool then
+                                game:GetService("ReplicatedStorage").Remotes.Human_Punch:FireServer(
+                                    player.Character:FindFirstChild("RightHand"),
+                                    "RightPunch",
+                                    targetTorso,
+                                    5,
+                                    true,
+                                    "RightPunch",
+                                    tool.Handle.Hit,
+                                    5
+                                )
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end
+end)
+
+UsuallySection:SmallTextbox({
+    Name = "Kill Aura Distance",
+    Placeholder = "Enter distance",
+    Callback = function(value)
+        local distance = tonumber(value)
+        if distance then
+            killAuraDistance = distance
+        end
+    end
+})
+
+-- Sistema de auto-complete para Strength Spy
+local spyStrengthLabel = UsuallySection:Label({ Name = "Strength: N/A" })
+
+UsuallySection:BigTextbox({
+    Name = "Strength Spy",
+    Placeholder = "",
+    Callback = function(value)
+        spyPlayerName = value
+        if value and value ~= "" then
+            spawn(function()
+                pcall(function()
+                    local targetPlayer = nil
+                    local searchTerm = value:lower()
+                    
+                    -- Busca jogador começando com o termo
+                    for _, plr in pairs(game:GetService("Players"):GetPlayers()) do
+                        if plr.Name:lower():sub(1, #searchTerm) == searchTerm then
+                            targetPlayer = plr
+                            break
+                        end
+                    end
+                    
+                    -- Se não encontrou exato, busca contendo
+                    if not targetPlayer then
+                        for _, plr in pairs(game:GetService("Players"):GetPlayers()) do
+                            if plr.Name:lower():find(searchTerm) then
+                                targetPlayer = plr
+                                break
+                            end
+                        end
+                    end
+                    
+                    if targetPlayer then
+                        -- Mostra sugestão se for nome parcial
+                        if value:lower() ~= targetPlayer.Name:lower() then
+                            Library:Notify({ 
+                                Name = "Suggestion", 
+                                Text = "Did you mean: " .. targetPlayer.Name .. "?", 
+                                Duration = 2 
+                            })
+                        end
+                        
+                        local replicatedStorage = game:GetService("ReplicatedStorage")
+                        local dataFolder = replicatedStorage:WaitForChild("Data", 5)
+                        if dataFolder then
+                            local playerFolder = dataFolder:WaitForChild(targetPlayer.Name, 5)
+                            if playerFolder then
+                                local strengthValue = playerFolder:WaitForChild("Strength", 5)
+                                if strengthValue then
+                                    local abbrevStrength = formatNumberAbbrev(strengthValue.Value, 2)
+                                    spyStrengthLabel:SetName("Strength: " .. abbrevStrength .. " (" .. targetPlayer.Name .. ")")
+                                    
+                                    strengthValue:GetPropertyChangedSignal("Value"):Connect(function()
+                                        local newAbbrev = formatNumberAbbrev(strengthValue.Value, 2)
+                                        spyStrengthLabel:SetName("Strength: " .. newAbbrev .. " (" .. targetPlayer.Name .. ")")
+                                    end)
+                                else
+                                    spyStrengthLabel:SetName("Strength: N/A (Data not found)")
+                                end
+                            else
+                                spyStrengthLabel:SetName("Strength: N/A (Player data not found)")
+                            end
+                        end
+                    else
+                        spyStrengthLabel:SetName("Strength: N/A (Player not found)")
+                    end
+                end)
+            end)
+        else
+            spyStrengthLabel:SetName("Strength: N/A")
+        end
+    end
+})
+
+local MiscTab = Window:Tab({
+    Name = "Misc",
+    Icon = "rbxassetid://6031071056",
+    Color = Color3.fromRGB(62, 34, 104)
+})
+
+local MiscSection = MiscTab:Section({ Name = "Miscellaneous" })
+MiscSection:Label({ Name = "Additional options" })
+
+-- Botão específico para mobile
+if isMobile then
+    MiscSection:Button({
+        Name = "Toggle UI (Hide/Show)",
+        Callback = function()
+            Library:Toggle()
+        end
+    })
 end
 
-print("✅ GHOST HUB LOADED WITH FIXES!")
-print("✅ Ping Farm Button - FIXED")
-print("✅ Ping Abbreviation (3.2k) - ADDED")
+MiscSection:Button({
+    Name = "Self Destruct",
+    Callback = function()
+        task.wait(2)
+        Library:Destroy()
+    end
+})
+
+if type(Library.Destroy) == "function" then
+    local _oldDestroy = Library.Destroy
+    Library.Destroy = function(self, ...)
+        farmEnabled = false
+        equipWeightsEnabled = false
+        isDuping = false
+        pingLimiterEnabled = false
+        loopKillEnabled = false
+        killAuraEnabled = false
+        return _oldDestroy(self, ...)
+    end
+end
+
+-- ============================================
+-- BOTÃO FLUTUANTE PARA MOBILE
+-- ============================================
+if isMobile then
+    local CoreGui = game:GetService("CoreGui")
+    
+    -- Criar botão flutuante
+    local floatingButton = Instance.new("ScreenGui")
+    floatingButton.Name = "CyborgHubToggle"
+    floatingButton.Parent = CoreGui
+    floatingButton.ResetOnSpawn = false
+    floatingButton.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    
+    local button = Instance.new("TextButton")
+    button.Name = "ToggleButton"
+    button.Parent = floatingButton
+    button.BackgroundColor3 = Color3.fromRGB(140, 96, 255)
+    button.BorderSizePixel = 0
+    button.Position = UDim2.new(0, 10, 0.5, -35)
+    button.Size = UDim2.new(0, 70, 0, 70)
+    button.Font = Enum.Font.SourceSansBold
+    button.Text = "CH"
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.TextSize = 24
+    button.Active = true
+    button.Draggable = true
+    
+    -- Tornar circular
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0.5, 0)
+    corner.Parent = button
+    
+    -- Adicionar sombra/brilho
+    local stroke = Instance.new("UIStroke")
+    stroke.Color = Color3.fromRGB(200, 150, 255)
+    stroke.Thickness = 3
+    stroke.Parent = button
+    
+    -- Label indicativo
+    local label = Instance.new("TextLabel")
+    label.Parent = button
+    label.BackgroundTransparency = 1
+    label.Position = UDim2.new(0, 0, 1, 5)
+    label.Size = UDim2.new(1, 0, 0, 20)
+    label.Font = Enum.Font.SourceSansBold
+    label.Text = "Toggle"
+    label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    label.TextSize = 12
+    label.TextStrokeTransparency = 0.5
+    
+    -- Função de toggle
+    button.MouseButton1Click:Connect(function()
+        Library:Toggle()
+        
+        -- Feedback visual
+        button.BackgroundColor3 = Color3.fromRGB(100, 255, 100)
+        wait(0.1)
+        button.BackgroundColor3 = Color3.fromRGB(140, 96, 255)
+    end)
+    
+    -- Animação de pulso
+    spawn(function()
+        while wait(2) do
+            pcall(function()
+                button:TweenSize(UDim2.new(0, 75, 0, 75), "Out", "Quad", 0.3, true)
+                wait(0.3)
+                button:TweenSize(UDim2.new(0, 70, 0, 70), "Out", "Quad", 0.3, true)
+            end)
+        end
+    end)
+end
