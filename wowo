@@ -877,10 +877,17 @@ UsuallySection:SmallTextbox({
 
 local spyStrengthLabel = UsuallySection:Label({ Name = "Strength: N/A" })
 
+local currentSpyConnection = nil
+
 UsuallySection:BigTextbox({
     Name = "Strength Spy",
     Placeholder = "",
     Callback = function(value)
+        if currentSpyConnection then
+            currentSpyConnection:Disconnect()
+            currentSpyConnection = nil
+        end
+        
         spyPlayerName = value
         if value and value ~= "" then
             spawn(function()
@@ -889,9 +896,18 @@ UsuallySection:BigTextbox({
                     local searchTerm = value:lower()
                     
                     for _, plr in pairs(game:GetService("Players"):GetPlayers()) do
-                        if plr.Name:lower():sub(1, #searchTerm) == searchTerm then
+                        if plr.Name:lower() == searchTerm then
                             targetPlayer = plr
                             break
+                        end
+                    end
+                    
+                    if not targetPlayer then
+                        for _, plr in pairs(game:GetService("Players"):GetPlayers()) do
+                            if plr.Name:lower():sub(1, #searchTerm) == searchTerm then
+                                targetPlayer = plr
+                                break
+                            end
                         end
                     end
                     
@@ -923,7 +939,8 @@ UsuallySection:BigTextbox({
                                     local abbrevStrength = formatNumberAbbrev(strengthValue.Value, 2)
                                     spyStrengthLabel:SetName("Strength: " .. abbrevStrength .. " (" .. targetPlayer.Name .. ")")
                                     
-                                    strengthValue:GetPropertyChangedSignal("Value"):Connect(function()
+                                    -- Armazena a nova conexão
+                                    currentSpyConnection = strengthValue:GetPropertyChangedSignal("Value"):Connect(function()
                                         local newAbbrev = formatNumberAbbrev(strengthValue.Value, 2)
                                         spyStrengthLabel:SetName("Strength: " .. newAbbrev .. " (" .. targetPlayer.Name .. ")")
                                     end)
