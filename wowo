@@ -11,27 +11,11 @@ Library:SetTheme({
 })
 
 local scriptName = "Cyborg Hub Boxing Simulator 2"
-
--- Detecta se está em mobile
-local UserInputService = game:GetService("UserInputService")
-local isMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
-
 local Window = Library:Create({
     Name = scriptName,
     Footer = "Cyborg Hub by vMxtic",
     ToggleKey = Enum.KeyCode.RightShift,
-    -- Configurações específicas para mobile
-    Mobile = isMobile,
-    Size = isMobile and UDim2.new(0, 450, 0, 550) or nil, -- Tamanho otimizado para mobile
-    Position = isMobile and UDim2.new(0.5, -225, 0.5, -275) or nil, -- Centralizado
     LoadedCallback = function()
-        if isMobile then
-            Library:Notify({ 
-                Name = "Mobile Detected", 
-                Text = "UI optimized for mobile!", 
-                Duration = 3 
-            })
-        end
     end
 })
 
@@ -42,18 +26,10 @@ local MainTab = Window:Tab({
 })
 
 local MainSection = MainTab:Section({ Name = "Main Controls" })
-
--- Label mais compacto para mobile
-if isMobile then
-    MainSection:Label({ Name = "Cyborg Hub - Mobile Edition" })
-    MainSection:Label({ Name = "Drag to move | Tap tabs to switch" })
-else
-    MainSection:Label({ Name = "╔═══════════════════════════╗\n" .. scriptName .. "\n╚═══════════════════════════╝" })
-    MainSection:Label({ Name = "Welcome to Cyborg Hub!" })
-end
+MainSection:Label({ Name = "╔═══════════════════════════╗\n" .. scriptName .. "\n╚═══════════════════════════╝" })
+MainSection:Label({ Name = "Welcome to Cyborg Hub!" })
 
 local Players = game:GetService("Players")
-local UserInputService = game:GetService("UserInputService")
 local player = Players.LocalPlayer
 local equipWeightsEnabled = false
 local equipWeightsRunning = false
@@ -130,7 +106,7 @@ local function equipDoubleWeights()
                     if remainingWeights == 0 then
                         Library:Notify({ 
                             Name = "Equip Complete", 
-                            Text = "All weights equipped!", 
+                            Text = "Equipped weights!", 
                             Duration = 3 
                         })
                         equipWeightsEnabled = false
@@ -294,12 +270,13 @@ local function startDuping(amount)
     isDuping = true
     Library:Notify({
         Name = 'Dupe Started',
-        Text = 'Duping ' .. amount .. ' Double Weights!',
+        Text = 'Duping...',
         Duration = 3
     })
     local marketplaceService = game:GetService('MarketplaceService')
+    local adjustedAmount = math.max(amount - 1, 0)
     spawn(function()
-        for remaining = amount, 1, -1 do
+        for remaining = adjustedAmount, 1, -1 do
             if not isDuping then
                 break
             end
@@ -309,7 +286,7 @@ local function startDuping(amount)
         isDuping = false
         Library:Notify({
             Name = 'Dupe Complete',
-            Text = 'Finished duping! Total: ' .. countDoubleWeights(),
+            Text = 'Finished duping!',
             Duration = 3
         })
     end)
@@ -318,21 +295,21 @@ end
 MainSection:Button({
     Name = "Dupe 55 Double Weight(s)",
     Callback = function()
-        startDuping(53)
+        startDuping(55)
     end
 })
 
 MainSection:Button({
     Name = "Dupe 750 Double Weight(s)",
     Callback = function()
-        startDuping(748)
+        startDuping(750)
     end
 })
 
 MainSection:Button({
     Name = "Dupe 830 Double Weight(s)",
     Callback = function()
-        startDuping(828)
+        startDuping(830)
     end
 })
 
@@ -1083,16 +1060,6 @@ local MiscTab = Window:Tab({
 local MiscSection = MiscTab:Section({ Name = "Miscellaneous" })
 MiscSection:Label({ Name = "Additional options" })
 
--- Botão específico para mobile
-if isMobile then
-    MiscSection:Button({
-        Name = "Toggle UI (Hide/Show)",
-        Callback = function()
-            Library:Toggle()
-        end
-    })
-end
-
 MiscSection:Button({
     Name = "Self Destruct",
     Callback = function()
@@ -1112,76 +1079,4 @@ if type(Library.Destroy) == "function" then
         killAuraEnabled = false
         return _oldDestroy(self, ...)
     end
-end
-
--- ============================================
--- BOTÃO FLUTUANTE PARA MOBILE
--- ============================================
-if isMobile then
-    local CoreGui = game:GetService("CoreGui")
-    
-    -- Criar botão flutuante
-    local floatingButton = Instance.new("ScreenGui")
-    floatingButton.Name = "CyborgHubToggle"
-    floatingButton.Parent = CoreGui
-    floatingButton.ResetOnSpawn = false
-    floatingButton.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    
-    local button = Instance.new("TextButton")
-    button.Name = "ToggleButton"
-    button.Parent = floatingButton
-    button.BackgroundColor3 = Color3.fromRGB(140, 96, 255)
-    button.BorderSizePixel = 0
-    button.Position = UDim2.new(0, 10, 0.5, -35)
-    button.Size = UDim2.new(0, 70, 0, 70)
-    button.Font = Enum.Font.SourceSansBold
-    button.Text = "CH"
-    button.TextColor3 = Color3.fromRGB(255, 255, 255)
-    button.TextSize = 24
-    button.Active = true
-    button.Draggable = true
-    
-    -- Tornar circular
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0.5, 0)
-    corner.Parent = button
-    
-    -- Adicionar sombra/brilho
-    local stroke = Instance.new("UIStroke")
-    stroke.Color = Color3.fromRGB(200, 150, 255)
-    stroke.Thickness = 3
-    stroke.Parent = button
-    
-    -- Label indicativo
-    local label = Instance.new("TextLabel")
-    label.Parent = button
-    label.BackgroundTransparency = 1
-    label.Position = UDim2.new(0, 0, 1, 5)
-    label.Size = UDim2.new(1, 0, 0, 20)
-    label.Font = Enum.Font.SourceSansBold
-    label.Text = "Toggle"
-    label.TextColor3 = Color3.fromRGB(255, 255, 255)
-    label.TextSize = 12
-    label.TextStrokeTransparency = 0.5
-    
-    -- Função de toggle
-    button.MouseButton1Click:Connect(function()
-        Library:Toggle()
-        
-        -- Feedback visual
-        button.BackgroundColor3 = Color3.fromRGB(100, 255, 100)
-        wait(0.1)
-        button.BackgroundColor3 = Color3.fromRGB(140, 96, 255)
-    end)
-    
-    -- Animação de pulso
-    spawn(function()
-        while wait(2) do
-            pcall(function()
-                button:TweenSize(UDim2.new(0, 75, 0, 75), "Out", "Quad", 0.3, true)
-                wait(0.3)
-                button:TweenSize(UDim2.new(0, 70, 0, 70), "Out", "Quad", 0.3, true)
-            end)
-        end
-    end)
 end
