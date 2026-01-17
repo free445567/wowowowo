@@ -173,7 +173,6 @@ MainSection:Toggle({
     Enabled = false,
     Callback = function(state)
         if state then
-            -- Verifica se há Double Weights equipados
             local hasEquippedWeights = false
             pcall(function()
                 if player.Character then
@@ -560,7 +559,7 @@ HelpFarmingSection:Button({
                obj.Name ~= 'Baseplate' and 
                obj.Name ~= 'Camera' and
                obj.Name ~= 'SafeZone' and
-               obj.Name ~= 'SafezonePlatform' then -- Adicionado para preservar plataformas
+               obj.Name ~= 'SafezonePlatform' then
                 pcall(function()
                     obj:Destroy()
                 end)
@@ -637,10 +636,10 @@ HelpFarmingSection:Button({
     Callback = function()
         local Lighting = game:GetService('Lighting')
         if isDay then
-            Lighting.ClockTime = 0  -- Noite (meia-noite)
+            Lighting.ClockTime = 0
             isDay = false
         else
-            Lighting.ClockTime = 12  -- Dia (meio-dia)
+            Lighting.ClockTime = 12
             isDay = true
         end
     end
@@ -768,7 +767,7 @@ UsuallySection:Toggle({
 })
 
 local killAuraEnabled = false
-local killAuraDistance = nil
+local killAuraDistance = 100000000000000000000000000000000000000000000000000000000000
 local antiHitEnabled = false
 local antiHitTarget = nil
 local RunService = game:GetService("RunService")
@@ -831,6 +830,13 @@ UsuallySection:Toggle({
     Enabled = false,
     Callback = function(state)
         killAuraEnabled = state
+        if state then
+            Library:Notify({ 
+                Name = "Kill Aura", 
+                Text = "Enabled with distance: " .. killAuraDistance, 
+                Duration = 2 
+            })
+        end
     end
 })
 
@@ -863,17 +869,6 @@ RunService.Stepped:Connect(function()
         end
     end
 end)
-
-UsuallySection:SmallTextbox({
-    Name = "Kill Aura Distance",
-    Placeholder = "Enter distance",
-    Callback = function(value)
-        local distance = tonumber(value)
-        if distance then
-            killAuraDistance = distance
-        end
-    end
-})
 
 local spyStrengthLabel = UsuallySection:Label({ Name = "Strength: N/A" })
 
@@ -939,7 +934,6 @@ UsuallySection:BigTextbox({
                                     local abbrevStrength = formatNumberAbbrev(strengthValue.Value, 2)
                                     spyStrengthLabel:SetName("Strength: " .. abbrevStrength .. " (" .. targetPlayer.Name .. ")")
                                     
-                                    -- Armazena a nova conexão
                                     currentSpyConnection = strengthValue:GetPropertyChangedSignal("Value"):Connect(function()
                                         local newAbbrev = formatNumberAbbrev(strengthValue.Value, 2)
                                         spyStrengthLabel:SetName("Strength: " .. newAbbrev .. " (" .. targetPlayer.Name .. ")")
